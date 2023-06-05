@@ -12,7 +12,9 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class HelloController.
  */
-#[Route('/')]
+#[Route(
+    path: '/',
+)]
 class IndexController extends AbstractController
 {
     /**
@@ -23,11 +25,7 @@ class IndexController extends AbstractController
      * @return Response HTTP response
      */
     #[Route(
-        '/{name}',
-        name: 'hello_index',
-        requirements: ['name' => '[a-zA-Z]+'],
-        defaults: ['name' => 'World'],
-        methods: 'GET'
+        path: '/index'
     )]
     public function index(): Response
     {
