@@ -1,24 +1,13 @@
 <?php
-
-/*
- *
- TODO:
- - Argument #1 ($object) must be of type ?object, array given
- - registration
-/*
-
-
 /**
  * Tags data transformer.
  */
 
-namespace App\Form\Type\DataTransformer;
+namespace App\Form\DataTransformer;
 
 use App\Entity\Tag;
 use App\Service\TagServiceInterface;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\DataTransformerInterface;
 
 /**
@@ -26,22 +15,20 @@ use Symfony\Component\Form\DataTransformerInterface;
  *
  * @implements DataTransformerInterface<mixed, mixed>
  */
-class DataTransformer implements DataTransformerInterface
+class TagsDataTransformer implements DataTransformerInterface
 {
     /**
      * Tag service.
      */
     private TagServiceInterface $tagService;
-    private EntityManagerInterface $entityManager;
 
     /**
      * Constructor.
      *
      * @param TagServiceInterface $tagService Tag service
      */
-    public function __construct(EntityManagerInterface $entityManager, TagServiceInterface $tagService)
+    public function __construct(TagServiceInterface $tagService)
     {
-        $this->entityManager = $entityManager;
         $this->tagService = $tagService;
     }
 
@@ -50,21 +37,21 @@ class DataTransformer implements DataTransformerInterface
      *
      * @param Collection<int, Tag> $value Tags entity collection
      *
-     * @return array|object[]|Tag[] Result
+     * @return string Result
      */
-    public function transform($value): array
+    public function transform($value): string
     {
+        if ($value->isEmpty()) {
+            return '';
+        }
 
         $tagTitles = [];
 
-        if ($value->isEmpty()) {
-            return $tagTitles;
+        foreach ($value as $tag) {
+            $tagTitles[] = $tag->getTitle();
         }
 
-
-        return $this->entityManager
-        ->getRepository(Tag::class)
-        ->findBy(["title" => $value]);
+        return implode(', ', $tagTitles);
     }
 
     /**
@@ -86,8 +73,7 @@ class DataTransformer implements DataTransformerInterface
                 if (null === $tag) {
                     $tag = new Tag();
                     $tag->setTitle($tagTitle);
-
-                    $this->tagService->save($tag);
+                    $this->tagService->saveTag($tag);
                 }
                 $tags[] = $tag;
             }
