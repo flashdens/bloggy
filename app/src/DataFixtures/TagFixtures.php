@@ -14,7 +14,7 @@ class TagFixtures extends AbstractBaseFixtures implements DependentFixtureInterf
         if (null === $this->manager || null === $this->faker) {
             return;
         }
-        $this->createMany(10, 'tags', function () {
+        $this->createMany(30, 'tags', function () {
             $tag = new Tag();
             $tag->setTitle($this->faker->word());
             $tag->setSlug($this->faker->sentence(5));

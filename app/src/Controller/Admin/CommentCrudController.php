@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-
 #[Route(
     '/admin/comment',
 )]
@@ -41,7 +40,7 @@ class CommentCrudController extends AbstractController
     }
 
     #[Route(
-        '/edit/{id}',
+        '/view/{id}',
         name: 'admin_view_comment',
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|POST'

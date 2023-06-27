@@ -17,6 +17,9 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class TagRepository extends ServiceEntityRepository
 {
+
+    const PAGINATOR_ITEMS_PER_PAGE = 10;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Tag::class);
@@ -42,13 +45,13 @@ class TagRepository extends ServiceEntityRepository
 
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
-        return $queryBuilder ?? $this->createQueryBuilder('post');
+        return $queryBuilder ?? $this->createQueryBuilder('tag');
     }
 
     public function queryAll(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
-            ->orderBy('post.published', 'DESC');
+            ->orderBy('tag.id', 'DESC');
     }
 
 //    /**
@@ -74,10 +77,6 @@ class TagRepository extends ServiceEntityRepository
 //            ->getQuery()
 //            ->getOneOrNullResult()
 //        ;
-//    }
-    public function findOneByTitle(string $title) : ?Tag
-    {
-
-    }
+//    }=
 
 }

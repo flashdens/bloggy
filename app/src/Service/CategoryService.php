@@ -34,7 +34,7 @@ class CategoryService implements CategoryServiceInterface
         return $this->paginator->paginate(
             $this->categoryRepository->queryAll(),
             $page,
-            CommentRepository::PAGINATOR_ITEMS_PER_PAGE
+            CategoryRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
 
@@ -45,7 +45,7 @@ class CategoryService implements CategoryServiceInterface
                 ['category' => $category]
             ),
             $page,
-            UserRepository::PAGINATOR_ITEMS_PER_PAGE
+            PostRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
 
@@ -56,11 +56,14 @@ class CategoryService implements CategoryServiceInterface
 
     public function deleteCategory (Category $category): void
     {
+        $posts = $this->postRepository->findBy(
+            ['category' => $category]
+        );
+        foreach ($posts as $post) {
+            $post->setCategory(null);
+            $this->postRepository->save($post);
+        }
         $this->categoryRepository->remove($category);
-    }
-
-    public function canBeDeleted (Category $category) : bool {
-        (bool)$this->categoryRepository->findBy(['category' => $category]);
     }
 
     public function findOneById(int $id): ?Category

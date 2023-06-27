@@ -8,6 +8,7 @@ use App\Form\Type\PostType;
 use App\Repository\PostRepository;
 use App\Service\PostService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -85,7 +86,7 @@ class PostCrudController extends AbstractController
     {
 
         $form = $this->createForm(
-            PostType::class,
+            FormType::class,
             $post,
             [
                 'method' => 'POST',

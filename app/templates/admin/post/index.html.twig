@@ -5,6 +5,15 @@
 {% endblock %}
 
 {% block body %}
+
+    <ul class="list-group list-group-horizontal float-end">
+        <li class="list-group-item inline-block"><a href="{{ url('admin_user') }}">{{ 'label.users'|trans }}</a></li>
+        <li class="list-group-item inline-block active"><a href="{{ url('admin_post') }}">{{ 'label.posts'|trans }}</a></li>
+        <li class="list-group-item inline-block"><a href="{{ url('admin_category') }}"> {{ 'label.categories'|trans }}</a></li>
+        <li class="list-group-item inline-block"><a href="{{ url('admin_comment') }}">{{ 'label.comments'|trans }}</a></li>
+        <li class="list-group-item inline-block"><a href="{{ url('admin_tag') }}">{{ 'label.tags'|trans }}</a></li>
+    </ul>
+
     <h1>{{ 'title.task_list'|trans }}</h1>
     <a type="button" class="btn btn-success float-end">Add</a>
     {% if pagination is defined and pagination.items|length %}
@@ -21,9 +30,9 @@
                 <th>{{ knp_pagination_sortable(pagination, 'label.content'|trans, 'post.content') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.published'|trans, 'post.published') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.edited'|trans, 'post.edited') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.tags'|trans, 'post.edited') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label_tags'|trans, 'post.category') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.views'|trans, 'post.views') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label_category'|trans, 'post.category') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.category'|trans, 'post.edited') }}</th>
                 <th>{{ 'label.view'|trans }}</th>
                 <th>{{ 'label.edit'|trans }}</th>
                 <th>{{ 'label.delete'|trans }}</th>
@@ -39,20 +48,27 @@
                     <td>{{ post.edited|format_date }}</td>
                     <td>
                         {% for tag in post.tags %}
-                            {{ tag.title }}
+                            <a type="button" class="btn btn-outline-secondary"
+                               href="{{ url('admin_view_tag', {id: tag.id}) }}">{{ tag.title }}</a>
                         {% endfor %}
                     </td>
                     <td>{{ post.views }}</td>
-                    <td>{{ post.category.name }}</td>
+                    {% if post.category.name is defined %}
+                        <td><a type="button" class="btn btn-outline-primary"
+                               href="{{ url('admin_view_category', {id: post.category.id}) }}">{{ post.category.name }}
+                        </td>
+                    {% else %}
+                        <td> null</td>
+                    {% endif %}
                     <td>
                         <a type="button" class="btn btn-primary"
-                           href="{{ url(  'view_post', {id: post.id}) }}">
+                           href="{{ url('view_post', {id: post.id}) }}">
                             {{ 'post_view'|trans }}
                         </a>
                     </td>
                     <td>
                         <a type="button" class="btn btn-info"
-                           href="{{ url(  'admin_edit_post', {id: post.id}) }}">
+                           href="{{ url( 'admin_edit_post', {id: post.id}) }}">
                             {{ 'post_edit'|trans }}
                         </a>
                     </td>

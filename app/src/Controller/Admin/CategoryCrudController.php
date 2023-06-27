@@ -6,9 +6,11 @@ namespace App\Controller\Admin;
 use App\Entity\Category;
 use App\Entity\Post;
 use App\Form\Type\CategoryType;
+use App\Form\Type\UserType;
 use App\Repository\CategoryRepository;
 use App\Service\CategoryService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -109,7 +111,7 @@ class CategoryCrudController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->categoryService->saveCategory($category);
             $this->addFlash('success',
-                $this->translator->trans('post.edited_successfully'));
+                $this->translator->trans('category.edited_successfully'));
             return $this->redirectToRoute('admin_category');
         }
         return $this->render('admin/post/edit.html.twig', ['category' => $category, 'form' => $form->createView()]);
@@ -119,13 +121,21 @@ class CategoryCrudController extends AbstractController
         '/delete/{id}',
         name: 'admin_delete_category',
         requirements: ['id' => '[1-9]\d*'],
-        methods: 'GET|DELETE'
+        methods: 'GET|POST'
     )]
-    public function delete (Category $category) : Response
+    public function delete (Request $request, Category $category) : Response
     {
-        if (($this->categoryService->canBeDeleted($category))) {
-            $this->addFlash('warning',
-                "Can't delete a category that contains posts. Move them to different ones and try again!");
+        $form = $this->createForm(
+            FormType::class,
+            $category,
+            [
+                'method' => 'POST',
+                'action' => $this->generateUrl('admin_delete_category', ['id' => $category->getId()]),
+            ]
+        );
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
             return $this->redirectToRoute('admin_category');
         }
         $this->categoryService->deleteCategory($category);

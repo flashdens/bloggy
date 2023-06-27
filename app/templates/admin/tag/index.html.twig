@@ -1,11 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.task_list'|trans }}
+    {{ 'title.tag_list'|trans }}
 {% endblock %}
 
 {% block body %}
-    <h1>{{ 'title.task_list'|trans }}</h1>
+
+    <ul class="list-group list-group-horizontal float-end">
+        <li class="list-group-item inline-block"><a href="{{ url('admin_user') }}">{{ 'label.users'|trans }}</a></li>
+        <li class="list-group-item inline-block"><a href="{{ url('admin_post') }}">{{ 'label.posts'|trans }}</a></li>
+        <li class="list-group-item inline-block "><a href="{{ url('admin_category') }}"> {{ 'label.categories'|trans }}</a></li>
+        <li class="list-group-item inline-block"><a href="{{ url('admin_comment') }}">{{ 'label.comments'|trans }}</a></li>
+        <li class="list-group-item inline-block active"><a href="{{ url('admin_tag') }}">{{ 'label.tags'|trans }}</a></li>
+    </ul>
+
+    <h1>{{ 'title.tag_list'|trans }}</h1>
     <a type="button" class="btn btn-success float-end">Add</a>
     {% if pagination is defined and pagination.items|length %}
 
@@ -16,47 +25,38 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'comment.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.content'|trans, 'comment.content') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.published'|trans, 'comment.published') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.post'|trans, 'comment.edited') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.post_title'|trans, 'comment.title') }}</th>
-                <th>{{ 'label.view_post'|trans }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'tag.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'tag.title') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.created'|trans, 'tag.created') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.updated'|trans, 'tag.updated') }}</th>
                 <th>{{ 'label.view'|trans }}</th>
                 <th>{{ 'label.edit'|trans }}</th>
                 <th>{{ 'label.delete'|trans }}</th>
             </tr>
             </thead>
             <tbody>
-            {% for comment in pagination.items %}
+            {% for tag in pagination.items %}
                 <tr>
-                    <td>{{ comment.id }}</td>
-                    <td>{{ comment.content }}</td>
-                    <td>{{ comment.published|format_date }}</td>
-                    <td>{{ comment.post.id }}</td>
-                    <td>{{ comment.post.title }}</td>
-                    <td>
-                        <a type="button" class="btn btn-secondary"
-                           href="{{ url('view_post', {id: comment.post.id}) }}">
-                            {{ 'post_view'|trans }}
-                        </a>
-                    </td>
+                    <td>{{ tag.id }}</td>
+                    <td>{{ tag.title }}</td>
+                    <td>{{ tag.createdAt|format_date }}</td>
+                    <td>{{ tag.updatedAt|format_date }}</td>
                     <td>
                         <a type="button" class="btn btn-primary"
-                           href="{{ url('admin_view_comment', {id: comment.id}) }}">
-                            {{ 'comment_view'|trans }}
+                           href="{{ url('admin_view_tag', {id: tag.id}) }}">
+                            {{ 'tag_view'|trans }}
                         </a>
                     </td>
                     <td>
                         <a type="button" class="btn btn-info"
-                           href="{{ url('admin_edit_comment', {id: comment.id}) }}">
-                            {{ 'comment_edit'|trans }}
+                           href="{{ url('admin_edit_tag', {id: tag.id}) }}">
+                            {{ 'tag_edit'|trans }}
                         </a>
                     </td>
                     <td>
                         <a type="button" class="btn btn-danger"
-                           href="{{ url('admin_delete_comment', {id: comment.id}) }}">
-                            {{ 'comment_delete'|trans }}
+                           href="{{ url('admin_delete_tag', {id: tag.id}) }}">
+                            {{ 'tag_delete'|trans }}
                         </a>
                     </td>
                 </tr>

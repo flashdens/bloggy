@@ -17,7 +17,7 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class CommentRepository extends ServiceEntityRepository
 {
-    public const PAGINATOR_ITEMS_PER_PAGE = 6;
+    public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     public function __construct(ManagerRegistry $registry)
     {

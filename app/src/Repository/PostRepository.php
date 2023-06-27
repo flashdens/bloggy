@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Post;
+use App\Entity\Tag;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
@@ -34,6 +35,16 @@ class PostRepository extends ServiceEntityRepository
     {
         $this->getEntityManager()->remove($entity);
         $this->getEntityManager()->flush();
+    }
+
+    public function findPostsByTag(Tag $tag): array
+    {
+        return $this->createQueryBuilder('t')
+            ->innerJoin('t.tags', 'tag')
+            ->where('tag.id = :tagId')
+            ->setParameter('tagId', $tag->getId())
+            ->getQuery()
+            ->getResult();
     }
 
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder

@@ -5,6 +5,15 @@
 {% endblock %}
 
 {% block body %}
+
+    <ul class="list-group list-group-horizontal float-end">
+        <li class="list-group-item inline-block"><a href="{{ url('admin_user') }}">{{ 'label.users'|trans }}</a></li>
+        <li class="list-group-item inline-block"><a href="{{ url('admin_post') }}">{{ 'label.posts'|trans }}</a></li>
+        <li class="list-group-item inline-block active"><a href="{{ url('admin_category') }}"> {{ 'label.categories'|trans }}</a></li>
+        <li class="list-group-item inline-block"><a href="{{ url('admin_comment') }}">{{ 'label.comments'|trans }}</a></li>
+        <li class="list-group-item inline-block"><a href="{{ url('admin_tag') }}">{{ 'label.tags'|trans }}</a></li>
+    </ul>
+
     <h1>{{ 'title.category_list'|trans }}</h1>
     <a type="button" class="btn btn-success float-end" href="{{ url('admin_add_category') }}">Add</a>
     {% if pagination is defined and pagination.items|length %}

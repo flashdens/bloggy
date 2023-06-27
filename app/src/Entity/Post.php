@@ -31,7 +31,7 @@ class Post
     private Collection $comments;
 
     #[ORM\ManyToOne (targetEntity: Category::class, fetch: 'EXTRA_LAZY', inversedBy: 'posts')]
-    #[ORM\JoinColumn(referencedColumnName: 'id', nullable: false)]
+    #[ORM\JoinColumn(referencedColumnName: 'id', nullable: true)]
     private ?Category $category = null;
 
     #[ORM\Column(length: 64)]
@@ -45,7 +45,6 @@ class Post
 
     public function __construct()
     {
-        $this->comments = new ArrayCollection();
         $this->tags = new ArrayCollection();
     }
 
@@ -90,35 +89,6 @@ class Post
         return $this;
     }
 
-    /**
-     * @return Collection<int, Comment>
-     */
-    public function getComments(): Collection
-    {
-        return $this->comments;
-    }
-
-    public function addComment(Comment $comment): self
-    {
-        if (!$this->comments->contains($comment)) {
-            $this->comments->add($comment);
-            $comment->setPost($this);
-        }
-
-        return $this;
-    }
-
-    public function removeComment(Comment $comment): self
-    {
-        if ($this->comments->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
-            if ($comment->getPost() === $this) {
-                $comment->setPost(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getCategory(): ?Category
     {
@@ -175,7 +145,6 @@ class Post
         if (!$this->tags->contains($tag)) {
             $this->tags->add($tag);
         }
-
         return $this;
     }
 
