@@ -2,7 +2,7 @@
 /**
  * Category type.
  */
-
+// TODO: add attributes
 namespace App\Form\Type;
 
 use App\Entity\Category;
@@ -16,7 +16,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * Class CategoryType.
  */
-class CategoryType extends AbstractType
+class CommentType extends AbstractType
 {
     /**
      * Builds the form.
@@ -31,14 +31,8 @@ class CategoryType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add(
-            'title',
-            TextType::class,
-            [
-                'label' => 'label.title',
-                'required' => true,
-                'attr' => ['max_length' => 64],
-            ]);
+        $builder
+        ->add('content');
     }
 
     /**

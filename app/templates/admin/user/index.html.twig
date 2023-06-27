@@ -16,10 +16,15 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'category.id') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'category.title') }}</th>
-                <th>{{ 'label.delete'|trans }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'user.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.email'|trans, 'user.email') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.password'|trans, 'user.password') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.roles'|trans, 'user.roles') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.is_banned'|trans, 'user.is_banned') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.joined'|trans, 'user.joined') }}</th>
+                <th>{{ 'label.show'|trans }}</th>
                 <th>{{ 'label.edit'|trans }}</th>
+                <th>{{ 'label.delete'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -31,20 +36,27 @@
                     <td>{% for role in user.roles %}
                             {{ role }}
                         {% endfor %}
-                    </td>
+                    <td>{{ user.isBanned ? 'yes' : 'no' }}</td>
+                    <td>{{ user.joined|format_datetime }}</td>
                     <td>
-                        <a type="button" class="btn btn-danger"
-                           href="{{ url(  'admin_delete_category', {id: category.id}) }}">
-                            {{ 'post_delete'|trans }}
+                        <a type="button" class="btn btn-primary"
+                           href="{{ url( 'admin_view_user', {id: user.id}) }}">
+                            {{ 'user_view'|trans }}
                         </a>
                     </td>
                     <td>
                         <a type="button" class="btn btn-info"
-                           href="{{ url(  'admin_edit_category', {id: category.id}) }}">
-                            {{ 'post_edit'|trans }}
+                           href="{{ url(  'admin_edit_user', {id: user.id}) }}">
+                            {{ 'user_edit'|trans }}
                         </a>
                     </td>
+                    <td>
+                        <a type="button" class="btn btn-danger"
+                           href="{{ url(  'admin_delete_user', {id: user.id}) }}">
+                            {{ 'user_delete'|trans }}
+                        </a>
                     </td>
+
                 </tr>
             {% endfor %}
             </tbody>

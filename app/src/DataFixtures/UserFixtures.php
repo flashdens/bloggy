@@ -3,11 +3,13 @@
  * User fixtures.
  */
 
+
 namespace App\DataFixtures;
 
 use App\Entity\Enum\UserRole;
 use App\Entity\User;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use DateTimeImmutable;
 
 /**
  * Class UserFixtures.
@@ -46,6 +48,9 @@ class UserFixtures extends AbstractBaseFixtures
                     'user1234'
                 )
             );
+            $user->setIsBanned(false);
+            $user->setJoined(DateTimeImmutable::createFromMutable(
+                $this->faker->dateTimeBetween('-100 days', '-1 days')));
 
             return $user;
         });
@@ -60,7 +65,9 @@ class UserFixtures extends AbstractBaseFixtures
                     'admin1234'
                 )
             );
-
+            $user->setIsBanned(false);
+            $user->setJoined(DateTimeImmutable::createFromMutable(
+                $this->faker->dateTimeBetween('-100 days', '-1 days')));
             return $user;
         });
 

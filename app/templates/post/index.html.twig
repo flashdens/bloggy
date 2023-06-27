@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="flex justify-center flex-col items-center py-3 md:mt-8 text-white px-12">
+        <div class="container">
+            {% block post %}
+            <div class="my-6 md:w-3/4 text-center border">
+                <small class="py-3">
+                    {{ post.published|format_datetime }}
+                </small>
+                <h2 class="my-3">
+                    {{ post.title }}
+                </h2>
+                <section class="py-3">
+                    <p class="text-center text-base font-normal">
+                        {{ post.content }}
+                    </p>
+                </section>
+            </div>
+        </div>
+        {% endblock %}
+    </div>
+    {% block comments %}
+        <div class="container">
+            {% if pagination is defined and pagination.items|length %}
+            {% for comment in pagination.items %}
+            <div class="d-flex flex-column justify-content-center text-center p-3 ">
+                <img
+                        src="{{ asset('img/logo.png') }}"
+                        class="text-center mx-auto mb-3 d-md-block d-none"
+                        width="80px" height="80px"
+                        alt="{{ comment.author.email }}">
+                <h4 class="text-center">
+                    {{ comment.author.email }}
+                </h4>
+                <p class="col">
+                    {{ comment.published|format_datetime }}
+                </p>
+                <p class="border-bottom p-3">
+                    {{ comment.content }}
+                </p>
+                {% endfor %}
+                {% else %}
+                    <h2 class="text-center">
+                        Ten post nie ma jeszcze żadnych komenatrzy.
+                    </h2>
+                {% endif %}
+            </div>
+        </div>
+    {% endblock %}
+    {% if app.user is not null %}
+        <h1 class="text-center my-4">Dodaj komentarz!</h1>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <div class="form-group row">
+            <input type="submit" value="Opublikuj!" class="btn btn-primary"/>
+        </div>
+        <div class="form-group row float-sm-left">
+            <a href="{{ url('view_post', {id: post.id}) }}" class="btn btn-link">
+            </a>
+        </div>
+        {{ form_end(form) }}
+    {% else %}
+        <div class="text-center mt-3">
+            By komentować, załóż konto na forum, bądź zaloguj się!
+        </div>
+    {% endif %}
+{% endblock %}

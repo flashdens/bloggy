@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.category_details'|trans({'%id%': category.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.category_details'|trans({'%id%': category.id|default('')}) }}</h1>
+    {% if category is defined and category|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ category.id }}</dd>
+            <dt>{{ 'label.title'|trans }}</dt>
+            <dd>{{ category.name }}</dd>
+        </dl>
+        <p>
+            <a href="{{ url('admin_category') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+    {% endif %}
+    {% if posts is defined and posts|length %}
+        <div class="navigation text-center">
+            {{ knp_pagination_render(posts) }}
+        </div>
+        <table class="table table-striped">
+            {# TODO: sort... #}
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(posts, 'label.id'|trans, 'comment.id') }}</th>
+                <th>{{ knp_pagination_sortable(posts, 'label.title'|trans, 'comment.post') }}</th>
+                <th>goto</th>
+            </tr>
+            </thead>
+            {% for post in posts %}
+                <tr>
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ url('view_post', {id: post.id}) }}">
+                            {{ 'action.show'|trans }}
+                        </a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>
+            {{ 'message.no_posts_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

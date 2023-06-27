@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.user_details'|trans({'%id%': user.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.user_details'|trans({'%id%': user.id|default('')}) }}</h1>
+    {% if user is defined and user|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ user.id }}</dd>
+            <dt>{{ 'label.email'|trans }}</dt>
+            <dd>{{ user.email }}</dd>
+            <dt>{{ 'label.password'|trans }}</dt>
+            <dd>{{ user.password }}</dd>
+            <dt>{{ 'label.roles'|trans }}</dt>
+            <dd>{% for role in user.roles %}
+                    {{ role }}
+                {% endfor %}
+            </dd>
+            <dt>{{ 'label.is_banned'|trans }}</dt>
+            <dd>{{ user.isBanned ? 'yes' : 'no' }}</dd>
+            <dt>{{ 'label.joined'|trans }}</dt>
+            <dd>{{ user.joined|format_datetime }}</dd>
+        </dl>
+        <p>
+            <a href="{{ url('admin_user') }}" title="{{ 'action.back_to_list'|trans }}">
+                {{ 'action.back_to_list'|trans }}
+            </a>
+        </p>
+    {% endif %}
+    {% if comments is defined and comments|length %}
+        <table class="table table-striped">
+            {# TODO: sort... #}
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(comments, 'label.id'|trans, 'comment.id') }}</th>
+                <th>{{ knp_pagination_sortable(comments, 'label.post'|trans, 'comment.post') }}</th>
+                <th>{{ knp_pagination_sortable(comments, 'label.coment'|trans, 'comment.content') }}</th>
+            </tr>
+            </thead>
+            {% for comment in comments %}
+
+                <tr>
+                    <td>{{ comment.id }}</td>
+                    <td>{{ comment.post.title }}</td>
+                    <td>{{ comment.content }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ url('view_post', {id: comment.post.id}) }}">
+                            {{ 'action.show'|trans }}
+                        </a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>
+            {{ 'message.no_comments_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

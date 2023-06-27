@@ -24,9 +24,9 @@
                 <th>{{ knp_pagination_sortable(pagination, 'label.tags'|trans, 'post.edited') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.views'|trans, 'post.views') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label_category'|trans, 'post.category') }}</th>
-                <th>{{ 'label.delete'|trans }}</th>
                 <th>{{ 'label.view'|trans }}</th>
                 <th>{{ 'label.edit'|trans }}</th>
+                <th>{{ 'label.delete'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -45,9 +45,9 @@
                     <td>{{ post.views }}</td>
                     <td>{{ post.category.name }}</td>
                     <td>
-                        <a type="button" class="btn btn-danger"
-                           href="{{ url(  'admin_delete_post', {id: post.id}) }}">
-                            {{ 'post_delete'|trans }}
+                        <a type="button" class="btn btn-primary"
+                           href="{{ url(  'view_post', {id: post.id}) }}">
+                            {{ 'post_view'|trans }}
                         </a>
                     </td>
                     <td>
@@ -57,9 +57,9 @@
                         </a>
                     </td>
                     <td>
-                        <a type="button" class="btn btn-primary"
-                           href="{{ url(  'view_post', {id: post.id}) }}">
-                            {{ 'post_view'|trans }}
+                        <a type="button" class="btn btn-danger"
+                           href="{{ url(  'admin_delete_post', {id: post.id}) }}">
+                            {{ 'post_delete'|trans }}
                         </a>
                     </td>
                 </tr>

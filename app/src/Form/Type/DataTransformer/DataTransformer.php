@@ -1,4 +1,13 @@
 <?php
+
+/*
+ *
+ TODO:
+ - Argument #1 ($object) must be of type ?object, array given
+ - registration
+/*
+
+
 /**
  * Tags data transformer.
  */
@@ -8,6 +17,8 @@ namespace App\Form\Type\DataTransformer;
 use App\Entity\Tag;
 use App\Service\TagServiceInterface;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\DataTransformerInterface;
 
 /**
@@ -15,20 +26,22 @@ use Symfony\Component\Form\DataTransformerInterface;
  *
  * @implements DataTransformerInterface<mixed, mixed>
  */
-class TagsDataTransformer implements DataTransformerInterface
+class DataTransformer implements DataTransformerInterface
 {
     /**
      * Tag service.
      */
     private TagServiceInterface $tagService;
+    private EntityManagerInterface $entityManager;
 
     /**
      * Constructor.
      *
      * @param TagServiceInterface $tagService Tag service
      */
-    public function __construct(TagServiceInterface $tagService)
+    public function __construct(EntityManagerInterface $entityManager, TagServiceInterface $tagService)
     {
+        $this->entityManager = $entityManager;
         $this->tagService = $tagService;
     }
 
@@ -37,21 +50,21 @@ class TagsDataTransformer implements DataTransformerInterface
      *
      * @param Collection<int, Tag> $value Tags entity collection
      *
-     * @return string Result
+     * @return array|object[]|Tag[] Result
      */
-    public function transform($value): string
+    public function transform($value): array
     {
-        if ($value->isEmpty()) {
-            return '';
-        }
 
         $tagTitles = [];
 
-        foreach ($value as $tag) {
-            $tagTitles[] = $tag->getTitle();
+        if ($value->isEmpty()) {
+            return $tagTitles;
         }
 
-        return implode(', ', $tagTitles);
+
+        return $this->entityManager
+        ->getRepository(Tag::class)
+        ->findBy(["title" => $value]);
     }
 
     /**

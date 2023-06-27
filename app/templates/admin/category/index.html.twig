@@ -18,8 +18,9 @@
             <tr>
                 <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'category.id') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.title'|trans, 'category.title') }}</th>
-                <th>{{ 'label.delete'|trans }}</th>
+                <th>{{ 'label.view'|trans }}</th>
                 <th>{{ 'label.edit'|trans }}</th>
+                <th>{{ 'label.delete'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -28,17 +29,22 @@
                     <td>{{ category.id }}</td>
                     <td>{{ category.name }}</td>
                     <td>
-                        <a type="button" class="btn btn-danger"
-                           href="{{ url(  'admin_delete_category', {id: category.id}) }}">
-                            {{ 'post_delete'|trans }}
+                        <a type="button" class="btn btn-primary"
+                           href="{{ url('admin_view_category', {id: category.id}) }}">
+                            {{ 'category_view'|trans }}
                         </a>
                     </td>
                     <td>
                         <a type="button" class="btn btn-info"
-                           href="{{ url(  'admin_edit_category', {id: category.id}) }}">
-                            {{ 'post_edit'|trans }}
+                           href="{{ url('admin_edit_category', {id: category.id}) }}">
+                            {{ 'category_edit'|trans }}
                         </a>
                     </td>
+                    <td>
+                        <a type="button" class="btn btn-danger"
+                           href="{{ url('admin_delete_category', {id: category.id}) }}">
+                            {{ 'category_delete'|trans }}
+                        </a>
                     </td>
                 </tr>
             {% endfor %}

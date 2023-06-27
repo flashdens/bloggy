@@ -9,73 +9,44 @@
                         src="{{ asset('img/logotext.png') }}"
                         class="mx-auto d-block text-center img-fluid"
                         alt="">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <div class="text-center">
+                        <a class="btn btn-success" type="button"
+                           href="{{ url('create_post') }}">Stwórz posta!
+                        </a>
+                    </div>
+                {% endif %}
             {% endblock %}
             {% block posts %}
                 <div class="album py-5">
                     <div class="container">
+                        <div class="navigation text-center">
+                            {{ knp_pagination_render(pagination) }}
+                        </div>
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="card mb-4 box-shadow">
-                                    <img class="card-img-top" src="{{ asset('img/logo2.jpg') }}" alt=""
-                                         style="height: 225px; width: 100%; display: block;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">LOREM IPSUM</h5>
-                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                            sed do
-                                            eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis
-                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                            consequat.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small>4 min</small>
-                                        <small>6t views</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card mb-4 box-shadow">
-                                    <img class="card-img-top" src="{{ asset('img/logo.png') }}" alt=""
-                                         style="height: 225px; width: 100%; display: block;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">LOREM IPSUM</h5>
-                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                            sed do
-                                            eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis
-                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                            consequat.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small>4 min</small>
-                                        <small>6t views</small>
+                            {% for post in pagination.items %}
+                                <div class="col-md-4">
+                                    <div class="card mb-4 box-shadow h-auto">
+                                        <img class="card-img-top" src="{{ asset('img/logo2.jpg') }}" alt=""
+                                             style="height: 225px; width: 100%; display: block;">
+                                        <div class="card-body">
+                                            <h5 class="card-title">{{ post.title }}</h5>
+                                            <p class="card-text"> {{ post.content[:200] ~ '...' }}</p>
+                                            <a href="{{ url ('view_post', {id: post.id}) }}"
+                                               class="btn btn-primary">
+                                                Zobacz
+                                            </a>
+                                        </div>
+                                        <div class="d-flex">
+                                            <img src="{{ asset('img/icons/views.svg') }}" alt="" class="mx-2 px-2">
+                                            <small>{{ post.views }}</small>
+                                        </div>
+                                        <small class="mx-2">{{ post.published|format_date('long') }}</small>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card mb-4 box-shadow">
-                                    <img class="card-img-top" src="{{ asset('img/logo2.jpg') }}" alt=""
-                                         style="height: 225px; width: 100%; display: block;">
-                                    <div class="card-body">
-                                        <h5 class="card-title">LOREM IPSUM</h5>
-                                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                            sed do
-                                            eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis
-                                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                            consequat.</p>
-                                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                                    </div>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small>4 min</small>
-                                        <small>6t views</small>
-                                    </div>
-                                </div>
+                            {% endfor %}
+                            <div class="navigation text-center">
+                                {{ knp_pagination_render(pagination) }}
                             </div>
                         </div>
                     </div>

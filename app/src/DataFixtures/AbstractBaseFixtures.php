@@ -63,11 +63,11 @@ abstract class AbstractBaseFixtures extends Fixture
      *           return $user;
      *      });
      *
-     * @param int $count Number of object to create
-     * @param string $groupName Tag these created objects with this group name,
+     * @param int      $count     Number of object to create
+     * @param string   $groupName Tag these created objects with this group name,
      *                            and use this later with getRandomReference(s)
      *                            to fetch only from this specific group
-     * @param callable $factory Defines method of creating objects
+     * @param callable $factory   Defines method of creating objects
      *
      * @psalm-suppress PossiblyNullReference
      */
@@ -104,7 +104,7 @@ abstract class AbstractBaseFixtures extends Fixture
             $this->referencesIndex[$groupName] = [];
 
             foreach ($this->referenceRepository->getReferences() as $key => $reference) {
-                if (str_starts_with((string)$key, $groupName . '_')) {
+                if (str_starts_with((string) $key, $groupName.'_')) {
                     $this->referencesIndex[$groupName][] = $key;
                 }
             }
@@ -114,7 +114,7 @@ abstract class AbstractBaseFixtures extends Fixture
             throw new InvalidArgumentException(sprintf('Did not find any references saved with the group name "%s"', $groupName));
         }
 
-        $randomReferenceKey = (string)$this->faker->randomElement($this->referencesIndex[$groupName]);
+        $randomReferenceKey = (string) $this->faker->randomElement($this->referencesIndex[$groupName]);
 
         return $this->getReference($randomReferenceKey);
     }
@@ -123,7 +123,7 @@ abstract class AbstractBaseFixtures extends Fixture
      * Get array of objects references based on count.
      *
      * @param string $groupName Object group name
-     * @param int $count Number of references
+     * @param int    $count     Number of references
      *
      * @return object[] Result
      *
