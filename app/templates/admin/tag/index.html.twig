@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.task_list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.task_list'|trans }}</h1>
+    <a type="button" class="btn btn-success float-end">Add</a>
+    {% if pagination is defined and pagination.items|length %}
+
+        <div class="navigation text-center mt-3">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'comment.id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.content'|trans, 'comment.content') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.published'|trans, 'comment.published') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.post'|trans, 'comment.edited') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.post_title'|trans, 'comment.title') }}</th>
+                <th>{{ 'label.view_post'|trans }}</th>
+                <th>{{ 'label.view'|trans }}</th>
+                <th>{{ 'label.edit'|trans }}</th>
+                <th>{{ 'label.delete'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for comment in pagination.items %}
+                <tr>
+                    <td>{{ comment.id }}</td>
+                    <td>{{ comment.content }}</td>
+                    <td>{{ comment.published|format_date }}</td>
+                    <td>{{ comment.post.id }}</td>
+                    <td>{{ comment.post.title }}</td>
+                    <td>
+                        <a type="button" class="btn btn-secondary"
+                           href="{{ url('view_post', {id: comment.post.id}) }}">
+                            {{ 'post_view'|trans }}
+                        </a>
+                    </td>
+                    <td>
+                        <a type="button" class="btn btn-primary"
+                           href="{{ url('admin_view_comment', {id: comment.id}) }}">
+                            {{ 'comment_view'|trans }}
+                        </a>
+                    </td>
+                    <td>
+                        <a type="button" class="btn btn-info"
+                           href="{{ url('admin_edit_comment', {id: comment.id}) }}">
+                            {{ 'comment_edit'|trans }}
+                        </a>
+                    </td>
+                    <td>
+                        <a type="button" class="btn btn-danger"
+                           href="{{ url('admin_delete_comment', {id: comment.id}) }}">
+                            {{ 'comment_delete'|trans }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="navigation text-center">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+
+    {% else %}
+        <p>
+            {{ 'message.empty_list'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.comment_details'|trans({'%id%': comment.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.comment_details'|trans({'%id%': comment.id|default('')}) }}</h1>
+    {% if comment is defined and comment|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ comment.id }}</dd>
+            <dt>{{ 'label.author'|trans }}</dt>
+            <dd>{{ comment.author.email }}</dd>
+            <dt>{{ 'label.content'|trans }}</dt>
+            <dd>{{ comment.content }}</dd>
+            <dt>{{ 'label.post_id'|trans }}</dt>
+            <dd>{{ comment.post.id }}</dd>
+            <dt>{{ 'label.post_title'|trans }}</dt>
+            <dd>{{ comment.post.title }}</dd>
+            <dd>
+                <a type="button" class="btn btn-secondary" href="{{ url('view_post', {id: comment.post.id}) }}"
+                   title="{{ 'action.back_to_list'|trans }}">
+                    {{ 'action.view_post'|trans }}
+                </a>
+            </dd>
+            <dd>
+                <p>
+                    <a class="btn btn-primary" href="{{ url('admin_comment') }}"
+                       title="{{ 'action.back_to_list'|trans }}">
+                        {{ 'action.back_to_list'|trans }}
+                    </a>
+                </p>
+            </dd>
+        </dl>
+    {% endif %}
+{% endblock %}
