@@ -6,7 +6,7 @@
 
 {% block body %}
     <h1>{{ 'title.category_list'|trans }}</h1>
-    <a type="button" class="btn btn-success float-end" href="{{ url('admin_add_category') }}">Add</a>
+    <a type="button" class="btn btn-success float-end" href="{{ url('app_register') }}">Add</a>
     {% if pagination is defined and pagination.items|length %}
 
         <div class="navigation text-center mt-3">
@@ -23,10 +23,15 @@
             </tr>
             </thead>
             <tbody>
-            {% for category in pagination.items %}
+            {% for user in pagination.items %}
                 <tr>
-                    <td>{{ category.id }}</td>
-                    <td>{{ category.name }}</td>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.password }}</td>
+                    <td>{% for role in user.roles %}
+                            {{ role }}
+                        {% endfor %}
+                    </td>
                     <td>
                         <a type="button" class="btn btn-danger"
                            href="{{ url(  'admin_delete_category', {id: category.id}) }}">
