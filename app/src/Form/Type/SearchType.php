@@ -1,38 +1,36 @@
 <?php
 
-namespace App\Controller;
+namespace App\Form\Type;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Regex;
 
-class SearchController extends AbstractController
+class SearchType extends AbstractType
 {
-    /**
-     * @Route("/search", name="search")
-     */
-    public function search(Request $request)
+    public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $form = $this->createForm(SearchType::class);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $keyword = $form->getData()['keyword'];
-
-            // Perform your search logic here
-            // Example: query the database for results based on the keyword
-
-            // Replace the following line with your search logic
-            $results = ['Result 1', 'Result 2', 'Result 3'];
-
-            return $this->render('search/results.html.twig', [
-                'keyword' => $keyword,
-                'results' => $results,
+        $builder
+            ->setMethod('GET')
+            ->add('prompt', TextType::class, [
+                'label' => false,
+                'required' => true,
+                'attr' => [
+                    'placeholder' => 'action.search',
+                    'class' => 'form-control',
+                ],
+                'constraints' => [
+                    new Regex("/^[A-Za-z0-9]*$/")
+                ]
             ]);
-        }
+    }
 
-        return $this->render('search/search.html.twig', [
-            'form' => $form->createView(),
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => null,
         ]);
     }
 }

@@ -7,6 +7,7 @@ use App\Entity\Tag;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+use function Symfony\Component\DependencyInjection\Loader\Configurator\expr;
 
 /**
  * @extends ServiceEntityRepository<Post>
@@ -43,6 +44,19 @@ class PostRepository extends ServiceEntityRepository
             ->innerJoin('t.tags', 'tag')
             ->where('tag.id = :tagId')
             ->setParameter('tagId', $tag->getId())
+            ->getQuery()
+            ->getResult();
+    }
+
+
+    // TODO: implement search LIKE (thanks zos)
+    public function search (string $prompt)
+    {
+        return $this->getOrCreateQueryBuilder()
+            ->andWhere('post.content LIKE :prompt')
+            ->orWhere('post.title LIKE :prompt')
+            ->select('post')
+            ->setParameter('prompt', '%' . $prompt . '%')
             ->getQuery()
             ->getResult();
     }

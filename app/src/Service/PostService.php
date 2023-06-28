@@ -55,7 +55,7 @@ class PostService implements PostServiceinterface
         $this->postRepository->delete($post);
     }
 
-    public function deleteComments(Post $post) : void
+    public function deleteComments (Post $post) : void
     {
         $comments = $this->commentRepository->findBy(
             ['post' => $post]
@@ -64,5 +64,15 @@ class PostService implements PostServiceinterface
             $this->commentRepository->remove($comment);
         }
     }
+
+    public function search (int $page, string $prompt) : PaginationInterface
+    {
+        return $this->paginator->paginate(
+            $this->postRepository->search($prompt),
+            $page,
+            PostRepository::PAGINATOR_ITEMS_PER_PAGE
+        );
+    }
+
 }
 

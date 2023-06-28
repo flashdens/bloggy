@@ -9,6 +9,7 @@ use App\Form\Type\CategoryType;
 use App\Form\Type\UserType;
 use App\Repository\CategoryRepository;
 use App\Service\CategoryService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,19 +21,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[Route(
     '/admin/category',
 )]
+#[IsGranted('ROLE_ADMIN')]
 
 class CategoryCrudController extends AbstractController
 {
-
-    private CategoryRepository $categoryRepository;
 
     private CategoryService $categoryService;
 
     private TranslatorInterface $translator;
 
 
-    public function __construct(CategoryRepository $postRepository, CategoryService $postService, TranslatorInterface $translator) {
-        $this->categoryRepository = $postRepository;
+    public function __construct(CategoryService $postService, TranslatorInterface $translator) {
         $this->categoryService = $postService;
         $this->translator = $translator;
     }

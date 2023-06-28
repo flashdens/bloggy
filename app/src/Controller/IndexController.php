@@ -5,6 +5,7 @@
 
 namespace App\Controller;
 
+use App\Form\Type\SearchType;
 use App\Service\PostService;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,7 +28,8 @@ class IndexController extends AbstractController
     }
 
     #[Route(
-        name: 'index'
+        name: 'index',
+        methods: 'GET'
     )]
     public function index(Request $request): Response
     {
@@ -35,17 +37,27 @@ class IndexController extends AbstractController
             $request->query->getInt('page', 1)
         );
 
-        return $this->render(
-            'index/index.html.twig', ['pagination' => $pagination]
+        $form = $this->createForm(
+            SearchType::class,
+            [
+                'method' => 'GET',
+                'action' => $this->generateUrl('index'),
+            ]
         );
-    }
 
-    private function getFilters(Request $request): array
-    {
-        $filters = [];
-        $filters['category_id'] = $request->query->getInt('filters_category_id');
-        $filters['tag_id'] = $request->query->getInt('filters_tag_id');
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('search', [
+                'prompt' => $form->getData()['prompt'],
+            ]);
+        }
 
-        return $filters;
+        return $this->render(
+            'index/index.html.twig',
+            [
+                'pagination' => $pagination,
+                'form' => $form->createView()
+            ]
+        );
     }
 }

@@ -7,6 +7,7 @@ use App\Form\Type\CategoryType;
 use App\Form\Type\PostType;
 use App\Repository\PostRepository;
 use App\Service\PostService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,6 +18,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[Route(
     '/admin/post',
 )]
+#[IsGranted('ROLE_ADMIN')]
 
 class PostCrudController extends AbstractController
 {

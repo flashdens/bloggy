@@ -13,10 +13,14 @@
                     {{ post.title }}
                 </h2>
                 <section class="py-3">
-                    <p class="text-center text-base font-normal">
+                    <p class="text-center text-base font-normal p-3">
                         {{ post.content }}
                     </p>
                 </section>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a type="submit" href="{{ url('admin_edit_post', {id: post.id}) }}" class="btn btn-primary m-3">{{ 'action.edit'|trans }}</a>
+                    <a type="submit" href="{{ url('admin_delete_post', {id: post.id}) }}" class="btn btn-danger m-3">{{ 'action.delete'|trans }}</a>
+                {% endif %}
             </div>
         </div>
         {% endblock %}

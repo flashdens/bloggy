@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <main>
+        <div class="form-group row float-sm-right text-center">
+            <h2>{{ 'title.search' }}</h2>
+        {{ form_start(form) }}
+        {{ form_row(form._token) }}
+        {{ form_widget(form.prompt, { 'attr': { 'class': 'mb-2', 'placeholder' : 'action.search'|trans } }) }}
+            <input type="submit" value="{{ 'action.search'|trans }}" class="btn btn-primary"/>
+        </div>
+        {{ form_end(form) }}
+
+        {% if results is defined and results|length %}
+        <h2>{{ 'message.records_found'|trans }}</h2>
+        <table class="table table-striped mt-3">
+                <thead>
+                <tr>
+                    <th>{{ knp_pagination_sortable(results, 'label.id'|trans, 'post.id') }}</th>
+                    <th>{{ knp_pagination_sortable(results, 'label.post_title'|trans, 'post.title') }}</th>
+                    <th>{{ knp_pagination_sortable(results, 'label.post'|trans, 'post.edited') }}</th>
+                    <th>{{ knp_pagination_sortable(results, 'label.published'|trans, 'post.published') }}</th>
+                    <th>{{ knp_pagination_sortable(results, 'label.views'|trans, 'post.published') }}</th>
+                    <th>{{ 'label.view_post'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for post in results.items %}
+                    <tr>
+                        <td>{{ post.id }}</td>
+                        <td>{{ post.title }}</td>
+                        <td>{{ post.published|format_date }}</td>
+                        <td>{{ post.edited|format_date }}</td>
+                        <td>{{ post.views }}</td>
+                        <td>
+                            <a type="button" class="btn btn-secondary"
+                               href="{{ url('view_post', {id: post.id}) }}">
+                                {{ 'post_view'|trans }}
+                            </a>
+                        </td>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+        <h2>{{ 'message.no_records_found'|trans }}</h2>
+        {% endif %}
+    </main>
+{% endblock %}

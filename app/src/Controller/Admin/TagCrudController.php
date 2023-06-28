@@ -6,6 +6,7 @@ namespace App\Controller\Admin;
 use App\Entity\Tag;
 use App\Form\Type\TagType;
 use App\Service\TagService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,6 +17,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[Route(
     '/admin/tag',
 )]
+#[IsGranted('ROLE_ADMIN')]
 
 class TagCrudController extends AbstractController
 {

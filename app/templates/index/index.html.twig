@@ -18,6 +18,14 @@
                     </div>
                 {% endif %}
             {% endblock %}
+            {% block search %}
+                <div class="form-group float-sm-right text-center container">
+                    {{ form_start(form, { 'attr': { 'class': 'mb-2' } }) }}
+                    {{ form_widget(form.prompt, { 'attr': { 'class': 'col form-control mb-3' } }) }}
+                        <input type="submit" value="{{ 'action.delete'|trans }}" class="btn btn-primary"/>
+                    {{ form_end(form) }}
+                    </div>
+            {% endblock %}
             {% block posts %}
                 <div class="album py-5">
                     <div class="container">

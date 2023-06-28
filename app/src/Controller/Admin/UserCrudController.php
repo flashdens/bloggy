@@ -14,6 +14,7 @@ use App\Service\CategoryService;
 use App\Service\UserService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,19 +24,17 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 #[Route(
     '/admin/user',
 )]
+#[IsGranted('ROLE_ADMIN')]
 
 class UserCrudController extends AbstractController
 {
-
-    private UserRepository $userRepository;
 
     private UserService $userService;
 
     private TranslatorInterface $translator;
 
 
-    public function __construct(UserRepository $userRepository, UserService $userService, TranslatorInterface $translator) {
-        $this->userRepository = $userRepository;
+    public function __construct(UserService $userService, TranslatorInterface $translator) {
         $this->userService = $userService;
         $this->translator = $translator;
     }
@@ -44,7 +43,6 @@ class UserCrudController extends AbstractController
         name: 'admin_user',
         methods: 'GET'
     )]
-    #[IsGranted("ROLE_ADMIN")]
     public function index (Request $request) : Response
     {
         $pagination = $this->userService->getPaginatedList(
@@ -109,7 +107,7 @@ class UserCrudController extends AbstractController
     public function delete (Request $request, User $user) : Response
     {
         $form = $this->createForm(
-            UserType::class,
+            FormType::class,
             $user,
             [
                 'method' => 'POST',

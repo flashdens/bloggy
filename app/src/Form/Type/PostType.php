@@ -9,10 +9,12 @@ use App\Entity\Category;
 use App\Entity\Post;
 use App\Form\Type\DataTransformer\DataTransformer;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Regex;
 
 /**
  * Class CategoryType.
@@ -48,11 +50,14 @@ class PostType extends AbstractType
                     'attr' => ['max_length' => 64],
                 ])
             ->add('content',
-            TextType::class,
+            TextareaType::class,
             [
                 'label' => 'label.content',
                 'required' => true,
-                'attr' => ['max_length' => 8192] // i guess it shouldn't go up to infinity?
+                'attr' => [
+                    'max_length' => 8192,
+                    'rows' => 10
+                ], // i guess it shouldn't go up to infinity?
             ])
              ->add(
                  'category',
@@ -74,6 +79,8 @@ class PostType extends AbstractType
                 'label' => 'label.tags',
                 'required' => false,
                 'attr' => ['max_length' => 128],
+                'constraints' => [
+                ]
             ]
         );
 
