@@ -64,15 +64,17 @@
     {% endblock %}
     {% if app.user is not null %}
         <h1 class="text-center my-4"> {{ 'action.add_comment'|trans }} </h1>
+        <div class="container text-center">
         {{ form_start(form) }}
         {{ form_widget(form) }}
-        <div class="form-group row">
+        <div class="form-group">
             <input type="submit" value="{{ 'action.submit'|trans }}" class="btn btn-primary"/>
         </div>
         <div class="form-group row float-sm-left">
             <a class="btn btn-link"
                href="{{ url('view_post', {id: post.id}) }}">
             </a>
+        </div>
         </div>
         {{ form_end(form) }}
     {% else %}

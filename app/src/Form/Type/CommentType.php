@@ -8,7 +8,9 @@ namespace App\Form\Type;
 use App\Entity\Category;
 use App\Entity\Comment;
 use App\Repository\CommentRepository;
+use Symfony\Component\DomCrawler\Field\TextareaFormField;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -32,7 +34,16 @@ class CommentType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('content');
+        ->add
+        ('content',
+        TextareaType::class,
+        [
+            'required' => true,
+            'attr' => [
+                'max_length' => 8192,
+                'rows' => 5
+            ]
+        ]);
     }
 
     /**

@@ -4,10 +4,7 @@ namespace App\Controller\Admin;
 
 
 use App\Entity\Category;
-use App\Entity\Post;
 use App\Form\Type\CategoryType;
-use App\Form\Type\UserType;
-use App\Repository\CategoryRepository;
 use App\Service\CategoryService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

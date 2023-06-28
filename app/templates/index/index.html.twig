@@ -11,7 +11,7 @@
                         alt="">
                 {% if is_granted('ROLE_ADMIN') %}
                     <div class="text-center">
-                        <a class="btn btn-success my-5" type="button"
+                        <a class="btn btn-success mb-5" type="button"
                            href="{{ url('create_post') }}">
                             {{ 'action.create_post'|trans }}
                         </a>
@@ -22,11 +22,18 @@
                 <div class="form-group float-sm-right text-center container">
                     {{ form_start(form, { 'attr': { 'class': 'mb-2' } }) }}
                     {{ form_widget(form.prompt, { 'attr': { 'class': 'col form-control mb-3' } }) }}
-                        <input type="submit" value="{{ 'action.delete'|trans }}" class="btn btn-primary"/>
+                        <input type="submit" value="{{ 'action.search'|trans }}" class="btn btn-primary"/>
                     {{ form_end(form) }}
                     </div>
             {% endblock %}
             {% block posts %}
+                        <ul class="list-group container col-3 justify-">
+                            <li class="list-group-item">1</li>
+                            <li class="list-group-item">1</li>
+                            <li class="list-group-item">1</li>
+                            <li class="list-group-item">1</li>
+                            <li class="list-group-item">1</li>
+                        </ul>
                 <div class="album py-5">
                     <div class="container">
                         <div class="navigation text-center">
