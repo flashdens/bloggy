@@ -104,7 +104,7 @@ class CommentCrudController extends AbstractController
             $this->addFlash('success',
                 $this->translator->trans('comment.deleted_successfully')
             );
-            return $this->redirectToRoute('admin_comment');
+            return $this->redirect($request->headers->get('referer'));
         }
         return $this->render(
             'admin/comment/delete.html.twig',
