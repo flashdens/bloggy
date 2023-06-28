@@ -50,6 +50,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Comment::class, orphanRemoval: true)]
     private Collection $comments;
 
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Avatar $avatar = null;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -194,6 +197,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $comment->setAuthor(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAvatar(): ?Avatar
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(Avatar $avatar): static
+    {
+        // set the owning side of the relation if necessary
+        if ($avatar->getUser() !== $this) {
+            $avatar->setUser($this);
+        }
+
+        $this->avatar = $avatar;
 
         return $this;
     }
