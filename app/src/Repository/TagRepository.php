@@ -25,13 +25,10 @@ class TagRepository extends ServiceEntityRepository
         parent::__construct($registry, Tag::class);
     }
 
-    public function save(Tag $entity, bool $flush = false): void
+    public function save(Tag $entity): void
     {
         $this->getEntityManager()->persist($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+        $this->getEntityManager()->flush();
     }
 
     public function remove(Tag $entity, bool $flush = false): void

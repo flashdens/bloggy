@@ -3,10 +3,11 @@
  * Tags data transformer.
  */
 
-namespace App\Form\DataTransformer;
+namespace App\Form\Type\DataTransformer;
 
 use App\Entity\Tag;
 use App\Service\TagServiceInterface;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\DataTransformerInterface;
 
@@ -15,7 +16,7 @@ use Symfony\Component\Form\DataTransformerInterface;
  *
  * @implements DataTransformerInterface<mixed, mixed>
  */
-class TagsDataTransformer implements DataTransformerInterface
+class DataTransformer implements DataTransformerInterface
 {
     /**
      * Tag service.
@@ -73,12 +74,13 @@ class TagsDataTransformer implements DataTransformerInterface
                 if (null === $tag) {
                     $tag = new Tag();
                     $tag->setTitle($tagTitle);
+                    $tag->setSlug('szlug');
                     $this->tagService->saveTag($tag);
                 }
-                $tags[] = $tag;
+                if (!$this->tagService->includesTag($tag, $tags))
+                    $tags[] = $tag;
             }
         }
-
         return $tags;
     }
 }

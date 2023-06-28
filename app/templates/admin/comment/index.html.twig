@@ -14,7 +14,7 @@
         <li class="list-group-item inline-block"><a href="{{ url('admin_tag') }}">{{ 'label.tags'|trans }}</a></li>
     </ul>
 
-    <h1>{{ 'title.task_list'|trans }}</h1>
+    <h1>{{ 'title.comment_list'|trans }}</h1>
     <a type="button" class="btn btn-success float-end">Add</a>
     {% if pagination is defined and pagination.items|length %}
 
@@ -27,8 +27,8 @@
             <tr>
                 <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'comment.id') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.content'|trans, 'comment.content') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.published'|trans, 'comment.published') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.post'|trans, 'comment.edited') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.published'|trans, 'comment.published') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.post_title'|trans, 'comment.title') }}</th>
                 <th>{{ 'label.view_post'|trans }}</th>
                 <th>{{ 'label.view'|trans }}</th>
@@ -41,8 +41,8 @@
                 <tr>
                     <td>{{ comment.id }}</td>
                     <td>{{ comment.content }}</td>
-                    <td>{{ comment.published|format_date }}</td>
                     <td>{{ comment.post.id }}</td>
+                    <td>{{ comment.published|format_date }}</td>
                     <td>{{ comment.post.title }}</td>
                     <td>
                         <a type="button" class="btn btn-secondary"

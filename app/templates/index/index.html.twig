@@ -12,7 +12,8 @@
                 {% if is_granted('ROLE_ADMIN') %}
                     <div class="text-center">
                         <a class="btn btn-success" type="button"
-                           href="{{ url('create_post') }}">Stwórz posta!
+                           href="{{ url('create_post') }}">
+                            {{ 'action.create_post'|trans }}
                         </a>
                     </div>
                 {% endif %}
@@ -34,7 +35,7 @@
                                             <p class="card-text"> {{ post.content[:200] ~ '...' }}</p>
                                             <a href="{{ url ('view_post', {id: post.id}) }}"
                                                class="btn btn-primary">
-                                                Zobacz
+                                                {{ 'action.view'|trans }}
                                             </a>
                                         </div>
                                         <div class="d-flex">

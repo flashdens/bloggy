@@ -21,7 +21,7 @@
                                 class="form-control"
                                 name="search"
                                 type="search"
-                                placeholder="Szukaj!"
+                                placeholder="{{ 'action.search_input' }}"
                                 aria-label="Search">
                     </li>
                     <li class="nav-item mx-2 align-self-center text-center">
@@ -29,7 +29,7 @@
                                 class="nav-item btn btn-secondary"
                                 type='submit'
                         >
-                            Wyszukaj
+                            {{ 'action.search'|trans }}
                         </button>
                     </li>
                     <li class="nav-item align-self-center mx-3 py-3 py-lg-0" id="">
@@ -39,21 +39,27 @@
                                 {{ app.user.email }}
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ url('app_logout') }}"> Wyloguj
-                                        się!</a>
+                                <li>
+                                    <a class="dropdown-item" href="{{ url('app_logout') }}">
+                                        {{'action.logout'|trans}}
+                                    </a>
                                 </li>
                             </ul>
                         {% else %}
                             <a class="nav-item btn btn-info ms-auto mx-2" type="button"
-                               href="{{ url('app_login') }}">Zaloguj
-                                się!</a>
+                               href="{{ url('app_login') }}">
+                                {{ 'action.login'|trans }}
+                            </a>
                             <a class="nav-item btn btn-warning ms-auto" type="button"
-                               href="{{ url('app_register') }}">Zarejestruj
-                                się!</a>
+                               href="{{ url('app_register') }}">
+                                {{ 'action.register'|trans }}
+                            </a>
                         {% endif %}
                         {% if is_granted('ROLE_ADMIN') %}
-                            <a class="nav-item btn btn-warning ms-auto" type="button"
-                               href="{{ url('admin_post') }}">Panel administratora!</a>
+                            <a class="nav-item btn btn-warning mx-2" type="button"
+                               href="{{ url('admin_post') }}">
+                                {{ 'action.admin_panel'|trans }}
+                            </a>
                         {% endif %}
                     </li>
                 </ul>

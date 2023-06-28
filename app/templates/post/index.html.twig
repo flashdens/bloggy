@@ -43,27 +43,28 @@
                 {% endfor %}
                 {% else %}
                     <h2 class="text-center">
-                        Ten post nie ma jeszcze żadnych komenatrzy.
+                        {{ 'info.no_comments'|trans }}
                     </h2>
                 {% endif %}
             </div>
         </div>
     {% endblock %}
     {% if app.user is not null %}
-        <h1 class="text-center my-4">Dodaj komentarz!</h1>
+        <h1 class="text-center my-4"> {{ 'action.add_comment'|trans }} </h1>
         {{ form_start(form) }}
         {{ form_widget(form) }}
         <div class="form-group row">
-            <input type="submit" value="Opublikuj!" class="btn btn-primary"/>
+            <input type="submit" value="{{ 'action.submit'|trans }}" class="btn btn-primary"/>
         </div>
         <div class="form-group row float-sm-left">
-            <a href="{{ url('view_post', {id: post.id}) }}" class="btn btn-link">
+            <a class="btn btn-link"
+               href="{{ url('view_post', {id: post.id}) }}">
             </a>
         </div>
         {{ form_end(form) }}
     {% else %}
         <div class="text-center mt-3">
-            By komentować, załóż konto na forum, bądź zaloguj się!
+            {{ 'info.log_in_to_comment'|trans }}
         </div>
     {% endif %}
 {% endblock %}

@@ -21,8 +21,8 @@ class PostFixtures extends AbstractBaseFixtures implements DependentFixtureInter
         $this->createMany(20, 'posts', function () {
             $post = new Post();
             $post->setTitle($this->faker->sentence(4));
-            $post->setContent($this->faker->text(300));
-            for ($i = 0; $i < rand(1, 5); $i++) {
+            $post->setContent($this->faker->text(1500));
+            for ($i = 0; $i < rand(1, 2); $i++) {
                 $tag = $this->getRandomReference('tags');
                 $post->addTag($tag);
             }

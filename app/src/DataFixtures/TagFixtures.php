@@ -14,10 +14,10 @@ class TagFixtures extends AbstractBaseFixtures implements DependentFixtureInterf
         if (null === $this->manager || null === $this->faker) {
             return;
         }
-        $this->createMany(30, 'tags', function () {
+        $this->createMany(10, 'tags', function () {
             $tag = new Tag();
             $tag->setTitle($this->faker->word());
-            $tag->setSlug($this->faker->sentence(5));
+            $tag->setSlug($this->faker->sentence(2));
             $date = $this->faker->dateTimeBetween('-100 days', '-1 days');
             $tag->setUpdatedAt($date);
             $tag->setCreatedAt($date);

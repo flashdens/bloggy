@@ -2,7 +2,6 @@
 
 namespace App\Service;
 
-use App\Entity\Post;
 use App\Entity\Tag;
 use App\Repository\CommentRepository;
 use App\Repository\PostRepository;
@@ -27,14 +26,15 @@ class TagService implements TagServiceInterface
 
     public function findOneByTitle(string $title): ?Tag
     {
-        return $this->tagRepository->findOneByTitle($title);
+        return $this->tagRepository->findOneBy(['title' => $title]);
     }
 
     public function saveTag (Tag $tag): void
     {
-        if ($tag->getId() == null) {
+        if (!$this->tagRepository->findBy([ 'title' => $tag->getTitle() ])) {
             $tag->setCreatedAt(new DateTimeImmutable());
         }
+        $tag->setUpdatedAt(new DateTimeImmutable());
         $this->tagRepository->save($tag);
     }
 
@@ -63,5 +63,14 @@ class TagService implements TagServiceInterface
             $page,
             CommentRepository::PAGINATOR_ITEMS_PER_PAGE
         );
+    }
+
+    public function includesTag (Tag $tag, array $tags) : bool
+    {
+        foreach ($tags as $tag_in_array) {
+            if ($tag->getTitle() == $tag_in_array->getTitle())
+                return true;
+        }
+        return false;
     }
 }
