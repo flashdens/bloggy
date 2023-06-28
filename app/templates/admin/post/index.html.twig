@@ -52,8 +52,10 @@
                     </td>
                     <td>{{ post.views }}</td>
                     {% if post.category.name is defined %}
-                        <td><a type="button" class="btn btn-outline-primary"
+                        <td>
+                            <a type="button" class="btn btn-outline-primary"
                                href="{{ url('admin_view_category', {id: post.category.id}) }}">{{ post.category.name }}
+                            </a>
                         </td>
                     {% else %}
                         <td> null</td>

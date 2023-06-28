@@ -12,6 +12,19 @@
                 <h2 class="my-3">
                     {{ post.title }}
                 </h2>
+                {% if post.category.name is defined %}
+                    <td>
+                        <a type="button" class="btn btn-outline-primary"
+                           href="{{ url('admin_view_category', {id: post.category.id}) }}">{{ post.category.name }}
+                        </a><br>
+                    </td>
+                {% else %}
+                    <button class="btn btn-outline-primary"> null </button>
+                {% endif %}
+                {% for tag in post.tags %}
+                    <a type="button" class="btn btn-outline-secondary mt-2"
+                       href="{{ url('admin_view_tag', {id: tag.id}) }}">{{ tag.title }}</a>
+                {% endfor %}
                 <section class="py-3">
                     <p class="text-center text-base font-normal p-3">
                         {{ post.content }}
@@ -66,7 +79,10 @@
         <h1 class="text-center my-4"> {{ 'action.add_comment'|trans }} </h1>
         <div class="container text-center">
         {{ form_start(form) }}
-        {{ form_widget(form) }}
+                <div class="row justify-content-center text-center">
+                    {# TODO: krzywo... #}
+                    {{ form_widget(form) }}
+                </div>
         <div class="form-group">
             <input type="submit" value="{{ 'action.submit'|trans }}" class="btn btn-primary"/>
         </div>
