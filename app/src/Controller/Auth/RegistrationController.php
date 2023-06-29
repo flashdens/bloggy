@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\User;
 
 use App\Entity\Enum\UserRole;
 use App\Entity\User;
 use App\Form\Type\RegistrationFormType;
-use App\Repository\UserRepository;
 use App\Security\LoginFormAuthenticator;
 use App\Service\UserService;
 use DateTimeImmutable;
