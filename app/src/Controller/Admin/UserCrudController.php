@@ -25,14 +25,12 @@ use Symfony\Contracts\Translation\TranslatorInterface;
     '/admin/user',
 )]
 #[IsGranted('ROLE_ADMIN')]
-
 class UserCrudController extends AbstractController
 {
 
     private UserService $userService;
 
     private TranslatorInterface $translator;
-
 
     public function __construct(UserService $userService, TranslatorInterface $translator) {
         $this->userService = $userService;
@@ -125,6 +123,39 @@ class UserCrudController extends AbstractController
         }
         return $this->render(
             'admin/user/delete.html.twig',
+            [
+                'form' => $form->createView(),
+                'user' => $user,
+            ]);
+    }
+
+    #[Route(
+        '/ban/{id}',
+        name: 'admin_ban_user',
+        requirements: ['id' => '[1-9]\d*'],
+        methods: 'GET|POST'
+    )]
+    public function ban (Request $request, User $user) : Response
+    {
+        $form = $this->createForm(
+            FormType::class,
+            $user,
+            [
+                'method' => 'POST',
+                'action' => $this->generateUrl('admin_ban_user', ['id' => $user->getId()]),
+            ]
+        );
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->userService->banOrUnbanUser($user);
+            $this->addFlash('success',
+                $this->translator->trans('user.banned_successfully')
+            );
+            return $this->redirectToRoute('admin_user');
+        }
+        return $this->render(
+            'admin/user/ban.html.twig',
             [
                 'form' => $form->createView(),
                 'user' => $user,

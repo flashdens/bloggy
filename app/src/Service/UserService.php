@@ -8,6 +8,7 @@ use App\Repository\CommentRepository;
 use App\Repository\UserRepository;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use function Symfony\Component\Translation\t;
 
 class UserService implements UserServiceInterface
 {
@@ -35,6 +36,14 @@ class UserService implements UserServiceInterface
         $this->userRepository->remove($user);
     }
 
+    public function banOrUnbanUser (User $user) : void
+    {
+        ($user->isBanned()) ?
+            $user->setIsBanned(false) :
+            $user->setIsBanned(true);
+            $this->userRepository->save($user);
+    }
+
     public function getPaginatedList(int $page): PaginationInterface
     {
         return $this->paginator->paginate(
@@ -54,4 +63,6 @@ class UserService implements UserServiceInterface
             UserRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
+
+
 }

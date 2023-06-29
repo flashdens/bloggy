@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\User;
+namespace App\Controller\Auth;
 
 use App\Entity\Enum\UserRole;
 use App\Entity\User;
@@ -16,6 +16,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 
+#[Route('/register')]
 class RegistrationController extends AbstractController
 {
 
@@ -24,7 +25,7 @@ class RegistrationController extends AbstractController
     public function __construct (UserService $userService) {
         $this->userService = $userService;
     }
-    #[Route('/register', name: 'app_register')]
+    #[Route(name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, LoginFormAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
         $user = new User();

@@ -62,7 +62,7 @@
                     {{ comment.published|format_datetime }}
                 </p>
                 <p>
-                    {{ comment.content }}
+                    {{ comment.content|markdown_to_html }}
                 </p>
                 {% if is_granted('ROLE_ADMIN') %}
                     <div class="container">

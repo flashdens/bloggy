@@ -23,4 +23,9 @@ interface AvatarServiceInterface
      * @param User $user User interface
      */
     public function create(UploadedFile $uploadedFile, Avatar $avatar, UserInterface $user): void;
+
+    public function update(UploadedFile $uploadedFile, Avatar $avatar, UserInterface $user): void;
+
+    public function delete(Avatar $avatar, UserInterface $user): void;
+
 }

@@ -15,9 +15,9 @@ class UserChecker implements UserCheckerInterface
             return;
         }
 
-        if ($user->isIsBanned()) {
+        if ($user->isBanned()) {
             // the message passed to this exception is meant to be displayed to the user
-            throw new CustomUserMessageAccountStatusException('Znowu mam bana, no ja nie mogę... (Konto zbanowane)');
+            throw new CustomUserMessageAccountStatusException('message.user_banned');
         }
     }
 

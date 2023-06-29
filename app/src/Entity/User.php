@@ -147,7 +147,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function isIsBanned(): ?bool
+    public function IsBanned(): ?bool
     {
         return $this->isBanned;
     }
@@ -206,9 +206,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->avatar;
     }
 
-    public function setAvatar(Avatar $avatar): static
+    public function setAvatar(?Avatar $avatar): static
     {
-        // set the owning side of the relation if necessary
         if ($avatar->getUser() !== $this) {
             $avatar->setUser($this);
         }

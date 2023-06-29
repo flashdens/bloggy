@@ -3,12 +3,14 @@
  * Avatar controller.
  */
 
-namespace App\Controller;
+namespace App\Controller\User;
 
 use App\Entity\Avatar;
 use App\Entity\User;
 use App\Form\Type\AvatarType;
 use App\Service\AvatarServiceInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -16,11 +18,12 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Class AvatarController.
  */
-#[Route('/avatar')]
+#[Route('/user/avatar')]
 class AvatarController extends AbstractController
 {
     /**
@@ -33,16 +36,18 @@ class AvatarController extends AbstractController
      */
     private TranslatorInterface $translator;
 
+    private Security $security;
     /**
      * Constructor.
      *
      * @param AvatarServiceInterface $avatarService Avatar service
      * @param TranslatorInterface    $translator    Translator
      */
-    public function __construct(AvatarServiceInterface $avatarService, TranslatorInterface $translator)
+    public function __construct(AvatarServiceInterface $avatarService, TranslatorInterface $translator, Security $security)
     {
         $this->avatarService = $avatarService;
         $this->translator = $translator;
+        $this->security = $security;
     }
 
     /**
@@ -57,14 +62,15 @@ class AvatarController extends AbstractController
         name: 'avatar_create',
         methods: 'GET|POST'
     )]
+    #[IsGranted('ROLE_USER')]
     public function create(Request $request): Response
     {
         /** @var User $user */
-        $user = $this->getUser();
+        $user = $this->security->getUser();
+
         if ($user->getAvatar()) {
             return $this->redirectToRoute(
                 'avatar_edit',
-                ['id' => $user->getId()]
             );
         }
 
@@ -90,11 +96,11 @@ class AvatarController extends AbstractController
                 $this->translator->trans('message.created_successfully')
             );
 
-            return $this->redirectToRoute('task_index');
+            return $this->redirectToRoute('index');
         }
 
         return $this->render(
-            'avatar/create.html.twig',
+            'user/avatar/create.html.twig',
             ['form' => $form->createView()]
         );
     }
@@ -103,21 +109,21 @@ class AvatarController extends AbstractController
      * Edit action.
      *
      * @param Request $request HTTP request
-     * @param Avatar  $avatar  Avatar entity
      *
      * @return Response HTTP response
      */
     #[Route(
         '/edit',
         name: 'avatar_edit',
-        requirements: ['id' => '[1-9]\d*'],
-        methods: 'GET|PUT'
+        methods: 'GET|PUT|POST'
     )]
-    public function edit(Request $request, Avatar $avatar): Response
+    public function edit(Request $request): Response
     {
         /** @var User $user */
-        $user = $this->getUser();
-        if (!$user->getAvatar()) {
+        $user = $this->security->getUser();
+        $avatar = $user->getAvatar();
+
+        if (!$avatar) {
             return $this->redirectToRoute('avatar_create');
         }
 
@@ -125,8 +131,8 @@ class AvatarController extends AbstractController
             AvatarType::class,
             $avatar,
             [
-                'method' => 'PUT',
-                'action' => $this->generateUrl('avatar_edit', ['id' => $avatar->getId()]),
+                'method' => 'POST',
+                'action' => $this->generateUrl('avatar_edit'),
             ]
         );
         $form->handleRequest($request);
@@ -144,12 +150,11 @@ class AvatarController extends AbstractController
                 'success',
                 $this->translator->trans('message.edited_successfully')
             );
-
-            return $this->redirectToRoute('task_index');
+            return $this->redirectToRoute('index');
         }
 
         return $this->render(
-            'avatar/edit.html.twig',
+            'user/avatar/edit.html.twig',
             [
                 'form' => $form->createView(),
                 'avatar' => $avatar,
@@ -161,13 +166,15 @@ class AvatarController extends AbstractController
         '/delete',
         name: 'avatar_delete',
         requirements: ['id' => '[1-9]\d*'],
-        methods: 'GET|PUT'
+        methods: 'GET|POST'
     )]
-    public function delete(Request $request, Avatar $avatar): Response
+    public function delete(Request $request): Response
     {
         /** @var User $user */
-        $user = $this->getUser();
-        if (!$user->getAvatar()) {
+        $user = $this->security->getUser();
+        $avatar = $user->getAvatar();
+
+        if (!$avatar) {
             return $this->redirectToRoute('avatar_create');
         }
 
@@ -175,17 +182,15 @@ class AvatarController extends AbstractController
             FormType::class,
             $avatar,
             [
-                'method' => 'DELETE',
-                'action' => $this->generateUrl('avatar_delete', ['id' => $avatar->getId()]),
+                'method' => 'POST',
+                'action' => $this->generateUrl('avatar_delete'),
             ]
         );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var UploadedFile $file */
-            $file = $form->get('file')->getData();
+            /** @var File $file */
             $this->avatarService->delete(
-                $file,
                 $avatar,
                 $user
             );
@@ -195,11 +200,11 @@ class AvatarController extends AbstractController
                 $this->translator->trans('message.edited_successfully')
             );
 
-            return $this->redirectToRoute('task_index');
+            return $this->redirectToRoute('index');
         }
 
         return $this->render(
-            'avatar/delete.html.twig',
+            'user/avatar/delete.html.twig',
             [
                 'form' => $form->createView(),
                 'avatar' => $avatar,

@@ -14,7 +14,6 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Regex;
 
 /**
  * Class CategoryType.
@@ -63,12 +62,11 @@ class PostType extends AbstractType
                  'category',
                  EntityType::class,
                  [
+                     'label' => 'label.category',
                      'class' => Category::class,
                      'choice_label' => function ($category): string {
                          return $category->getName();
                      },
-                     'label' => 'label.category',
-                     'placeholder' => 'label.none',
                      'required' => true,
                  ]
             )

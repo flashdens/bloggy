@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Avatar;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -24,16 +25,23 @@ class AvatarRepository extends ServiceEntityRepository
     public function save(Avatar $entity): void
     {
         $this->getEntityManager()->persist($entity);
-        $this->getEntityManager()->flush();
+            $this->getEntityManager()->flush();
     }
 
-    public function remove(Avatar $entity, bool $flush = false): void
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
-        $this->getEntityManager()->remove($entity);
+        return $queryBuilder ?? $this->createQueryBuilder('post');
+    }
 
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
+    public function remove(Avatar $entity): void
+    {
+        $this->getOrCreateQueryBuilder()
+            ->delete(Avatar::class, 'a')
+            ->where('a.user = :userId')
+            ->setParameter('userId', $entity->getUser())
+            ->getQuery()
+            ->execute();
+        $this->getEntityManager()->flush();
     }
 
 //    /**

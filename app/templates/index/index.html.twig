@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
     <main>
         {% block main %}
             {% block hero %}
@@ -11,7 +10,7 @@
                         alt="">
                 {% if is_granted('ROLE_ADMIN') %}
                     <div class="text-center">
-                        <a class="btn btn-success mb-5" type="button"
+                        <a class="btn btn-success mb-4" type="button"
                            href="{{ url('create_post') }}">
                             {{ 'action.create_post'|trans }}
                         </a>
@@ -20,7 +19,7 @@
             {% endblock %}
             {% block search %}
                 <div class="form-group float-sm-right text-center container">
-                    {{ form_start(form, { 'attr': { 'class': 'mb-2' } }) }}
+                    {{ form_start(form, { 'attr': { 'class': 'mb-4' } }) }}
                     {{ form_widget(form.prompt, { 'attr': { 'class': 'col form-control mb-3' } }) }}
                         <input type="submit" value="{{ 'action.search'|trans }}" class="btn btn-primary"/>
                     {{ form_end(form) }}

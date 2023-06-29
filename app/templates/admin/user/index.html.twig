@@ -27,13 +27,13 @@
             <tr>
                 <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'user.id') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.email'|trans, 'user.email') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.password'|trans, 'user.password') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.roles'|trans, 'user.roles') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.is_banned'|trans, 'user.is_banned') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.joined'|trans, 'user.joined') }}</th>
                 <th>{{ 'label.show'|trans }}</th>
                 <th>{{ 'label.edit'|trans }}</th>
                 <th>{{ 'label.delete'|trans }}</th>
+                <th>{{ 'label.ban'|trans }}</th>
             </tr>
             </thead>
             <tbody>
@@ -41,7 +41,6 @@
                 <tr>
                     <td>{{ user.id }}</td>
                     <td>{{ user.email }}</td>
-                    <td>{{ user.password }}</td>
                     <td>{% for role in user.roles %}
                             {{ role }}
                         {% endfor %}
@@ -65,7 +64,12 @@
                             {{ 'user_delete'|trans }}
                         </a>
                     </td>
-
+                    <td>
+                        <a type="button" class="btn btn-danger"
+                           href="{{ url(  'admin_ban_user', {id: user.id}) }}">
+                            {{ 'user_ban'|trans }}
+                        </a>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>

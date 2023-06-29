@@ -1,34 +1,90 @@
 <?php
 
-namespace App\Controller\Auth;
+namespace App\Controller\User;
 
-use LogicException;
+use App\Entity\User;
+use App\Form\Type\AvatarType;
+use App\Form\Type\PasswordChangeType;
+use App\Service\AvatarServiceInterface;
+use App\Service\UserService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Security\Core\Security;
+use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 
-#[Route('user/password')]
+#[Route('/user')]
+#[IsGranted('ROLE_USER')]
 class UtilsController extends AbstractController
 {
-    #[Route(path: '/login', name: 'app_login')]
-    public function login(AuthenticationUtils $authenticationUtils): Response
+
+    private UserService $userService;
+
+    private Security $security;
+
+    private TranslatorInterface $translator;
+
+    private UserPasswordHasherInterface $passwordHasher;
+
+    /**
+     * Constructor.
+     *
+     * @param UserService $userService
+     * @param Security $security
+     * @param TranslatorInterface $translator Translator
+     * @param UserPasswordHasherInterface $passwordHasher
+     */
+    public function __construct(UserService $userService, Security $security, TranslatorInterface $translator, UserPasswordHasherInterface $passwordHasher)
     {
-        if ($this->getUser()) {
-            return $this->redirectToRoute('index');
-        }
-
-        // get the login error if there is one
-        $error = $authenticationUtils->getLastAuthenticationError();
-        // last username entered by the user
-        $lastUsername = $authenticationUtils->getLastUsername();
-
-        return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        $this->userService = $userService;
+        $this->security = $security;
+        $this->translator = $translator;
+        $this->passwordHasher = $passwordHasher;
     }
 
-    #[Route(path: '/logout', name: 'app_logout')]
-    public function logout(): void
+    #[Route(path: '/change_password', name: 'user_change_password')]
+    public function changePassword(Request $request): Response
     {
-        throw new LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+        /** @var User $user */
+        $user = $this->security->getUser();
+
+        $form = $this->createForm(
+            PasswordChangeType::class,
+            $user,
+            ['action' => $this->generateUrl('user_change_password')]
+        );
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $oldPassword = $form->get('password')->getData();
+            $newPassword = $form->get('new_password')->getData();
+            if (!strcmp($user->getPassword(), $oldPassword)) { // $this->passwordHasher->isPasswordValid doesn't work for some reason
+                $user->setPassword(
+                    $this->passwordHasher->hashPassword($user, $newPassword)
+                );
+                $this->userService->saveUser($user);
+                $this->addFlash(
+                    'success',
+                    $this->translator->trans('message.created_successfully')
+                );
+            }
+            else {
+                $this->addFlash(
+                    'warning',
+                    $this->translator->trans('message.invalid_password')
+                );
+                    return $this->redirectToRoute('index');
+            }
+        }
+
+            return $this->render('user/change_password.html.twig',
+                [
+                'form' => $form->createView(),
+                'user' => $user
+                ]
+            );
     }
 }

@@ -8,6 +8,7 @@ namespace App\Service;
 use App\Entity\Avatar;
 use App\Entity\User;
 use App\Repository\AvatarRepository;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -16,6 +17,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class AvatarService implements AvatarServiceInterface
 {
+    private string $targetDirectory;
     /**
      * Avatar repository.
      */
@@ -26,16 +28,21 @@ class AvatarService implements AvatarServiceInterface
      */
     private FileUploadServiceInterface $fileUploadService;
 
+
+    private Filesystem $filesystem;
+
     /**
      * Constructor.
      *
      * @param AvatarRepository           $avatarRepository  Avatar repository
      * @param FileUploadServiceInterface $fileUploadService File upload service
      */
-    public function __construct(AvatarRepository $avatarRepository, FileUploadServiceInterface $fileUploadService)
+    public function __construct(string $targetDirectory, AvatarRepository $avatarRepository, FileUploadServiceInterface $fileUploadService, Filesystem $filesystem)
     {
+        $this->targetDirectory = $targetDirectory;
         $this->avatarRepository = $avatarRepository;
         $this->fileUploadService = $fileUploadService;
+        $this->filesystem = $filesystem;
     }
 
     /**
@@ -52,5 +59,30 @@ class AvatarService implements AvatarServiceInterface
         $avatar->setUser($user);
         $avatar->setFilename($avatarFilename);
         $this->avatarRepository->save($avatar);
+    }
+
+    public function update(UploadedFile $uploadedFile, Avatar $avatar, UserInterface $user): void
+    {
+        $filename = $avatar->getFilename();
+        if (null !== $filename) {
+            $this->filesystem->remove(
+                $this->targetDirectory.'/'.$filename
+            );
+
+            $this->create($uploadedFile, $avatar, $user);
+        }
+    }
+
+    public function delete(Avatar $avatar, UserInterface $user): void
+    {
+        $filename = $avatar->getFilename();
+
+        if (null !== $filename) {
+            /** @var User $user */
+            $this->avatarRepository->remove($avatar);
+            $this->filesystem->remove(
+                $this->targetDirectory.'/'.$filename
+            );
+        }
     }
 }

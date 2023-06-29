@@ -1,12 +1,5 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Create Avatar{% endblock %}
-
-{% block body %}
-    <h1>Create Avatar</h1>
-
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button type="submit">Upload</button>
-    {{ form_end(form) }}
-{% endblock %}
+{% include 'default/_form.html.twig' with {
+    page_title: 'avatar.create'|trans,
+    form: form,
+    submit_label: 'submit'|trans,
+} %}

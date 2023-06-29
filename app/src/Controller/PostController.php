@@ -69,7 +69,7 @@ class PostController extends AbstractController
         name: 'create_post',
         methods: 'GET|POST',
     )]
-    public function createPost (Request $request) : Response {
+    public function create (Request $request) : Response {
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
