@@ -5,6 +5,7 @@ namespace App\Controller\User;
 use App\Entity\User;
 use App\Form\Type\AvatarType;
 use App\Form\Type\PasswordChangeType;
+use App\Form\Type\UserType;
 use App\Service\AvatarServiceInterface;
 use App\Service\UserService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -18,7 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 #[Route('/user')]
 #[IsGranted('ROLE_USER')]
-class UtilsController extends AbstractController
+class UserUtilsController extends AbstractController
 {
 
     private UserService $userService;
@@ -45,7 +46,7 @@ class UtilsController extends AbstractController
         $this->passwordHasher = $passwordHasher;
     }
 
-    #[Route(path: '/change_password', name: 'user_change_password')]
+    #[Route(path: '/change_password', name: 'user_edit_password')]
     public function changePassword(Request $request): Response
     {
         /** @var User $user */
@@ -54,7 +55,7 @@ class UtilsController extends AbstractController
         $form = $this->createForm(
             PasswordChangeType::class,
             $user,
-            ['action' => $this->generateUrl('user_change_password')]
+            ['action' => $this->generateUrl('user_edit_password')]
         );
         $form->handleRequest($request);
 
@@ -80,11 +81,42 @@ class UtilsController extends AbstractController
             }
         }
 
-            return $this->render('user/change_password/index.html.twig',
+            return $this->render('user/utils/change_password.html.twig',
                 [
                 'form' => $form->createView(),
                 'user' => $user
                 ]
             );
+    }
+
+    #[Route(path: '/change_email', name: 'user_edit_email')]
+    public function changeUsername(Request $request): Response
+    {
+        /** @var User $user */
+        $user = $this->security->getUser();
+
+        $form = $this->createForm(
+            UserType::class,
+            $user,
+            ['action' => $this->generateUrl('user_edit_email')]
+        );
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setEmail($form->get('email')->getData());
+            $this->userService->saveUser($user);
+            $this->addFlash(
+                'success',
+                $this->translator->trans('message.created_successfully')
+            );
+        return $this->redirectToRoute('index');
+        }
+
+        return $this->render('user/utils/change_email.html.twig',
+            [
+                'form' => $form->createView(),
+                'user' => $user
+            ]
+        );
     }
 }

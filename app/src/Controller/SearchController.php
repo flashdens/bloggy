@@ -49,7 +49,7 @@ class SearchController extends AbstractController
             ]);
         }
 
-            return $this->render('search/index.html.twig',
+            return $this->render('search/change_password.html.twig',
                 [
                     'form' => $form->createView(),
                     'results' => $results

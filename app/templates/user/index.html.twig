@@ -1,5 +1,37 @@
-{% include 'default/_form.html.twig' with {
-    page_title: 'avatar.delete'|trans,
-    form: form,
-    submit_label: 'submit'|trans,
-} %}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container text-center border p-3">
+<h1>Hello {{ user.email }}!</h1>
+{% if user.avatar %}
+    <img src="{{ asset('uploads/avatars/' ~ user.avatar.filename) }}" alt="Avatar" width="80px" height="80px">
+{% else %}
+    <img src="{{ asset('public/uploads/avatars/logo.png') }}" alt="Default Avatar" width="80px" height="80px">
+{% endif %}
+        <div class="mt-4">
+            <h2> {{ 'action.edit_credentials'|trans }} </h2>
+            <a class="btn btn-primary mb-3" type="submit"
+               href="{{ url('user_edit_email') }}">
+                {{ 'action.email_edit'|trans }}</a>
+            <a class="btn btn-primary mb-3" type="submit"
+               href="{{ url('user_edit_password') }}">
+                {{ 'action.password_edit'|trans }}</a>
+        </div>
+        <div class="mt-4">
+            <h2> {{ 'action.edit_avatar'|trans }} </h2>
+            {% if user.avatar is null %}
+        <a class="btn btn-danger mb-3" type="submit"
+           href="{{ url('avatar_create') }}">
+            {{ 'action.avatar_create'|trans }}</a>
+            {% else %}
+        <a class="btn btn-warning mb-3" type="submit"
+           href="{{ url('avatar_edit') }}">
+            {{ 'action.avatar_edit'|trans }}</a>
+        <a class="btn btn-danger mb-3" type="submit"
+           href="{{ url('avatar_delete') }}">
+            {{ 'action.avatar_delete'|trans }}</a>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

@@ -46,7 +46,7 @@ class UserCrudController extends AbstractController
         $pagination = $this->userService->getPaginatedList(
             $request->query->getInt('page', 1)
         );
-        return $this->render('admin/user/index.html.twig', ['pagination' => $pagination]);
+        return $this->render('admin/user/change_password.html.twig', ['pagination' => $pagination]);
     }
 
     #[Route(

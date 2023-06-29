@@ -39,7 +39,7 @@ class TagCrudController extends AbstractController
         $pagination = $this->tagService->getPaginatedListOfAll(
             $request->query->getInt('page', 1)
         );
-        return $this->render('admin/tag/index.html.twig', ['pagination' => $pagination]);
+        return $this->render('admin/tag/change_password.html.twig', ['pagination' => $pagination]);
     }
 
     #[Route(

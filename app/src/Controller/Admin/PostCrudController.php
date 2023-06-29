@@ -42,7 +42,7 @@ class PostCrudController extends AbstractController
         $pagination = $this->postService->getPaginatedList(
             $request->query->getInt('page', 1)
         );
-        return $this->render('admin/post/index.html.twig', ['pagination' => $pagination]);
+        return $this->render('admin/post/change_password.html.twig', ['pagination' => $pagination]);
     }
     /**
      * Edit post.

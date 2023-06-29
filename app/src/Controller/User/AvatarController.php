@@ -18,7 +18,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
-use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Class AvatarController.
@@ -96,7 +95,7 @@ class AvatarController extends AbstractController
                 $this->translator->trans('message.created_successfully')
             );
 
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute('user_index');
         }
 
         return $this->render(
@@ -150,7 +149,7 @@ class AvatarController extends AbstractController
                 'success',
                 $this->translator->trans('message.edited_successfully')
             );
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute('user_edit');
         }
 
         return $this->render(
@@ -183,13 +182,11 @@ class AvatarController extends AbstractController
             $avatar,
             [
                 'method' => 'POST',
-                'action' => $this->generateUrl('avatar_delete'),
             ]
         );
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var File $file */
             $this->avatarService->delete(
                 $avatar,
                 $user
@@ -200,7 +197,7 @@ class AvatarController extends AbstractController
                 $this->translator->trans('message.edited_successfully')
             );
 
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute('user_index');
         }
 
         return $this->render(

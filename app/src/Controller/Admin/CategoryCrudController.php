@@ -42,7 +42,7 @@ class CategoryCrudController extends AbstractController
         $pagination = $this->categoryService->getPaginatedList(
             $request->query->getInt('page', 1)
         );
-        return $this->render('admin/category/index.html.twig', ['pagination' => $pagination]);
+        return $this->render('admin/category/change_password.html.twig', ['pagination' => $pagination]);
     }
 
     #[Route(

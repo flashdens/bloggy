@@ -1,5 +1,5 @@
 {% block body %}
-    <nav class="navbar navbar-expand-lg bg-success mb-3">
+    <nav class="navbar navbar-expand-lg bg-success">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ path('index') }}"
             ><img
@@ -22,6 +22,11 @@
                                     {{ app.user.email }}
                                 </button>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url('user_index') }}">
+                                            {{ 'user_index'|trans }}
+                                        </a>
+                                    </li>
                                     <li>
                                         <a class="dropdown-item" href="{{ url('app_logout') }}">
                                             {{ 'action.logout'|trans }}

@@ -40,7 +40,7 @@ class CommentCrudController extends AbstractController
         $pagination = $this->commentService->getPaginatedListOfAllComments(
             $request->query->getInt('page', 1)
         );
-        return $this->render('admin/comment/index.html.twig', ['pagination' => $pagination]);
+        return $this->render('admin/comment/change_password.html.twig', ['pagination' => $pagination]);
     }
 
     #[Route(
