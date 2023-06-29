@@ -80,7 +80,7 @@ class UtilsController extends AbstractController
             }
         }
 
-            return $this->render('user/change_password.html.twig',
+            return $this->render('user/change_password/index.html.twig',
                 [
                 'form' => $form->createView(),
                 'user' => $user
