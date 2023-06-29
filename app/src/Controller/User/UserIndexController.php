@@ -13,7 +13,6 @@ use Symfony\Component\Security\Core\Security;
 #[IsGranted('ROLE_USER')]
 class UserIndexController extends AbstractController
 {
-
     private Security $security;
 
     public function __construct(Security $security)
@@ -22,12 +21,13 @@ class UserIndexController extends AbstractController
     }
 
     #[Route(name: 'user_index')]
-    public function index () : Response
+    public function index(): Response
     {
         /** @var User $user */
         $user = $this->security->getUser();
+
         return $this->render('user/index.html.twig', [
-            'user' => $user
+            'user' => $user,
         ]);
     }
 }

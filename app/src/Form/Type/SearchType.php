@@ -22,8 +22,8 @@ class SearchType extends AbstractType
                     'class' => 'form-control',
                 ],
                 'constraints' => [
-                    new Regex("/^[A-Za-z0-9]*$/")
-                ]
+                    new Regex('/^[A-Za-z0-9]*$/'),
+                ],
             ]);
     }
 

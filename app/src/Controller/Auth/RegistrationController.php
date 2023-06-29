@@ -7,7 +7,6 @@ use App\Entity\User;
 use App\Form\Type\RegistrationFormType;
 use App\Security\LoginFormAuthenticator;
 use App\Service\UserService;
-use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,12 +18,13 @@ use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 #[Route('/register')]
 class RegistrationController extends AbstractController
 {
-
     private UserService $userService;
 
-    public function __construct (UserService $userService) {
+    public function __construct(UserService $userService)
+    {
         $this->userService = $userService;
     }
+
     #[Route(name: 'app_register')]
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator, LoginFormAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
@@ -39,7 +39,7 @@ class RegistrationController extends AbstractController
                     $form->get('password')->getData()
                 )
             );
-            $user->setJoined(new DateTimeImmutable('now'));
+            $user->setJoined(new \DateTimeImmutable('now'));
             $user->setIsBanned(false);
             $user->setRoles([UserRole::ROLE_USER->value]);
             $this->userService->saveUser($user);

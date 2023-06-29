@@ -7,16 +7,13 @@ use Knp\Component\Pager\Pagination\PaginationInterface;
 
 interface PostServiceinterface
 {
-    public function getPaginatedList (int $page) : PaginationInterface;
+    public function getPaginatedList(int $page): PaginationInterface;
 
-    public function incrementViews (Post $post): void;
+    public function incrementViews(Post $post): void;
 
     public function savePost(Post $post): void;
 
     public function deletePost(Post $post): void;
 
-    public function deleteComments(Post $post) : void;
-
-
-
+    public function deleteComments(Post $post): void;
 }

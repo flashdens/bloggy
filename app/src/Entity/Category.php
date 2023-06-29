@@ -19,7 +19,7 @@ class Category
     #[ORM\Column(length: 32)]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Post::class,  orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Post::class, orphanRemoval: true)]
     private Collection $posts;
 
     public function __construct()

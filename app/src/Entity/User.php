@@ -1,6 +1,6 @@
 <?php
 
-// -todo - delete properties    
+// -todo - delete properties
 
 namespace App\Entity;
 
@@ -44,7 +44,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $isBanned = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, options: ["default" => "2021-01-01 01:01:01"])]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, options: ['default' => '2021-01-01 01:01:01'])]
     private ?\DateTimeInterface $joined = null;
 
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Comment::class, orphanRemoval: true)]
@@ -82,7 +82,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string)$this->email;
+        return (string) $this->email;
     }
 
     /**
@@ -90,7 +90,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUsername(): string
     {
-        return (string)$this->email;
+        return (string) $this->email;
     }
 
     /**

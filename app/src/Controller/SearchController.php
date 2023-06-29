@@ -14,7 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 )]
 class SearchController extends AbstractController
 {
-
     private PostService $postService;
 
     public function __construct(PostService $postService)
@@ -28,7 +27,8 @@ class SearchController extends AbstractController
         requirements: ['prompt' => '^[A-Za-z0-9]*$'],
         methods: 'GET'
     )]
-    public function index (Request $request, string $prompt) : Response {
+    public function index(Request $request, string $prompt): Response
+    {
         $results = $this->postService->search(
             $request->query->getInt('page', 1),
             $prompt
@@ -45,15 +45,16 @@ class SearchController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             return $this->redirectToRoute('search', [
                 'prompt' => $form->getData()['prompt'],
-                'results' => $results
+                'results' => $results,
             ]);
         }
 
-            return $this->render('search/change_password.html.twig',
-                [
-                    'form' => $form->createView(),
-                    'results' => $results
-                ]
-            );
+        return $this->render(
+            'search/change_password.html.twig',
+            [
+                'form' => $form->createView(),
+                'results' => $results,
+            ]
+        );
     }
 }

@@ -56,7 +56,7 @@ class IndexController extends AbstractController
             'index/index.html.twig',
             [
                 'pagination' => $pagination,
-                'form' => $form->createView()
+                'form' => $form->createView(),
             ]
         );
     }

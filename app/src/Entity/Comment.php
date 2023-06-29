@@ -3,13 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\CommentRepository;
-use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 #[ORM\Table(name: 'comments')]
-
 class Comment
 {
     #[ORM\Id]
@@ -18,7 +16,7 @@ class Comment
     private ?int $id = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?DateTimeInterface $published = null;
+    private ?\DateTimeInterface $published = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
@@ -60,12 +58,12 @@ class Comment
         return $this;
     }
 
-    public function getPublished(): ?DateTimeInterface
+    public function getPublished(): ?\DateTimeInterface
     {
         return $this->published;
     }
 
-    public function setPublished(DateTimeInterface $published): self
+    public function setPublished(\DateTimeInterface $published): self
     {
         $this->published = $published;
 

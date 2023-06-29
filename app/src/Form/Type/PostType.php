@@ -22,7 +22,8 @@ class PostType extends AbstractType
 {
     private DataTransformer $dataTransformer;
 
-    public function __construct (DataTransformer $dataTransformer) {
+    public function __construct(DataTransformer $dataTransformer)
+    {
         $this->dataTransformer = $dataTransformer;
     }
 
@@ -47,21 +48,24 @@ class PostType extends AbstractType
                     'label' => 'label.title',
                     'required' => true,
                     'attr' => ['max_length' => 64],
-                ])
-            ->add('content',
-            TextareaType::class,
-            [
+                ]
+            )
+            ->add(
+                'content',
+                TextareaType::class,
+                [
                 'label' => 'label.content',
                 'required' => true,
                 'attr' => [
                     'max_length' => 8192,
-                    'rows' => 10
+                    'rows' => 10,
                 ], // i guess it shouldn't go up to infinity?
-            ])
-             ->add(
-                 'category',
-                 EntityType::class,
-                 [
+                ]
+            )
+            ->add(
+                'category',
+                EntityType::class,
+                [
                      'label' => 'label.category',
                      'class' => Category::class,
                      'choice_label' => function ($category): string {
@@ -78,7 +82,7 @@ class PostType extends AbstractType
                 'required' => false,
                 'attr' => ['max_length' => 128],
                 'constraints' => [
-                ]
+                ],
             ]
         );
 

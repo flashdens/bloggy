@@ -7,7 +7,6 @@ use App\Entity\Tag;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
-use function Symfony\Component\DependencyInjection\Loader\Configurator\expr;
 
 /**
  * @extends ServiceEntityRepository<Post>
@@ -48,15 +47,14 @@ class PostRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-
     // TODO: implement search LIKE (thanks zos)
-    public function search (string $prompt)
+    public function search(string $prompt)
     {
         return $this->getOrCreateQueryBuilder()
             ->andWhere('post.content LIKE :prompt')
             ->orWhere('post.title LIKE :prompt')
             ->select('post')
-            ->setParameter('prompt', '%' . $prompt . '%')
+            ->setParameter('prompt', '%'.$prompt.'%')
             ->getQuery()
             ->getResult();
     }
@@ -68,8 +66,8 @@ class PostRepository extends ServiceEntityRepository
 
     public function queryAll(): QueryBuilder
     {
-    return $this->getOrCreateQueryBuilder()
-        ->orderBy('post.published', 'DESC');
+        return $this->getOrCreateQueryBuilder()
+            ->orderBy('post.published', 'DESC');
     }
 
     public function delete(Post $post): void

@@ -32,8 +32,8 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 
     public function supports(Request $request): bool
     {
-        return 'app_login' === $request->attributes->get('_route') &&
-            $request->isMethod('POST');
+        return 'app_login' === $request->attributes->get('_route')
+            && $request->isMethod('POST');
     }
 
     public function authenticate(Request $request): Passport
@@ -41,8 +41,6 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         $email = $request->request->get('email', '');
 
         $request->getSession()->set(Security::LAST_USERNAME, $email);
-
-
 
         return new Passport(
             new UserBadge($email),
@@ -58,7 +56,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         } else {
-            return new RedirectResponse($this->urlGenerator->generate(SELF::DEFAULT_ROUTE));
+            return new RedirectResponse($this->urlGenerator->generate(self::DEFAULT_ROUTE));
         }
     }
 
@@ -66,5 +64,4 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     {
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
     }
-
 }

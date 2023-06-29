@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\PostRepository;
-use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -11,7 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 #[ORM\Table(name: 'posts')]
-
 class Post
 {
     #[ORM\Id]
@@ -22,22 +20,22 @@ class Post
     private ?string $content = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?DateTimeInterface $published = null;
+    private ?\DateTimeInterface $published = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?DateTimeInterface $edited = null;
+    private ?\DateTimeInterface $edited = null;
 
     #[ORM\OneToMany(mappedBy: 'post', targetEntity: Comment::class, fetch: 'EXTRA_LAZY')]
     private Collection $comments;
 
-    #[ORM\ManyToOne (targetEntity: Category::class, fetch: 'EXTRA_LAZY', inversedBy: 'posts')]
+    #[ORM\ManyToOne(targetEntity: Category::class, fetch: 'EXTRA_LAZY', inversedBy: 'posts')]
     #[ORM\JoinColumn(referencedColumnName: 'id', nullable: true)]
     private ?Category $category = null;
 
     #[ORM\Column(length: 64)]
     private ?string $title = null;
 
-    #[ORM\Column(options: ["default" => 0])]
+    #[ORM\Column(options: ['default' => 0])]
     private ?int $views = 0;
 
     #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'posts', fetch: 'EXTRA_LAZY', orphanRemoval: true)]
@@ -65,30 +63,29 @@ class Post
         return $this;
     }
 
-    public function getPublished(): ?DateTimeInterface
+    public function getPublished(): ?\DateTimeInterface
     {
         return $this->published;
     }
 
-    public function setPublished(DateTimeInterface $published): self
+    public function setPublished(\DateTimeInterface $published): self
     {
         $this->published = $published;
 
         return $this;
     }
 
-    public function getEdited(): ?DateTimeInterface
+    public function getEdited(): ?\DateTimeInterface
     {
         return $this->edited;
     }
 
-    public function setEdited(DateTimeInterface $edited): self
+    public function setEdited(\DateTimeInterface $edited): self
     {
         $this->edited = $edited;
 
         return $this;
     }
-
 
     public function getCategory(): ?Category
     {
@@ -126,9 +123,10 @@ class Post
         return $this;
     }
 
-    public function increment() : self
+    public function increment(): self
     {
         $this->views = $this->views + 1;
+
         return $this;
     }
 
@@ -145,6 +143,7 @@ class Post
         if (!$this->tags->contains($tag)) {
             $this->tags->add($tag);
         }
+
         return $this;
     }
 

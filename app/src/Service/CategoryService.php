@@ -1,17 +1,10 @@
 <?php
 
-
 namespace App\Service;
 
 use App\Entity\Category;
-use App\Entity\Comment;
-use App\Entity\Post;
-use App\Entity\User;
 use App\Repository\CategoryRepository;
-use App\Repository\CommentRepository;
 use App\Repository\PostRepository;
-use App\Repository\UserRepository;
-use DateTimeImmutable;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -49,12 +42,12 @@ class CategoryService implements CategoryServiceInterface
         );
     }
 
-    public function saveCategory (Category $category): void
+    public function saveCategory(Category $category): void
     {
         $this->categoryRepository->save($category);
     }
 
-    public function deleteCategory (Category $category): void
+    public function deleteCategory(Category $category): void
     {
         $posts = $this->postRepository->findBy(
             ['category' => $category]

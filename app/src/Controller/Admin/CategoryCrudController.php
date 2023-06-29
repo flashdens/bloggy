@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-
 use App\Entity\Category;
 use App\Form\Type\CategoryType;
 use App\Service\CategoryService;
@@ -14,21 +13,18 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-
 #[Route(
     '/admin/category',
 )]
 #[IsGranted('ROLE_ADMIN')]
-
 class CategoryCrudController extends AbstractController
 {
-
     private CategoryService $categoryService;
 
     private TranslatorInterface $translator;
 
-
-    public function __construct(CategoryService $postService, TranslatorInterface $translator) {
+    public function __construct(CategoryService $postService, TranslatorInterface $translator)
+    {
         $this->categoryService = $postService;
         $this->translator = $translator;
     }
@@ -37,12 +33,13 @@ class CategoryCrudController extends AbstractController
         name: 'admin_category',
         methods: 'GET'
     )]
-    public function index (Request $request) : Response
+    public function index(Request $request): Response
     {
         $pagination = $this->categoryService->getPaginatedList(
             $request->query->getInt('page', 1)
         );
-        return $this->render('admin/category/change_password.html.twig', ['pagination' => $pagination]);
+
+        return $this->render('admin/category/index.html.twig', ['pagination' => $pagination]);
     }
 
     #[Route(
@@ -50,7 +47,7 @@ class CategoryCrudController extends AbstractController
         name: 'admin_add_category',
         methods: 'GET|POST'
     )]
-    public function create (Request $request) : Response
+    public function create(Request $request): Response
     {
         $category = new Category();
         $form = $this->createForm(
@@ -66,23 +63,26 @@ class CategoryCrudController extends AbstractController
                 'success',
                 $this->translator->trans('message.created_successfully')
             );
+
             return $this->redirectToRoute('admin_category');
         }
+
         return $this->render('admin/category/create.html.twig', ['form' => $form->createView()]);
     }
 
     #[Route(
-        '/edit/{id}',
+        '/view/{id}',
         name: 'admin_view_category',
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|POST'
     )]
-    public function view (Request $request, Category $category) : Response
+    public function view(Request $request, Category $category): Response
     {
         $posts = $this->categoryService->getPaginatedListOfPosts(
             $request->query->getInt('page', 1),
             $category
         );
+
         return $this->render('admin/category/view.html.twig', ['category' => $category, 'posts' => $posts]);
     }
 
@@ -92,7 +92,7 @@ class CategoryCrudController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|POST'
     )]
-    public function edit (Request $request, Category $category) : Response
+    public function edit(Request $request, Category $category): Response
     {
         $form = $this->createForm(
             CategoryType::class,
@@ -106,11 +106,15 @@ class CategoryCrudController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->categoryService->saveCategory($category);
-            $this->addFlash('success',
-                $this->translator->trans('category.edited_successfully'));
+            $this->addFlash(
+                'success',
+                $this->translator->trans('category.edited_successfully')
+            );
+
             return $this->redirectToRoute('admin_category');
         }
-        return $this->render('admin/post/edit.html.twig', ['category' => $category, 'form' => $form->createView()]);
+
+        return $this->render('admin/category/edit.html.twig', ['category' => $category, 'form' => $form->createView()]);
     }
 
     #[Route(
@@ -119,7 +123,7 @@ class CategoryCrudController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|POST'
     )]
-    public function delete (Request $request, Category $category) : Response
+    public function delete(Request $request, Category $category): Response
     {
         $form = $this->createForm(
             FormType::class,
@@ -132,13 +136,13 @@ class CategoryCrudController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+        $this->categoryService->deleteCategory($category);
+        $this->addFlash(
+            'success',
+            $this->translator->trans('category.deleted_successfully'));
             return $this->redirectToRoute('admin_category');
         }
-        $this->categoryService->deleteCategory($category);
-        $this->addFlash('success',
-            $this->translator->trans('category.deleted_successfully')
-        );
-        return $this->redirectToRoute('admin_category');
-    }
 
+        return $this->render('admin/category/delete.html.twig', ['category' => $category, 'form' => $form->createView()]);
+    }
 }

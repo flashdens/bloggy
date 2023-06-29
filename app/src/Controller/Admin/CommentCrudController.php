@@ -2,10 +2,8 @@
 
 namespace App\Controller\Admin;
 
-
 use App\Entity\Comment;
 use App\Form\Type\CommentType;
-use App\Form\Type\PostType;
 use App\Service\CommentService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,14 +17,14 @@ use Symfony\Contracts\Translation\TranslatorInterface;
     '/admin/comment',
 )]
 #[IsGranted('ROLE_ADMIN')]
-
 class CommentCrudController extends AbstractController
 {
     private CommentService $commentService;
 
     private TranslatorInterface $translator;
 
-    public function __construct(CommentService $commentService, TranslatorInterface $translator) {
+    public function __construct(CommentService $commentService, TranslatorInterface $translator)
+    {
         $this->commentService = $commentService;
         $this->translator = $translator;
     }
@@ -35,12 +33,13 @@ class CommentCrudController extends AbstractController
         name: 'admin_comment',
         methods: 'GET'
     )]
-    public function index (Request $request) : Response
+    public function index(Request $request): Response
     {
         $pagination = $this->commentService->getPaginatedListOfAllComments(
             $request->query->getInt('page', 1)
         );
-        return $this->render('admin/comment/change_password.html.twig', ['pagination' => $pagination]);
+
+        return $this->render('admin/comment/index.html.twig', ['pagination' => $pagination]);
     }
 
     #[Route(
@@ -49,7 +48,7 @@ class CommentCrudController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|POST'
     )]
-    public function view (Comment $comment) : Response
+    public function view(Comment $comment): Response
     {
         return $this->render('admin/comment/view.html.twig', ['comment' => $comment]);
     }
@@ -60,7 +59,7 @@ class CommentCrudController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|POST'
     )]
-    public function edit (Request $request, Comment $comment) : Response
+    public function edit(Request $request, Comment $comment): Response
     {
         $form = $this->createForm(
             CommentType::class,
@@ -74,10 +73,14 @@ class CommentCrudController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->commentService->saveComment($comment);
-            $this->addFlash('success',
-                $this->translator->trans('comment.edited_successfully'));
+            $this->addFlash(
+                'success',
+                $this->translator->trans('comment.edited_successfully')
+            );
+
             return $this->redirectToRoute('admin_comment');
         }
+
         return $this->render('admin/comment/edit.html.twig', ['comment' => $comment, 'form' => $form->createView()]);
     }
 
@@ -87,7 +90,7 @@ class CommentCrudController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|POST'
     )]
-    public function delete (Request $request, Comment $comment) : Response
+    public function delete(Request $request, Comment $comment): Response
     {
         $form = $this->createForm(
             FormType::class,
@@ -101,16 +104,20 @@ class CommentCrudController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->commentService->deleteComment($comment);
-            $this->addFlash('success',
+            $this->addFlash(
+                'success',
                 $this->translator->trans('comment.deleted_successfully')
             );
+
             return $this->redirectToRoute('admin_comment');
         }
+
         return $this->render(
             'admin/comment/delete.html.twig',
             [
                 'form' => $form->createView(),
-                'comment' => $comment
-            ]);
+                'comment' => $comment,
+            ]
+        );
     }
 }

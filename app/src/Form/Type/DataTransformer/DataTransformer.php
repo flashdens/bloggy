@@ -7,7 +7,6 @@ namespace App\Form\Type\DataTransformer;
 
 use App\Entity\Tag;
 use App\Service\TagServiceInterface;
-use DateTimeImmutable;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Form\DataTransformerInterface;
 
@@ -77,10 +76,12 @@ class DataTransformer implements DataTransformerInterface
                     $tag->setSlug('szlug');
                     $this->tagService->saveTag($tag);
                 }
-                if (!$this->tagService->includesTag($tag, $tags))
+                if (!$this->tagService->includesTag($tag, $tags)) {
                     $tags[] = $tag;
+                }
             }
         }
+
         return $tags;
     }
 }

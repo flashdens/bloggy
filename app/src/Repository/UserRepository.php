@@ -20,7 +20,7 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
  */
 class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {
-    const PAGINATOR_ITEMS_PER_PAGE = 10;
+    public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
     public function __construct(ManagerRegistry $registry)
     {
@@ -50,13 +50,13 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->orderBy('user.id', 'ASC');
     }
 
-    public function getAdmins() : int
+    public function getAdmins(): int
     {
         $qb = $this->getOrCreateQueryBuilder();
 
         $qb
             ->andWhere($qb->expr()->like('user.roles', ':role'))
-            ->setParameter('role', '%'.'ADMIN'.'%')
+            ->setParameter('role', '%ADMIN%')
             ->orderBy('user.username', 'ASC');
 
         return count($qb->getQuery()
@@ -76,6 +76,4 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
         $this->save($user, true);
     }
-
-
 }

@@ -28,7 +28,6 @@ class AvatarService implements AvatarServiceInterface
      */
     private FileUploadServiceInterface $fileUploadService;
 
-
     private Filesystem $filesystem;
 
     /**
@@ -49,8 +48,8 @@ class AvatarService implements AvatarServiceInterface
      * Create avatar.
      *
      * @param UploadedFile $uploadedFile Uploaded file
-     * @param Avatar $avatar Avatar entity
-     * @param User $user User interface
+     * @param Avatar       $avatar       Avatar entity
+     * @param User         $user         User interface
      */
     public function create(UploadedFile $uploadedFile, Avatar $avatar, UserInterface $user): void
     {
@@ -78,7 +77,7 @@ class AvatarService implements AvatarServiceInterface
         $filename = $avatar->getFilename();
 
         if (null !== $filename) {
-            /** @var User $user */
+            /* @var User $user */
             $this->avatarRepository->remove($avatar);
             $this->filesystem->remove(
                 $this->targetDirectory.'/'.$filename

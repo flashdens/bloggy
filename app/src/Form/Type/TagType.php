@@ -3,14 +3,11 @@
  * Category type.
  */
 // TODO: add attributes
+
 namespace App\Form\Type;
 
-use App\Entity\Category;
-use App\Entity\Comment;
 use App\Entity\Tag;
-use App\Repository\CommentRepository;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 

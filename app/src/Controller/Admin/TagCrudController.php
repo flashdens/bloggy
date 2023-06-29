@@ -2,7 +2,6 @@
 
 namespace App\Controller\Admin;
 
-
 use App\Entity\Tag;
 use App\Form\Type\TagType;
 use App\Service\TagService;
@@ -18,14 +17,14 @@ use Symfony\Contracts\Translation\TranslatorInterface;
     '/admin/tag',
 )]
 #[IsGranted('ROLE_ADMIN')]
-
 class TagCrudController extends AbstractController
 {
     private TagService $tagService;
 
     private TranslatorInterface $translator;
 
-    public function __construct(TagService $tagService, TranslatorInterface $translator) {
+    public function __construct(TagService $tagService, TranslatorInterface $translator)
+    {
         $this->tagService = $tagService;
         $this->translator = $translator;
     }
@@ -34,12 +33,13 @@ class TagCrudController extends AbstractController
         name: 'admin_tag',
         methods: 'GET'
     )]
-    public function index (Request $request) : Response
+    public function index(Request $request): Response
     {
         $pagination = $this->tagService->getPaginatedListOfAll(
             $request->query->getInt('page', 1)
         );
-        return $this->render('admin/tag/change_password.html.twig', ['pagination' => $pagination]);
+
+        return $this->render('admin/tag/index.html.twig', ['pagination' => $pagination]);
     }
 
     #[Route(
@@ -48,17 +48,20 @@ class TagCrudController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|POST'
     )]
-    public function view (Request $request, Tag $tag) : Response
+    public function view(Request $request, Tag $tag): Response
     {
         $posts = $this->tagService->getPaginatedListOfPosts(
             $request->query->getInt('page', 1),
-            $tag);
+            $tag
+        );
+
         return $this->render(
             'admin/tag/view.html.twig',
             [
                 'posts' => $posts,
-                'tag' => $tag
-            ]);
+                'tag' => $tag,
+            ]
+        );
     }
 
     #[Route(
@@ -67,7 +70,7 @@ class TagCrudController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|POST'
     )]
-    public function edit (Request $request, Tag $tag) : Response
+    public function edit(Request $request, Tag $tag): Response
     {
         $form = $this->createForm(
             TagType::class,
@@ -81,10 +84,14 @@ class TagCrudController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->tagService->saveTag($tag);
-            $this->addFlash('success',
-                $this->translator->trans('tag.edited_successfully'));
+            $this->addFlash(
+                'success',
+                $this->translator->trans('tag.edited_successfully')
+            );
+
             return $this->redirectToRoute('admin_tag');
         }
+
         return $this->render('admin/tag/edit.html.twig', ['tag' => $tag, 'form' => $form->createView()]);
     }
 
@@ -94,7 +101,7 @@ class TagCrudController extends AbstractController
         requirements: ['id' => '[1-9]\d*'],
         methods: 'GET|POST'
     )]
-    public function delete (Request $request, Tag $tag) : Response
+    public function delete(Request $request, Tag $tag): Response
     {
         $form = $this->createForm(
             FormType::class,
@@ -108,16 +115,20 @@ class TagCrudController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->tagService->deleteTag($tag);
-            $this->addFlash('success',
+            $this->addFlash(
+                'success',
                 $this->translator->trans('tag.deleted_successfully')
             );
+
             return $this->redirectToRoute('admin_tag');
         }
+
         return $this->render(
             'admin/tag/delete.html.twig',
             [
                 'form' => $form->createView(),
-                'tag' => $tag
-            ]);
+                'tag' => $tag,
+            ]
+        );
     }
 }

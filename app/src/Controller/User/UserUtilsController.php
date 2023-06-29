@@ -3,10 +3,8 @@
 namespace App\Controller\User;
 
 use App\Entity\User;
-use App\Form\Type\AvatarType;
 use App\Form\Type\PasswordChangeType;
 use App\Form\Type\UserType;
-use App\Service\AvatarServiceInterface;
 use App\Service\UserService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,7 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
 #[IsGranted('ROLE_USER')]
 class UserUtilsController extends AbstractController
 {
-
     private UserService $userService;
 
     private Security $security;
@@ -33,10 +30,7 @@ class UserUtilsController extends AbstractController
     /**
      * Constructor.
      *
-     * @param UserService $userService
-     * @param Security $security
      * @param TranslatorInterface $translator Translator
-     * @param UserPasswordHasherInterface $passwordHasher
      */
     public function __construct(UserService $userService, Security $security, TranslatorInterface $translator, UserPasswordHasherInterface $passwordHasher)
     {
@@ -71,22 +65,23 @@ class UserUtilsController extends AbstractController
                     'success',
                     $this->translator->trans('message.created_successfully')
                 );
-            }
-            else {
+            } else {
                 $this->addFlash(
                     'warning',
                     $this->translator->trans('message.invalid_password')
                 );
-                    return $this->redirectToRoute('index');
+
+                return $this->redirectToRoute('index');
             }
         }
 
-            return $this->render('user/utils/change_password.html.twig',
-                [
-                'form' => $form->createView(),
-                'user' => $user
-                ]
-            );
+        return $this->render(
+            'user/utils/change_password.html.twig',
+            [
+            'form' => $form->createView(),
+            'user' => $user,
+            ]
+        );
     }
 
     #[Route(path: '/change_email', name: 'user_edit_email')]
@@ -109,13 +104,15 @@ class UserUtilsController extends AbstractController
                 'success',
                 $this->translator->trans('message.created_successfully')
             );
-        return $this->redirectToRoute('index');
+
+            return $this->redirectToRoute('index');
         }
 
-        return $this->render('user/utils/change_email.html.twig',
+        return $this->render(
+            'user/utils/change_email.html.twig',
             [
                 'form' => $form->createView(),
-                'user' => $user
+                'user' => $user,
             ]
         );
     }

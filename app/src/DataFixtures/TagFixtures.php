@@ -2,13 +2,11 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Post;
 use App\Entity\Tag;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 class TagFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
 {
-
     protected function loadData(): void
     {
         if (null === $this->manager || null === $this->faker) {
@@ -21,11 +19,11 @@ class TagFixtures extends AbstractBaseFixtures implements DependentFixtureInterf
             $date = $this->faker->dateTimeBetween('-100 days', '-1 days');
             $tag->setUpdatedAt($date);
             $tag->setCreatedAt($date);
+
             return $tag;
         });
-        {
-            $this->manager->flush();
-        }
+
+        $this->manager->flush();
     }
 
     public function getDependencies()

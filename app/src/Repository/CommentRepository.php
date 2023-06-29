@@ -33,7 +33,7 @@ class CommentRepository extends ServiceEntityRepository
     public function remove(Comment $entity): void
     {
         $this->getEntityManager()->remove($entity);
-            $this->getEntityManager()->flush();
+        $this->getEntityManager()->flush();
     }
 
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder

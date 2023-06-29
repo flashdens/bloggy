@@ -17,14 +17,11 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route(
     '/post',
 )]
-
 class PostController extends AbstractController
 {
-
     private PostService $postService;
     private CommentService $commentService;
     private TokenStorageInterface $tokenStorage;
-
 
     public function __construct(PostService $postService, CommentService $commentService, TokenStorageInterface $tokenStorage)
     {
@@ -52,6 +49,7 @@ class PostController extends AbstractController
             $comment->setPost($post);
             $comment->setAuthor($this->tokenStorage->getToken()->getUser());
             $this->commentService->saveComment($comment);
+
             return $this->redirectToRoute('view_post', ['id' => $post->getId()]);
         }
 
@@ -60,25 +58,30 @@ class PostController extends AbstractController
             [
                 'post' => $post,
                 'pagination' => $pagination,
-                'form' => $form->createView()
+                'form' => $form->createView(),
             ]
         );
     }
+
     #[Route(
         '/create',
         name: 'create_post',
         methods: 'GET|POST',
     )]
-    public function create (Request $request) : Response {
+    public function create(Request $request): Response
+    {
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->postService->savePost($post);
-            return $this->redirectToRoute('index' );
+
+            return $this->redirectToRoute('index');
         }
-            return $this->render('post/create.html.twig',
-                ['form' => $form->createView()]);
+
+        return $this->render(
+            'post/create.html.twig',
+            ['form' => $form->createView()]
+        );
     }
 }
-

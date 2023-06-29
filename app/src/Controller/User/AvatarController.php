@@ -36,6 +36,7 @@ class AvatarController extends AbstractController
     private TranslatorInterface $translator;
 
     private Security $security;
+
     /**
      * Constructor.
      *
@@ -149,6 +150,7 @@ class AvatarController extends AbstractController
                 'success',
                 $this->translator->trans('message.edited_successfully')
             );
+
             return $this->redirectToRoute('user_edit');
         }
 

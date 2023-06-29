@@ -5,7 +5,6 @@ namespace App\Service;
 use App\Entity\Post;
 use App\Repository\CommentRepository;
 use App\Repository\PostRepository;
-use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -19,21 +18,24 @@ class PostService implements PostServiceinterface
 
     private CommentRepository $commentRepository;
 
-    public function __construct (PostRepository $postRepository, EntityManagerInterface $entityManager, PaginatorInterface $paginator, CommentRepository $commentRepository) {
+    public function __construct(PostRepository $postRepository, EntityManagerInterface $entityManager, PaginatorInterface $paginator, CommentRepository $commentRepository)
+    {
         $this->postRepository = $postRepository;
         $this->entityManager = $entityManager;
         $this->paginator = $paginator;
         $this->commentRepository = $commentRepository;
     }
 
-    public function getPaginatedList (int $page) : PaginationInterface {
+    public function getPaginatedList(int $page): PaginationInterface
+    {
         return $this->paginator->paginate(
             $this->postRepository->queryAll(),
             $page,
             PostRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
-    public function incrementViews (Post $post): void
+
+    public function incrementViews(Post $post): void
     {
         $post->increment();
         $this->entityManager->persist($post);
@@ -42,10 +44,10 @@ class PostService implements PostServiceinterface
 
     public function savePost(Post $post): void
     {
-        if ($post->getId() == null) {
-            $post->setPublished(new DateTimeImmutable());
+        if (null == $post->getId()) {
+            $post->setPublished(new \DateTimeImmutable());
         }
-        $post->setEdited(new DateTimeImmutable());
+        $post->setEdited(new \DateTimeImmutable());
         $this->postRepository->save($post);
     }
 
@@ -55,7 +57,7 @@ class PostService implements PostServiceinterface
         $this->postRepository->delete($post);
     }
 
-    public function deleteComments (Post $post) : void
+    public function deleteComments(Post $post): void
     {
         $comments = $this->commentRepository->findBy(
             ['post' => $post]
@@ -65,7 +67,7 @@ class PostService implements PostServiceinterface
         }
     }
 
-    public function search (int $page, string $prompt) : PaginationInterface
+    public function search(int $page, string $prompt): PaginationInterface
     {
         return $this->paginator->paginate(
             $this->postRepository->search($prompt),
@@ -73,6 +75,4 @@ class PostService implements PostServiceinterface
             PostRepository::PAGINATOR_ITEMS_PER_PAGE
         );
     }
-
 }
-
