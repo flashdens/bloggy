@@ -33,31 +33,25 @@ class IndexController extends AbstractController
     )]
     public function index(Request $request): Response
     {
-        $pagination = $this->postService->getPaginatedList(
-            $request->query->getInt('page', 1)
+        $filters = $this->getFilters($request);
+        $posts = $this->postService->getPaginatedList(
+            $request->query->getInt('page', 1),
+            $filters
         );
-
-        $form = $this->createForm(
-            SearchType::class,
-            [
-                'method' => 'GET',
-                'action' => $this->generateUrl('index'),
-            ]
-        );
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            return $this->redirectToRoute('search', [
-                'prompt' => $form->getData()['prompt'],
-            ]);
-        }
 
         return $this->render(
             'index/index.html.twig',
             [
-                'pagination' => $pagination,
-                'form' => $form->createView(),
+                'posts' => $posts,
             ]
         );
+    }
+
+    private function getFilters(Request $request): array
+    {
+        $filters = [];
+        $filters['category_id'] = $request->query->getInt('filters_category_id');
+        $filters['tag_id'] = $request->query->getInt('filters_tag_id');
+        return $filters;
     }
 }

@@ -18,32 +18,26 @@
                 {% endif %}
             {% endblock %}
             {% block search %}
-                <div class="form-group float-sm-right text-center container">
-                    {{ form_start(form, { 'attr': { 'class': 'mb-4' } }) }}
-                    {{ form_widget(form.prompt, { 'attr': { 'class': 'col form-control mb-3' } }) }}
-                        <input type="submit" value="{{ 'action.search'|trans }}" class="btn btn-primary"/>
-                    {{ form_end(form) }}
-                    </div>
             {% endblock %}
             {% block posts %}
                 <div class="album py-5">
                     <div class="container">
                         <div class="navigation">
-                            {{ knp_pagination_render(pagination) }}
+                            {{ knp_pagination_render(posts) }}
                         </div>
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle mb-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Sort by
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" {{ knp_pagination_sortable(pagination, 'post.published'|trans, 'post.published') }}</a></li>
-                                    <li><a class="dropdown-item" {{ knp_pagination_sortable(pagination, 'post.views'|trans, 'post.views') }}</a></li>
-                                    <li><a class="dropdown-item" {{ knp_pagination_sortable(pagination, 'post.title'|trans, 'post.title') }}</a></li>
+                                    <li><a class="dropdown-item" {{ knp_pagination_sortable(posts, 'post.published'|trans, 'post.published') }}</a></li>
+                                    <li><a class="dropdown-item" {{ knp_pagination_sortable(posts, 'post.views'|trans, 'post.views') }}</a></li>
+                                    <li><a class="dropdown-item" {{ knp_pagination_sortable(posts, 'post.title'|trans, 'post.title') }}</a></li>
                                 </ul>
                             </div>
 
                         <div class="row">
-                            {% for post in pagination.items %}
+                            {% for post in posts.items %}
                                 <div class="col-md-4">
                                     <div class="card mb-4 box-shadow h-auto">
                                         <img class="card-img-top" src="{{ asset('img/logo2.jpg') }}" alt=""
@@ -52,17 +46,23 @@
                                             <h5 class="card-title">{{ post.title }}</h5>
                                             {% if post.category.name is defined %}
                                             <td>
-                                                <a type="button" class="btn btn-outline-primary"
-                                            href="{{ url('admin_view_category', {id: post.category.id}) }}">{{ post.category.name }}
-                                                </a><br>
+                                                <a type="button" class="btn btn-primary mb-2" href="{{ url('index', {'filters.category_id' : post.category.id}) }}" title="{{ post.category.name }}">
+                                                    {{ post.category.name }}
+                                                </a>
+                                                <br>
                                             </td>
                                             {% else %}
                                                 <button class="btn btn-outline-primary"> null </button>
                                             {% endif %}
-                                            {% for tag in post.tags %}
-                                                <a type="button" class="btn btn-outline-secondary mt-2"
-                                                   href="{{ url('admin_view_tag', {id: tag.id}) }}">{{ tag.title }}</a>
-                                            {% endfor %}
+                                            {% if post.tags is defined and post.tags|length %}
+                                                {% for tag in post.tags %}
+                                                    <a type="button" class="btn btn-outline-primary mb-2" href="{{ url('index', {'filters.tag_id' : tag.id}) }}" title="{{ tag.title }}">
+                                                        {{ tag.title }}
+                                                    </a>
+                                                {% endfor %}
+                                            {% else %}
+                                                &nbsp;
+                                            {% endif %}
                                             <p class="card-text mt-2"> {{ post.content[:200] ~ '...' }}</p>
                                             <a href="{{ url ('view_post', {id: post.id}) }}"
                                                class="btn btn-primary">
@@ -78,7 +78,7 @@
                                 </div>
                             {% endfor %}
                             <div class="navigation text-center">
-                                {{ knp_pagination_render(pagination) }}
+                                {{ knp_pagination_render(posts) }}
                             </div>
                         </div>
                     </div>

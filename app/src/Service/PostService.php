@@ -3,8 +3,10 @@
 namespace App\Service;
 
 use App\Entity\Post;
+use App\Entity\User;
 use App\Repository\CommentRepository;
 use App\Repository\PostRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
@@ -12,24 +14,34 @@ use Knp\Component\Pager\PaginatorInterface;
 class PostService implements PostServiceinterface
 {
     private PostRepository $postRepository;
-
-    private EntityManagerInterface $entityManager;
-    private PaginatorInterface $paginator;
-
     private CommentRepository $commentRepository;
 
-    public function __construct(PostRepository $postRepository, EntityManagerInterface $entityManager, PaginatorInterface $paginator, CommentRepository $commentRepository)
+    private CategoryServiceInterface $categoryService;
+
+    private TagServiceInterface $tagService;
+
+    private EntityManagerInterface $entityManager;
+
+    private PaginatorInterface $paginator;
+
+    public function __construct(PostRepository $postRepository,  CategoryServiceInterface $categoryService,
+                                EntityManagerInterface $entityManager, TagServiceInterface $tagService,
+                                PaginatorInterface $paginator, CommentRepository $commentRepository)
     {
         $this->postRepository = $postRepository;
+        $this->commentRepository = $commentRepository;
+        $this->categoryService = $categoryService;
+        $this->tagService = $tagService;
         $this->entityManager = $entityManager;
         $this->paginator = $paginator;
-        $this->commentRepository = $commentRepository;
     }
 
-    public function getPaginatedList(int $page): PaginationInterface
+    public function getPaginatedList(int $page, array $filters = []): PaginationInterface
     {
+        $filters = $this->prepareFilters($filters);
+
         return $this->paginator->paginate(
-            $this->postRepository->queryAll(),
+            $this->postRepository->queryAll($filters),
             $page,
             PostRepository::PAGINATOR_ITEMS_PER_PAGE
         );
@@ -45,9 +57,9 @@ class PostService implements PostServiceinterface
     public function savePost(Post $post): void
     {
         if (null == $post->getId()) {
-            $post->setPublished(new \DateTimeImmutable());
+            $post->setPublished(new DateTimeImmutable());
         }
-        $post->setEdited(new \DateTimeImmutable());
+        $post->setEdited(new DateTimeImmutable());
         $this->postRepository->save($post);
     }
 
@@ -67,12 +79,27 @@ class PostService implements PostServiceinterface
         }
     }
 
-    public function search(int $page, string $prompt): PaginationInterface
+    private function prepareFilters(array $filters): array
     {
-        return $this->paginator->paginate(
-            $this->postRepository->search($prompt),
-            $page,
-            PostRepository::PAGINATOR_ITEMS_PER_PAGE
-        );
+        $resultFilters = [];
+        if (!empty($filters['category_id'])) {
+            $category = $this->categoryService->findOneById($filters['category_id']);
+            if (null !== $category) {
+                $resultFilters['category'] = $category;
+            }
+        }
+
+        if (!empty($filters['tag_id'])) {
+            $tag = $this->tagService->findOneById($filters['tag_id']);
+            if (null !== $tag) {
+                $resultFilters['tag'] = $tag;
+            }
+        }
+//
+//        if (!empty($filters['title'])) {
+//            $title = $this->
+//        }
+
+        return $resultFilters;
     }
 }

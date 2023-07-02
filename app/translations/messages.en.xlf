@@ -497,7 +497,7 @@
    <trans-unit id="post.published">
      <source>post.published</source>
      <target>Published</target>
-   </trans-unit>
+   </trans-unit>    
     </body>
   </file>
 </xliff>

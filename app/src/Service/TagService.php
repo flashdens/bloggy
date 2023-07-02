@@ -2,10 +2,13 @@
 
 namespace App\Service;
 
+use App\Entity\Category;
 use App\Entity\Tag;
+use App\Repository\CategoryRepository;
 use App\Repository\CommentRepository;
 use App\Repository\PostRepository;
 use App\Repository\TagRepository;
+use DateTimeImmutable;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -32,9 +35,9 @@ class TagService implements TagServiceInterface
     public function saveTag(Tag $tag): void
     {
         if (!$this->tagRepository->findBy(['title' => $tag->getTitle()])) {
-            $tag->setCreatedAt(new \DateTimeImmutable());
+            $tag->setCreatedAt(new DateTimeImmutable());
         }
-        $tag->setUpdatedAt(new \DateTimeImmutable());
+        $tag->setUpdatedAt(new DateTimeImmutable());
         $this->tagRepository->save($tag);
     }
 
@@ -47,7 +50,7 @@ class TagService implements TagServiceInterface
         $this->tagRepository->remove($tag);
     }
 
-    public function getPaginatedListOfAll(int $page): PaginationInterface
+    public function getPaginatedListOfAllTags(int $page): PaginationInterface
     {
         return $this->paginator->paginate(
             $this->tagRepository->queryAll(),
@@ -56,7 +59,7 @@ class TagService implements TagServiceInterface
         );
     }
 
-    public function getPaginatedListOfPosts(int $page, Tag $tag): PaginationInterface
+    public function getPaginatedListOfPostsByTag(int $page, Tag $tag): PaginationInterface
     {
         return $this->paginator->paginate(
             $this->postRepository->findPostsByTag($tag),
@@ -72,7 +75,11 @@ class TagService implements TagServiceInterface
                 return true;
             }
         }
-
         return false;
+    }
+
+    public function findOneById(int $id): ?Tag
+    {
+        return $this->tagRepository->findOneById($id); // findOneById not found but it works for some reason???
     }
 }

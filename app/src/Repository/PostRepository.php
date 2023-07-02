@@ -2,11 +2,13 @@
 
 namespace App\Repository;
 
+use App\Entity\Category;
 use App\Entity\Post;
 use App\Entity\Tag;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @extends ServiceEntityRepository<Post>
@@ -47,7 +49,6 @@ class PostRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    // TODO: implement search LIKE (thanks zos)
     public function search(string $prompt)
     {
         return $this->getOrCreateQueryBuilder()
@@ -64,10 +65,34 @@ class PostRepository extends ServiceEntityRepository
         return $queryBuilder ?? $this->createQueryBuilder('post');
     }
 
-    public function queryAll(): QueryBuilder
+    public function queryAll(array $filters): QueryBuilder
     {
-        return $this->getOrCreateQueryBuilder()
-            ->orderBy('post.published', 'DESC');
+        $queryBuilder = $this->getOrCreateQueryBuilder()
+            ->select(
+                'partial post.{id, published, edited, title, content, views}',
+                'partial category.{id, name}',
+                'partial tags.{id, title}'
+            )
+            ->join('post.category', 'category')
+            ->leftJoin('post.tags', 'tags')
+            ->orderBy('post.edited', 'DESC');
+
+        return $this->applyFiltersToList($queryBuilder, $filters);
+    }
+
+    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
+    {
+        if (isset($filters['category']) && $filters['category'] instanceof Category) {
+            $queryBuilder->andWhere('category = :category')
+                ->setParameter('category', $filters['category']);
+        }
+
+        if (isset($filters['tag']) && $filters['tag'] instanceof Tag) {
+            $queryBuilder->andWhere('tags IN (:tag)')
+                ->setParameter('tag', $filters['tag']);
+        }
+
+        return $queryBuilder;
     }
 
     public function delete(Post $post): void

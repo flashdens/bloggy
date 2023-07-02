@@ -61,6 +61,6 @@ class CategoryService implements CategoryServiceInterface
 
     public function findOneById(int $id): ?Category
     {
-        // TODO: Implement findOneById() method.
+        return $this->categoryRepository->find($id);
     }
 }

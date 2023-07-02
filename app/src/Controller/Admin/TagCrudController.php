@@ -35,7 +35,7 @@ class TagCrudController extends AbstractController
     )]
     public function index(Request $request): Response
     {
-        $pagination = $this->tagService->getPaginatedListOfAll(
+        $pagination = $this->tagService->getPaginatedListOfAllTags(
             $request->query->getInt('page', 1)
         );
 

@@ -3,11 +3,12 @@
 namespace App\Service;
 
 use App\Entity\Post;
+use App\Entity\User;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 
 interface PostServiceinterface
 {
-    public function getPaginatedList(int $page): PaginationInterface;
+    public function getPaginatedList(int $page, array $filters = []): PaginationInterface;
 
     public function incrementViews(Post $post): void;
 
