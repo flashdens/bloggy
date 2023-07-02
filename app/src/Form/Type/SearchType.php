@@ -14,7 +14,7 @@ class SearchType extends AbstractType
     {
         $builder
             ->setMethod('GET')
-            ->add('prompt', TextType::class, [
+            ->add('search', TextType::class, [
                 'label' => false,
                 'required' => true,
                 'attr' => [
@@ -29,8 +29,5 @@ class SearchType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver): void
     {
-        $resolver->setDefaults([
-            'data_class' => null,
-        ]);
     }
 }

@@ -33,7 +33,7 @@ class Post
     private ?Category $category = null;
 
     #[ORM\Column(length: 64)]
-    private ?string $title = null;
+    public ?string $title = null;
 
     #[ORM\Column(options: ['default' => 0])]
     private ?int $views = 0;

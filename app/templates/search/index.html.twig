@@ -7,7 +7,7 @@
             <h2>{{ 'title.search' }}</h2>
         {{ form_start(form) }}
         {{ form_row(form._token) }}
-        {{ form_widget(form.prompt, { 'attr': { 'class': 'mb-2', 'placeholder' : 'action.search'|trans } }) }}
+        {{ form_widget(form.search, { 'attr': { 'class': 'mb-2', 'placeholder' : 'action.search'|trans } }) }}
             <input type="submit" value="{{ 'action.search'|trans }}" class="btn btn-primary"/>
         </div>
         {{ form_end(form) }}

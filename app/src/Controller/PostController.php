@@ -8,6 +8,7 @@ use App\Form\Type\CommentType;
 use App\Form\Type\PostType;
 use App\Service\CommentService;
 use App\Service\PostService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,7 +40,10 @@ class PostController extends AbstractController
     public function view(Request $request, Post $post): Response
     {
         $this->postService->incrementViews($post);
-        $pagination = $this->commentService->getPaginatedList($request->query->getInt('page', 1), $post);
+        $pagination = $this->commentService->getPaginatedList(
+            $request->query->getInt('page', 1),
+            $post
+        );
 
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
@@ -68,6 +72,7 @@ class PostController extends AbstractController
         name: 'create_post',
         methods: 'GET|POST',
     )]
+    #[IsGranted('ROLE_ADMIN')]
     public function create(Request $request): Response
     {
         $post = new Post();

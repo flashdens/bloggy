@@ -80,6 +80,6 @@ class TagService implements TagServiceInterface
 
     public function findOneById(int $id): ?Tag
     {
-        return $this->tagRepository->findOneById($id); // findOneById not found but it works for some reason???
+        return $this->tagRepository->findOneById($id); // findOneById not implemented, but it works for some reason???
     }
 }

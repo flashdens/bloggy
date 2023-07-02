@@ -8,15 +8,15 @@ use App\Entity\Tag;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @extends ServiceEntityRepository<Post>
  *
- * @method Post|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Post|null find(  $id, $lockMode = null, $lockVersion = null)
  * @method Post|null findOneBy(array $criteria, array $orderBy = null)
  * @method Post[]    findAll()
  * @method Post[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Post|null findOneByTitle(string $title)
  */
 class PostRepository extends ServiceEntityRepository
 {
@@ -91,7 +91,11 @@ class PostRepository extends ServiceEntityRepository
             $queryBuilder->andWhere('tags IN (:tag)')
                 ->setParameter('tag', $filters['tag']);
         }
-
+        if ((isset($filters['post']) && $filters['post'] instanceof Post)) {
+            $queryBuilder
+                ->andWhere('post.title = :title')
+                ->setParameter('title', $filters['post']->title);
+        }
         return $queryBuilder;
     }
 
@@ -100,6 +104,7 @@ class PostRepository extends ServiceEntityRepository
         $this->_em->remove($post);
         $this->_em->flush();
     }
+
 }
 
 //    /**

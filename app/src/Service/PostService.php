@@ -3,17 +3,18 @@
 namespace App\Service;
 
 use App\Entity\Post;
-use App\Entity\User;
 use App\Repository\CommentRepository;
 use App\Repository\PostRepository;
 use DateTimeImmutable;
+use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
-class PostService implements PostServiceinterface
+class PostService implements PostServiceInterface
 {
     private PostRepository $postRepository;
+
     private CommentRepository $commentRepository;
 
     private CategoryServiceInterface $categoryService;
@@ -24,9 +25,10 @@ class PostService implements PostServiceinterface
 
     private PaginatorInterface $paginator;
 
-    public function __construct(PostRepository $postRepository,  CategoryServiceInterface $categoryService,
+    public function __construct(PostRepository $postRepository,  CommentRepository $commentRepository,
+                                CategoryServiceInterface $categoryService,
                                 EntityManagerInterface $entityManager, TagServiceInterface $tagService,
-                                PaginatorInterface $paginator, CommentRepository $commentRepository)
+                                PaginatorInterface $paginator)
     {
         $this->postRepository = $postRepository;
         $this->commentRepository = $commentRepository;
@@ -79,7 +81,12 @@ class PostService implements PostServiceinterface
         }
     }
 
-    private function prepareFilters(array $filters): array
+    public function findOneByTitle(string $title) : ?Post
+    {
+       return $this->postRepository->findOneByTitle($title);
+    }
+
+    public function prepareFilters(array $filters): array
     {
         $resultFilters = [];
         if (!empty($filters['category_id'])) {
@@ -95,11 +102,13 @@ class PostService implements PostServiceinterface
                 $resultFilters['tag'] = $tag;
             }
         }
-//
-//        if (!empty($filters['title'])) {
-//            $title = $this->
-//        }
 
+        if (!empty($filters['post'])) {
+            $post = $this->postRepository->findOneByTitle($filters['post']['search']);
+            if (null !== $post) {
+                $resultFilters['post'] = $post;
+            }
+        }
         return $resultFilters;
     }
 }

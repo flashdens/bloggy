@@ -1951,32 +1951,32 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Service-PostService.html#property_commentRepository"
         },                {
-            "fqsen": "\\App\\Service\\PostServiceinterface",
+            "fqsen": "\\App\\Service\\PostServiceInterface",
             "name": "PostServiceinterface",
             "summary": "",
             "url": "classes/App-Service-PostServiceinterface.html"
         },                {
-            "fqsen": "\\App\\Service\\PostServiceinterface\u003A\u003AgetPaginatedList\u0028\u0029",
+            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AgetPaginatedList\u0028\u0029",
             "name": "getPaginatedList",
             "summary": "",
             "url": "classes/App-Service-PostServiceinterface.html#method_getPaginatedList"
         },                {
-            "fqsen": "\\App\\Service\\PostServiceinterface\u003A\u003AincrementViews\u0028\u0029",
+            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AincrementViews\u0028\u0029",
             "name": "incrementViews",
             "summary": "",
             "url": "classes/App-Service-PostServiceinterface.html#method_incrementViews"
         },                {
-            "fqsen": "\\App\\Service\\PostServiceinterface\u003A\u003AsavePost\u0028\u0029",
+            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AsavePost\u0028\u0029",
             "name": "savePost",
             "summary": "",
             "url": "classes/App-Service-PostServiceinterface.html#method_savePost"
         },                {
-            "fqsen": "\\App\\Service\\PostServiceinterface\u003A\u003AdeletePost\u0028\u0029",
+            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AdeletePost\u0028\u0029",
             "name": "deletePost",
             "summary": "",
             "url": "classes/App-Service-PostServiceinterface.html#method_deletePost"
         },                {
-            "fqsen": "\\App\\Service\\PostServiceinterface\u003A\u003AdeleteComments\u0028\u0029",
+            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AdeleteComments\u0028\u0029",
             "name": "deleteComments",
             "summary": "",
             "url": "classes/App-Service-PostServiceinterface.html#method_deleteComments"
