@@ -41,6 +41,9 @@ class Post
     #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'posts', fetch: 'EXTRA_LAZY', orphanRemoval: true)]
     private Collection $tags;
 
+    #[ORM\Column(length: 191)]
+    private ?string $image = null;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
@@ -151,6 +154,17 @@ class Post
     {
         $this->tags->removeElement($tag);
 
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): static
+    {
+        $this->image = $image;
         return $this;
     }
 }

@@ -6,13 +6,14 @@ use App\Entity\Post;
 use App\Repository\CommentRepository;
 use App\Repository\PostRepository;
 use DateTimeImmutable;
-use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class PostService implements PostServiceInterface
 {
+
     private PostRepository $postRepository;
 
     private CommentRepository $commentRepository;
@@ -25,10 +26,13 @@ class PostService implements PostServiceInterface
 
     private PaginatorInterface $paginator;
 
+    private FileUploadServiceInterface $fileUploadService;
+
+
     public function __construct(PostRepository $postRepository,  CommentRepository $commentRepository,
                                 CategoryServiceInterface $categoryService,
                                 EntityManagerInterface $entityManager, TagServiceInterface $tagService,
-                                PaginatorInterface $paginator)
+                                PaginatorInterface $paginator, FileUploadServiceInterface $fileUploadService)
     {
         $this->postRepository = $postRepository;
         $this->commentRepository = $commentRepository;
@@ -36,6 +40,7 @@ class PostService implements PostServiceInterface
         $this->tagService = $tagService;
         $this->entityManager = $entityManager;
         $this->paginator = $paginator;
+        $this->fileUploadService = $fileUploadService;
     }
 
     public function getPaginatedList(int $page, array $filters = []): PaginationInterface
@@ -43,7 +48,7 @@ class PostService implements PostServiceInterface
         $filters = $this->prepareFilters($filters);
 
         return $this->paginator->paginate(
-            $this->postRepository->queryAll($filters),
+            $this->postRepository->queryAll($filters), // search returns all posts when it should return none. idk why
             $page,
             PostRepository::PAGINATOR_ITEMS_PER_PAGE
         );
@@ -56,12 +61,21 @@ class PostService implements PostServiceInterface
         $this->entityManager->flush();
     }
 
-    public function savePost(Post $post): void
+    public function savePost(Post $post, ?UploadedFile $image): void
     {
+        if ($image) {
+            $file = $this->fileUploadService->upload($image);
+            $post->setImage($file);
+        }
+        else {
+            $post->setImage('default.jpeg');
+        }
+
         if (null == $post->getId()) {
             $post->setPublished(new DateTimeImmutable());
         }
         $post->setEdited(new DateTimeImmutable());
+
         $this->postRepository->save($post);
     }
 

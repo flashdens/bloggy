@@ -47,7 +47,7 @@
                             {% for post in posts.items %}
                                 <div class="col-md-4">
                                     <div class="card mb-4 box-shadow h-auto">
-                                        <img class="card-img-top" src="{{ asset('img/logo2.jpg') }}" alt=""
+                                            <img class="card-img-top" src="{{ asset('uploads/' ~ post.image) }}" alt=""
                                              style="height: 225px; width: 100%; display: block;">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ post.title }}</h5>

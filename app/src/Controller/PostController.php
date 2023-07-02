@@ -7,8 +7,10 @@ use App\Entity\Post;
 use App\Form\Type\CommentType;
 use App\Form\Type\PostType;
 use App\Service\CommentService;
+use App\Service\FileUploadServiceInterface;
 use App\Service\PostService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,7 +26,9 @@ class PostController extends AbstractController
     private CommentService $commentService;
     private TokenStorageInterface $tokenStorage;
 
-    public function __construct(PostService $postService, CommentService $commentService, TokenStorageInterface $tokenStorage)
+
+    public function __construct(PostService $postService, CommentService $commentService,
+                                TokenStorageInterface $tokenStorage)
     {
         $this->postService = $postService;
         $this->commentService = $commentService;
@@ -46,9 +50,9 @@ class PostController extends AbstractController
         );
 
         $comment = new Comment();
-        $form = $this->createForm(CommentType::class, $comment);
-        $form->handleRequest($request);
+        $form = $this->createForm(CommentType::class, $comment,);
 
+        $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $comment->setPost($post);
             $comment->setAuthor($this->tokenStorage->getToken()->getUser());
@@ -77,9 +81,12 @@ class PostController extends AbstractController
     {
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
+
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->postService->savePost($post);
+            /** @var UploadedFile $image */
+            $image = $form->get('image')->getData();
+            $this->postService->savePost($post, $image);
 
             return $this->redirectToRoute('index');
         }

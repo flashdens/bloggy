@@ -39,14 +39,14 @@ class FileUploadService implements FileUploadServiceInterface
     /**
      * Upload file.
      *
-     * @param UploadedFile $file File to upload
+     * @param UploadedFile|null $file File to upload
      *
      * @return string Filename of uploaded file
      */
-    public function upload(UploadedFile $file): string
+    public function upload(?UploadedFile $file): string
     {
-        $extension = $file->guessExtension();
         $fileName = '';
+        $extension = $file->guessExtension();
 
         if (null !== $extension) {
             $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
@@ -54,12 +54,7 @@ class FileUploadService implements FileUploadServiceInterface
             $fileName = $safeFilename.'-'.uniqid().'.'.$extension;
         }
 
-        try {
-            $file->move($this->getTargetDirectory(), $fileName);
-        } catch (FileException $e) {
-            // ... handle exception if something happens during file upload
-        }
-
+        $file->move($this->getTargetDirectory(), $fileName);
         return $fileName;
     }
 

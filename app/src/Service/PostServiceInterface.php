@@ -3,8 +3,8 @@
 namespace App\Service;
 
 use App\Entity\Post;
-use App\Entity\User;
 use Knp\Component\Pager\Pagination\PaginationInterface;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 interface PostServiceInterface
 {
@@ -12,7 +12,7 @@ interface PostServiceInterface
 
     public function incrementViews(Post $post): void;
 
-    public function savePost(Post $post): void;
+    public function savePost(Post $post, ?UploadedFile $image): void;
 
     public function deletePost(Post $post): void;
 

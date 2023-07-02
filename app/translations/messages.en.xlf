@@ -497,7 +497,27 @@
    <trans-unit id="post.published">
      <source>post.published</source>
      <target>Published</target>
-   </trans-unit>    
+   </trans-unit>
+     <trans-unit id="post.views">
+      <source>post.views</source>
+     <target>Views</target>
+  </trans-unit>
+     <trans-unit id="post.title">
+       <source>post.title</source>
+     <target>Title</target>
+    </trans-unit>
+    <trans-unit id="action.view">
+       <source>action.view</source>
+     <target>View</target>
+    </trans-unit>
+    <trans-unit id="label.image">
+     <source>label.image</source>
+     <target>Image</target>
+    </trans-unit>
+    <trans-unit id="Content">
+      <source>Content</source>
+     <target>Content</target>
+    </trans-unit>
     </body>
   </file>
 </xliff>

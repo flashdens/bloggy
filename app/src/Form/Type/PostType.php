@@ -8,12 +8,14 @@ namespace App\Form\Type;
 use App\Entity\Category;
 use App\Entity\Post;
 use App\Form\Type\DataTransformer\DataTransformer;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Image;
 
 /**
  * Class CategoryType.
@@ -84,7 +86,28 @@ class PostType extends AbstractType
                 'constraints' => [
                 ],
             ]
-        );
+        )
+            ->add(
+                'image',
+                FileType::class,
+                [
+                    'mapped' => false,
+                    'label' => 'label.image',
+                    'required' => false,
+                    'constraints' => new Image(
+                        [
+                            'maxSize' => '2048k',
+                            'mimeTypes' => [
+                                'image/png',
+                                'image/jpeg',
+                                'image/pjpeg',
+                                'image/jpeg',
+                                'image/pjpeg',
+                            ],
+                        ]
+                    ),
+                ]
+            );;
 
         $builder->get('tags')->addModelTransformer(
             $this->dataTransformer

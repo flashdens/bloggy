@@ -49,17 +49,6 @@ class PostRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function search(string $prompt)
-    {
-        return $this->getOrCreateQueryBuilder()
-            ->andWhere('post.content LIKE :prompt')
-            ->orWhere('post.title LIKE :prompt')
-            ->select('post')
-            ->setParameter('prompt', '%'.$prompt.'%')
-            ->getQuery()
-            ->getResult();
-    }
-
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
         return $queryBuilder ?? $this->createQueryBuilder('post');
@@ -69,7 +58,7 @@ class PostRepository extends ServiceEntityRepository
     {
         $queryBuilder = $this->getOrCreateQueryBuilder()
             ->select(
-                'partial post.{id, published, edited, title, content, views}',
+                'partial post.{id, published, edited, title, content, views, image}',
                 'partial category.{id, name}',
                 'partial tags.{id, title}'
             )
@@ -80,8 +69,9 @@ class PostRepository extends ServiceEntityRepository
         return $this->applyFiltersToList($queryBuilder, $filters);
     }
 
-    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters = []): QueryBuilder
+    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters): QueryBuilder
     {
+
         if (isset($filters['category']) && $filters['category'] instanceof Category) {
             $queryBuilder->andWhere('category = :category')
                 ->setParameter('category', $filters['category']);
@@ -91,13 +81,15 @@ class PostRepository extends ServiceEntityRepository
             $queryBuilder->andWhere('tags IN (:tag)')
                 ->setParameter('tag', $filters['tag']);
         }
-        if ((isset($filters['post']) && $filters['post'] instanceof Post)) {
+
+        if (isset($filters['post']->title) && $filters['post'] instanceof Post) {
             $queryBuilder
-                ->andWhere('post.title = :title')
-                ->setParameter('title', $filters['post']->title);
+                ->andWhere('post.title LIKE :title')
+                ->setParameter('title', '%' . $filters['post']->title . '%');
         }
         return $queryBuilder;
     }
+
 
     public function delete(Post $post): void
     {

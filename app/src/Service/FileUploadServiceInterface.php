@@ -19,7 +19,7 @@ interface FileUploadServiceInterface
      *
      * @return string Filename of uploaded file
      */
-    public function upload(UploadedFile $file): string;
+    public function upload(?UploadedFile $file): string;
 
     /**
      * Getter for target directory.

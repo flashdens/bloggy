@@ -4,7 +4,7 @@
     <div class="container text-center border p-3">
 <h1>Hello {{ user.email }}!</h1>
 {% if user.avatar %}
-    <img src="{{ asset('uploads/avatars/' ~ user.avatar.filename) }}" alt="Avatar" width="80px" height="80px">
+    <img src="{{ asset('uploads/' ~ user.avatar.filename) }}" alt="Avatar" width="80px" height="80px">
 {% else %}
     <img src="{{ asset('public/uploads/avatars/logo.png') }}" alt="Default Avatar" width="80px" height="80px">
 {% endif %}
@@ -20,7 +20,7 @@
         <div class="mt-4">
             <h2> {{ 'action.edit_avatar'|trans }} </h2>
             {% if user.avatar is null %}
-        <a class="btn btn-danger mb-3" type="submit"
+        <a class="btn btn-success mb-3" type="submit"
            href="{{ url('avatar_create') }}">
             {{ 'action.avatar_create'|trans }}</a>
             {% else %}

@@ -20,7 +20,7 @@ class PostFixtures extends AbstractBaseFixtures implements DependentFixtureInter
             $post = new Post();
             $post->setTitle($this->faker->sentence(4));
             $post->setContent($this->faker->text(1500));
-            for ($i = 0; $i < rand(1, 2); ++$i) {
+            for ($i = 0; $i < rand(0, 3); ++$i) {
                 $tag = $this->getRandomReference('tags');
                 $post->addTag($tag);
             }
@@ -29,7 +29,7 @@ class PostFixtures extends AbstractBaseFixtures implements DependentFixtureInter
             $date = $this->faker->dateTimeBetween('-100 days', '-1 days');
             $post->setEdited($date);
             $post->setPublished($date);
-
+            $post->setImage('default.jpeg');
             return $post;
         });
         $this->manager->flush();
