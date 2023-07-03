@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="flex justify-center flex-col items-center py-3 md:mt-8 px-12">
-        <div class="container">
+        <div class="container p-3">
             {% block post %}
             <div class="my-6 md:w-3/4 text-center border">
                 <small class="py-3">
@@ -24,8 +24,8 @@
                     <a type="button" class="btn btn-outline-secondary mt-2"
                        href="{{ url('admin_view_tag', {id: tag.id}) }}">{{ tag.title }}</a>
                 {% endfor %}
-                <section class="py-3">
-                    <p class="text-center text-base font-normal p-3">
+                <section class="px-5">
+                    <p class="text-center text-base font-normal ">
                         {{ post.content|markdown_to_html }}
                     </p>
                 </section>

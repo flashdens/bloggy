@@ -67,7 +67,6 @@ class UserFixtures extends AbstractBaseFixtures
             $user->setJoined(\DateTimeImmutable::createFromMutable(
                 $this->faker->dateTimeBetween('-100 days', '-1 days')
             ));
-
             return $user;
         });
 

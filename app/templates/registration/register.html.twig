@@ -3,14 +3,14 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Formularz rejestracji</h1>
+    <h1>{{ 'registration'|trans }}</h1>
     {{ form_start(registrationForm) }}
     {{ form_row(registrationForm.email) }}
     {{ form_row(registrationForm.password, {
-        label: 'Password'
+        label: 'password'
     }) }}
     {{ form_row(registrationForm.agreeTerms) }}
-
     <button type="submit" class="btn btn-primary">Register</button>
+    <small>{{ 'avatar.message'|trans }}</small>
     {{ form_end(registrationForm) }}
 {% endblock %}

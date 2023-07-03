@@ -2,7 +2,9 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Category;
 use App\Entity\Tag;
+use App\Form\Type\CategoryType;
 use App\Form\Type\TagType;
 use App\Service\TagServiceInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -49,6 +51,37 @@ class TagCrudController extends AbstractController
         $pagination = $this->tagService->getPaginatedListOfAllTags($request->query->getInt('page', 1));
 
         return $this->render('admin/tag/index.html.twig', ['pagination' => $pagination]);
+    }
+
+    /**
+     * Create a new tag.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
+     */
+    #[Route('/add', name: 'admin_add_tag', methods: ['GET', 'POST'])]
+    public function create(Request $request): Response
+    {
+        $tag = new Tag();
+        $form = $this->createForm(
+            TagType::class,
+            $tag,
+            ['action' => $this->generateUrl('admin_add_tag')]
+        );
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->tagService->saveTag($tag);
+            $this->addFlash(
+                'success',
+                $this->translator->trans('message.created_successfully')
+            );
+
+            return $this->redirectToRoute('admin_category');
+        }
+
+        return $this->render('admin/tag/create.html.twig', ['form' => $form->createView()]);
     }
 
     /**

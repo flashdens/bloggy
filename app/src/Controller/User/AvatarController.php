@@ -138,7 +138,7 @@ class AvatarController extends AbstractController
                 $this->translator->trans('message.edited_successfully')
             );
 
-            return $this->redirectToRoute('user_edit');
+            return $this->redirectToRoute('user_index');
         }
 
         return $this->render(

@@ -6,7 +6,7 @@
 {% if user.avatar %}
     <img src="{{ asset('uploads/' ~ user.avatar.filename) }}" alt="Avatar" width="80px" height="80px">
 {% else %}
-    <img src="{{ asset('public/uploads/avatars/logo.png') }}" alt="Default Avatar" width="80px" height="80px">
+    <img src="{{ asset('uploads/logo.png') }}" alt="Default Avatar" width="80px" height="80px">
 {% endif %}
         <div class="mt-4">
             <h2> {{ 'action.edit_credentials'|trans }} </h2>

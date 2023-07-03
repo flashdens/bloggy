@@ -52,20 +52,7 @@ class UserType extends AbstractType
                     'message' => 'The email should only contain alphanumeric characters and spaces.',
                 ]),
             ],
-        ])
-        ->add('password', PasswordType::class, [
-        'attr' => ['autocomplete' => 'new-password'],
-        'constraints' => [
-            new NotBlank([
-                'message' => 'Please enter a password.',
-            ]),
-            new Length([
-                'min' => 6,
-                'minMessage' => 'The password must be at least {{ limit }} characters long.',
-                'max' => 4096, // Maximum length allowed by Symfony for security reasons
-            ]),
-        ],
-    ]);
+        ]);
     }
 
     /**

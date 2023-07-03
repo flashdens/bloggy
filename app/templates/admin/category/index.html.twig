@@ -15,7 +15,7 @@
     </ul>
 
     <h1>{{ 'title.category_list'|trans }}</h1>
-    <a type="button" class="btn btn-success float-end" href="{{ url('admin_add_category') }}">Add</a>
+    <a type="button" class="btn btn-success float-end" href="{{ url('admin_add_category') }}">{{ 'action.add'|trans }}</a>
     {% if pagination is defined and pagination.items|length %}
 
         <div class="navigation text-center mt-3">

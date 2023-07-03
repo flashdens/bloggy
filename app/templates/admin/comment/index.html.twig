@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ 'title.task_list'|trans }}
+    {{ 'title.comment_list'|trans }}
 {% endblock %}
 
 {% block body %}
@@ -15,7 +15,7 @@
     </ul>
 
     <h1>{{ 'title.comment_list'|trans }}</h1>
-    <a type="button" class="btn btn-success float-end">Add</a>
+    <a type="button" class="btn btn-success float-end" href="https://youtu.be/dQw4w9WgXcQ">{{ 'action.add'|trans }}</a>
     {% if pagination is defined and pagination.items|length %}
 
         <div class="navigation text-center mt-3">

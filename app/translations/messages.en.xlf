@@ -510,14 +510,46 @@
        <source>action.view</source>
      <target>View</target>
     </trans-unit>
-    <trans-unit id="label.image">
-     <source>label.image</source>
-     <target>Image</target>
-    </trans-unit>
     <trans-unit id="Content">
       <source>Content</source>
      <target>Content</target>
     </trans-unit>
-    </body>
+    <trans-unit id="action.sort">
+        <source>action.sort</source>
+        <target>Sort</target>
+    </trans-unit>
+        <trans-unit id="label.image">
+            <source>label.image</source>
+            <target>Image</target>
+        </trans-unit>
+        <trans-unit id="action.reset_password">
+           <source>action.reset_password</source>
+           <target>Reset password</target>
+       </trans-unit>
+        <trans-unit id="registration">
+           <source>registration</source>
+           <target>Registration</target>
+       </trans-unit>
+       <trans-unit id="avatar.message">
+           <source>avatar.message</source>
+           <target>Avatar can be changed later in the user panel!</target>
+       </trans-unit>
+       <trans-unit id="Email">
+           <source>Email</source>
+           <target>Email</target>
+       </trans-unit>
+       <trans-unit id="password">
+           <source>password</source>
+           <target>Password</target>
+       </trans-unit>
+      <trans-unit id="Agree terms">
+           <source>Agree terms</source>
+           <target>Terms agreement</target>
+       </trans-unit>
+      <trans-unit id="action.add">
+           <source>action.add</source>
+           <target>Add</target>
+       </trans-unit>
+       </body>
   </file>
 </xliff>

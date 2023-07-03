@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use App\Form\Type\PasswordResetType;
 use App\Form\Type\UserType;
 use App\Service\UserServiceInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -106,7 +107,7 @@ class UserCrudController extends AbstractController
     public function edit(Request $request, User $user): Response
     {
         $form = $this->createForm(
-            UserType::class,
+            PasswordResetType::class,
             $user,
             [
                 'method' => 'POST',

@@ -15,7 +15,7 @@
     </ul>
 
     <h1>{{ 'title.user_list'|trans }}</h1>
-    <a type="button" class="btn btn-success float-end" href="{{ url('app_register') }}">Add</a>
+    <a type="button" class="btn btn-success float-end" href="{{ url('admin_add_tag') }}">{{ 'action.add'|trans }}</a>
     {% if pagination is defined and pagination.items|length %}
 
         <div class="navigation text-center mt-3">
@@ -55,7 +55,7 @@
                     <td>
                         <a type="button" class="btn btn-info"
                            href="{{ url(  'admin_edit_user', {id: user.id}) }}">
-                            {{ 'user_edit'|trans }}
+                            {{ 'action.reset_password'|trans }}
                         </a>
                     </td>
                     <td>
