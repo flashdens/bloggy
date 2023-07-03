@@ -2,12 +2,12 @@
 /**
  * Category type.
  */
-// TODO: add attributes
 
 namespace App\Form\Type;
 
 use App\Entity\Tag;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -30,8 +30,18 @@ class TagType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title')
-            ->add('slug');
+            ->add('title', TextType::class, [
+                'label' => 'tag.title',
+                'attr' => [
+                    'maxlength' => 64,
+                ],
+            ])
+            ->add('slug', TextType::class, [
+                'label' => 'tag.slug',
+                'attr' => [
+                    'maxlength' => 64,
+                ],
+            ]);
     }
 
     /**

@@ -13,28 +13,22 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * Class Avatar service.
+ * Avatar service class.
  */
 class AvatarService implements AvatarServiceInterface
 {
     private string $targetDirectory;
-    /**
-     * Avatar repository.
-     */
     private AvatarRepository $avatarRepository;
-
-    /**
-     * File upload service.
-     */
     private FileUploadServiceInterface $fileUploadService;
-
     private Filesystem $filesystem;
 
     /**
      * Constructor.
      *
+     * @param string                     $targetDirectory   Target directory for avatar uploads
      * @param AvatarRepository           $avatarRepository  Avatar repository
      * @param FileUploadServiceInterface $fileUploadService File upload service
+     * @param Filesystem                 $filesystem        Filesystem service
      */
     public function __construct(string $targetDirectory, AvatarRepository $avatarRepository, FileUploadServiceInterface $fileUploadService, Filesystem $filesystem)
     {
@@ -45,11 +39,11 @@ class AvatarService implements AvatarServiceInterface
     }
 
     /**
-     * Create avatar.
+     * Create an avatar.
      *
-     * @param UploadedFile $uploadedFile Uploaded file
-     * @param Avatar       $avatar       Avatar entity
-     * @param User         $user         User interface
+     * @param UploadedFile  $uploadedFile Uploaded file
+     * @param Avatar        $avatar       Avatar entity
+     * @param UserInterface $user         User entity
      */
     public function create(UploadedFile $uploadedFile, Avatar $avatar, UserInterface $user): void
     {
@@ -60,28 +54,36 @@ class AvatarService implements AvatarServiceInterface
         $this->avatarRepository->save($avatar);
     }
 
+    /**
+     * Update an avatar.
+     *
+     * @param UploadedFile  $uploadedFile Uploaded file
+     * @param Avatar        $avatar       Avatar entity
+     * @param UserInterface $user         User entity
+     */
     public function update(UploadedFile $uploadedFile, Avatar $avatar, UserInterface $user): void
     {
         $filename = $avatar->getFilename();
         if (null !== $filename) {
-            $this->filesystem->remove(
-                $this->targetDirectory.'/'.$filename
-            );
+            $this->filesystem->remove($this->targetDirectory.'/'.$filename);
 
             $this->create($uploadedFile, $avatar, $user);
         }
     }
 
+    /**
+     * Delete an avatar.
+     *
+     * @param Avatar        $avatar Avatar entity
+     * @param UserInterface $user   User entity
+     */
     public function delete(Avatar $avatar, UserInterface $user): void
     {
         $filename = $avatar->getFilename();
 
         if (null !== $filename) {
-            /* @var User $user */
             $this->avatarRepository->remove($avatar);
-            $this->filesystem->remove(
-                $this->targetDirectory.'/'.$filename
-            );
+            $this->filesystem->remove($this->targetDirectory.'/'.$filename);
         }
     }
 }

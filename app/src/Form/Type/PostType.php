@@ -24,10 +24,16 @@ class PostType extends AbstractType
 {
     private DataTransformer $dataTransformer;
 
+    /**
+     * PostType constructor.
+     *
+     * @param DataTransformer $dataTransformer The data transformer
+     */
     public function __construct(DataTransformer $dataTransformer)
     {
         $this->dataTransformer = $dataTransformer;
     }
+
 
     /**
      * Builds the form.
@@ -107,7 +113,7 @@ class PostType extends AbstractType
                         ]
                     ),
                 ]
-            );;
+            );
 
         $builder->get('tags')->addModelTransformer(
             $this->dataTransformer

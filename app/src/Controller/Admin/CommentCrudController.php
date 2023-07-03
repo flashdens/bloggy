@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Comment;
 use App\Form\Type\CommentType;
-use App\Service\CommentService;
+use App\Service\CommentServiceInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
@@ -13,51 +13,85 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-#[Route(
-    '/admin/comment',
-)]
+/**
+ * Class CommentCrudController.
+ */
+#[Route('/admin/comment')]
 #[IsGranted('ROLE_ADMIN')]
 class CommentCrudController extends AbstractController
 {
-    private CommentService $commentService;
+    /**
+     * Comment service.
+     *
+     * @var CommentServiceInterface
+     */
+    private CommentServiceInterface $commentService;
 
+    /**
+     * Translator.
+     *
+     * @var TranslatorInterface
+     */
     private TranslatorInterface $translator;
 
-    public function __construct(CommentService $commentService, TranslatorInterface $translator)
+    /**
+     * AdminController constructor.
+     *
+     * @param CommentServiceInterface $commentService The comment service
+     * @param TranslatorInterface     $translator     The translator
+     */
+    public function __construct(CommentServiceInterface $commentService, TranslatorInterface $translator)
     {
         $this->commentService = $commentService;
         $this->translator = $translator;
     }
 
-    #[Route(
-        name: 'admin_comment',
-        methods: 'GET'
-    )]
+    /**
+     * Show all comments.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
+     */
+    #[Route(name: 'admin_comment', methods: ['GET'])]
     public function index(Request $request): Response
     {
-        $pagination = $this->commentService->getPaginatedListOfAllComments(
-            $request->query->getInt('page', 1)
-        );
+        $pagination = $this->commentService->getPaginatedListOfAllComments($request->query->getInt('page', 1));
 
         return $this->render('admin/comment/index.html.twig', ['pagination' => $pagination]);
     }
 
+    /**
+     * View a comment.
+     *
+     * @param Comment $comment Comment entity
+     *
+     * @return Response HTTP response
+     */
     #[Route(
         '/view/{id}',
         name: 'admin_view_comment',
         requirements: ['id' => '[1-9]\d*'],
-        methods: 'GET|POST'
+        methods: ['GET', 'POST']
     )]
     public function view(Comment $comment): Response
     {
         return $this->render('admin/comment/view.html.twig', ['comment' => $comment]);
     }
 
+    /**
+     * Edit a comment.
+     *
+     * @param Request $request HTTP request
+     * @param Comment $comment Comment entity
+     *
+     * @return Response HTTP response
+     */
     #[Route(
         '/edit/{id}',
         name: 'admin_edit_comment',
         requirements: ['id' => '[1-9]\d*'],
-        methods: 'GET|POST'
+        methods: ['GET', 'POST']
     )]
     public function edit(Request $request, Comment $comment): Response
     {
@@ -84,11 +118,19 @@ class CommentCrudController extends AbstractController
         return $this->render('admin/comment/edit.html.twig', ['comment' => $comment, 'form' => $form->createView()]);
     }
 
+    /**
+     * Delete a comment.
+     *
+     * @param Request $request HTTP request
+     * @param Comment $comment Comment entity
+     *
+     * @return Response HTTP response
+     */
     #[Route(
         '/delete/{id}',
         name: 'admin_delete_comment',
         requirements: ['id' => '[1-9]\d*'],
-        methods: 'GET|POST'
+        methods: ['GET', 'POST']
     )]
     public function delete(Request $request, Comment $comment): Response
     {

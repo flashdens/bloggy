@@ -6,6 +6,7 @@ namespace App\Entity;
 
 use App\Entity\Enum\UserRole;
 use App\Repository\UserRepository;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -53,21 +54,42 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Avatar $avatar = null;
 
+
+    /**
+     * Constructor.
+     */
     public function __construct()
     {
         $this->comments = new ArrayCollection();
     }
 
+    /**
+     * Get the ID of the user.
+     *
+     * @return int|null The ID
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * Get the email of the user.
+     *
+     * @return string|null The email
+     */
     public function getEmail(): ?string
     {
         return $this->email;
     }
 
+    /**
+     * Set the email of the user.
+     *
+     * @param string $email The email
+     *
+     * @return $this
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -78,6 +100,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * A visual identifier that represents this user.
      *
+     * @return string userId
+     *
      * @see UserInterface
      */
     public function getUserIdentifier(): string
@@ -86,6 +110,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+     * @return string userId
+     *
      * @deprecated since Symfony 5.3, use getUserIdentifier instead
      */
     public function getUsername(): string
@@ -94,7 +120,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+     * @return array $roles userRoles
+     *
      * @see UserInterface
+     *
      */
     public function getRoles(): array
     {
@@ -105,6 +134,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return array_unique($roles);
     }
 
+    /**
+     * Set the roles of the user.
+     *
+     * @param array $roles The roles
+     *
+     * @return $this
+     */
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
@@ -113,6 +149,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
+     *
+     * @return string $password
+     *
      * @see PasswordAuthenticatedUserInterface
      */
     public function getPassword(): string
@@ -120,6 +159,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->password;
     }
 
+    /**
+     * Set the password of the user.
+     *
+     * @param string $password The password
+     *
+     * @return $this
+     */
     public function setPassword(string $password): self
     {
         $this->password = $password;
@@ -130,6 +176,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Returning a salt is only needed, if you are not using a modern
      * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     *
+     * @return string|null
      *
      * @see UserInterface
      */
@@ -147,11 +195,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function IsBanned(): ?bool
+    /**
+     * Check if the user is banned.
+     *
+     * @return bool|null True if banned, false otherwise
+     */
+    public function isBanned(): ?bool
     {
         return $this->isBanned;
     }
 
+    /**
+     * Set the banned status of the user.
+     *
+     * @param bool $isBanned True to ban, false to unban
+     *
+     * @return $this
+     */
     public function setIsBanned(bool $isBanned): self
     {
         $this->isBanned = $isBanned;
@@ -159,12 +219,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getJoined(): ?\DateTimeInterface
+    /**
+     * Get the join date of the user.
+     *
+     * @return DateTimeInterface|null The join date
+     */
+    public function getJoined(): ?DateTimeInterface
     {
         return $this->joined;
     }
 
-    public function setJoined(\DateTimeInterface $joined): self
+    /**
+     * Set the join date of the user.
+     *
+     * @param DateTimeInterface $joined The join date
+     *
+     * @return $this
+     */
+    public function setJoined(DateTimeInterface $joined): self
     {
         $this->joined = $joined;
 
@@ -172,13 +244,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, Comment>
+     * Get the comments written by the user.
+     *
+     * @return Collection<int, Comment> The comments
      */
     public function getComments(): Collection
     {
         return $this->comments;
     }
 
+    /**
+     * Add a comment written by the user.
+     *
+     * @param Comment $comment The comment to add
+     *
+     * @return $this
+     */
     public function addComment(Comment $comment): self
     {
         if (!$this->comments->contains($comment)) {
@@ -189,6 +270,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * Remove a comment written by the user.
+     *
+     * @param Comment $comment The comment to remove
+     *
+     * @return $this
+     */
     public function removeComment(Comment $comment): self
     {
         if ($this->comments->removeElement($comment)) {
@@ -201,11 +289,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * Get the avatar of the user.
+     *
+     * @return Avatar|null The avatar
+     */
     public function getAvatar(): ?Avatar
     {
         return $this->avatar;
     }
 
+    /**
+     * Set the avatar of the user.
+     *
+     * @param Avatar|null $avatar The avatar
+     *
+     * @return static
+     */
     public function setAvatar(?Avatar $avatar): static
     {
         if ($avatar->getUser() !== $this) {

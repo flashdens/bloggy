@@ -22,7 +22,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 /**
  * Class AvatarController.
  */
-#[Route('/user/avatar')]
 class AvatarController extends AbstractController
 {
     /**
@@ -35,13 +34,17 @@ class AvatarController extends AbstractController
      */
     private TranslatorInterface $translator;
 
+    /**
+     * Security.
+     */
     private Security $security;
 
     /**
-     * Constructor.
+     * AvatarController constructor.
      *
      * @param AvatarServiceInterface $avatarService Avatar service
      * @param TranslatorInterface    $translator    Translator
+     * @param Security               $security      Security
      */
     public function __construct(AvatarServiceInterface $avatarService, TranslatorInterface $translator, Security $security)
     {
@@ -60,7 +63,7 @@ class AvatarController extends AbstractController
     #[Route(
         '/create',
         name: 'avatar_create',
-        methods: 'GET|POST'
+        methods: ['GET', 'POST']
     )]
     #[IsGranted('ROLE_USER')]
     public function create(Request $request): Response
@@ -69,27 +72,19 @@ class AvatarController extends AbstractController
         $user = $this->security->getUser();
 
         if ($user->getAvatar()) {
-            return $this->redirectToRoute(
-                'avatar_edit',
-            );
+            return $this->redirectToRoute('avatar_edit');
         }
 
         $avatar = new Avatar();
-        $form = $this->createForm(
-            AvatarType::class,
-            $avatar,
-            ['action' => $this->generateUrl('avatar_create')]
-        );
+        $form = $this->createForm(AvatarType::class, $avatar, [
+            'action' => $this->generateUrl('avatar_create'),
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $file */
             $file = $form->get('file')->getData();
-            $this->avatarService->create(
-                $file,
-                $avatar,
-                $user
-            );
+            $this->avatarService->create($file, $avatar, $user);
 
             $this->addFlash(
                 'success',
@@ -115,7 +110,7 @@ class AvatarController extends AbstractController
     #[Route(
         '/edit',
         name: 'avatar_edit',
-        methods: 'GET|PUT|POST'
+        methods: ['GET', 'PUT', 'POST']
     )]
     public function edit(Request $request): Response
     {
@@ -127,24 +122,16 @@ class AvatarController extends AbstractController
             return $this->redirectToRoute('avatar_create');
         }
 
-        $form = $this->createForm(
-            AvatarType::class,
-            $avatar,
-            [
-                'method' => 'POST',
-                'action' => $this->generateUrl('avatar_edit'),
-            ]
-        );
+        $form = $this->createForm(AvatarType::class, $avatar, [
+            'method' => 'POST',
+            'action' => $this->generateUrl('avatar_edit'),
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $file */
             $file = $form->get('file')->getData();
-            $this->avatarService->update(
-                $file,
-                $avatar,
-                $user
-            );
+            $this->avatarService->update($file, $avatar, $user);
 
             $this->addFlash(
                 'success',
@@ -163,11 +150,18 @@ class AvatarController extends AbstractController
         );
     }
 
+    /**
+     * Delete action.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
+     */
     #[Route(
         '/delete',
         name: 'avatar_delete',
         requirements: ['id' => '[1-9]\d*'],
-        methods: 'GET|POST'
+        methods: ['GET', 'POST']
     )]
     public function delete(Request $request): Response
     {
@@ -179,20 +173,13 @@ class AvatarController extends AbstractController
             return $this->redirectToRoute('avatar_create');
         }
 
-        $form = $this->createForm(
-            FormType::class,
-            $avatar,
-            [
-                'method' => 'POST',
-            ]
-        );
+        $form = $this->createForm(FormType::class, $avatar, [
+            'method' => 'POST',
+        ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->avatarService->delete(
-                $avatar,
-                $user
-            );
+            $this->avatarService->delete($avatar, $user);
 
             $this->addFlash(
                 'success',

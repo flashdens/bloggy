@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Post;
 use App\Form\Type\PostType;
-use App\Service\PostService;
+use App\Service\PostServiceInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
@@ -13,31 +13,38 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
-#[Route(
-    '/admin/post',
-)]
+/**
+ * Class PostCrudController.
+ */
+#[Route('/admin/post')]
 #[IsGranted('ROLE_ADMIN')]
 class PostCrudController extends AbstractController
 {
-    private PostService $postService;
-
+    private PostServiceInterface $postService;
     private TranslatorInterface $translator;
 
-    public function __construct(PostService $postService, TranslatorInterface $translator)
+    /**
+     * Constructor.
+     * @param PostServiceInterface $postService Post service.
+     * @param TranslatorInterface  $translator  Translator.
+     */
+    public function __construct(PostServiceInterface $postService, TranslatorInterface $translator)
     {
         $this->postService = $postService;
         $this->translator = $translator;
     }
 
-    #[Route(
-        name: 'admin_post',
-        methods: 'GET'
-    )]
+    /**
+     * Show all posts.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
+     */
+    #[Route(name: 'admin_post', methods: ['GET'])]
     public function index(Request $request): Response
     {
-        $pagination = $this->postService->getPaginatedList(
-            $request->query->getInt('page', 1)
-        );
+        $pagination = $this->postService->getPaginatedList($request->query->getInt('page', 1));
 
         return $this->render('admin/post/index.html.twig', ['pagination' => $pagination]);
     }
@@ -45,7 +52,8 @@ class PostCrudController extends AbstractController
     /**
      * Edit post.
      *
-     * @param Post $post Post
+     * @param Request $request HTTP request
+     * @param Post    $post    Post entity
      *
      * @return Response HTTP response
      */
@@ -53,7 +61,7 @@ class PostCrudController extends AbstractController
         '/edit/{id}',
         name: 'admin_edit_post',
         requirements: ['id' => '[0-9]\d*'],
-        methods: 'GET|POST'
+        methods: ['GET', 'POST']
     )]
     public function edit(Request $request, Post $post): Response
     {
@@ -80,11 +88,19 @@ class PostCrudController extends AbstractController
         return $this->render('admin/post/edit.html.twig', ['post' => $post, 'form' => $form->createView()]);
     }
 
+    /**
+     * Delete a post.
+     *
+     * @param Request $request HTTP request
+     * @param Post    $post    Post entity
+     *
+     * @return Response HTTP response
+     */
     #[Route(
         '/delete/{id}',
         name: 'admin_delete_post',
         requirements: ['id' => '[1-9]\d*'],
-        methods: 'GET|POST'
+        methods: ['GET', 'POST']
     )]
     public function delete(Request $request, Post $post): Response
     {

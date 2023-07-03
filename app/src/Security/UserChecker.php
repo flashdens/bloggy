@@ -7,8 +7,18 @@ use Symfony\Component\Security\Core\Exception\CustomUserMessageAccountStatusExce
 use Symfony\Component\Security\Core\User\UserCheckerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
+/**
+ * Class UserChecker
+ */
 class UserChecker implements UserCheckerInterface
 {
+    /**
+     * Checks the user account status before authentication.
+     *
+     * @param UserInterface $user The user object
+     *
+     * @throws CustomUserMessageAccountStatusException If the user is banned
+     */
     public function checkPreAuth(UserInterface $user): void
     {
         if (!$user instanceof User) {
@@ -16,12 +26,18 @@ class UserChecker implements UserCheckerInterface
         }
 
         if ($user->isBanned()) {
-            // the message passed to this exception is meant to be displayed to the user
+            // The message passed to this exception is meant to be displayed to the user
             throw new CustomUserMessageAccountStatusException('message.user_banned');
         }
     }
 
+    /**
+     * Checks the user account status after authentication.
+     *
+     * @param UserInterface $user The user object
+     */
     public function checkPostAuth(UserInterface $user): void
     {
+        // No additional checks needed after authentication
     }
 }

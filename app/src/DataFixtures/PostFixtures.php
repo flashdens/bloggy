@@ -5,12 +5,32 @@ namespace App\DataFixtures;
 use App\Entity\Post;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
+/**
+ * PostFixtures class.
+ */
 class PostFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
 {
+    /**
+     * Constructor for PostFixtures.
+     */
     public function __construct()
     {
     }
 
+
+    /**
+     * Get the dependencies of the PostFixtures.
+     *
+     * @return array The dependencies
+     */
+    public function getDependencies(): array
+    {
+        return [CategoryFixtures::class, TagFixtures::class];
+    }
+
+    /**
+     * Load data for Post fixtures.
+     */
     protected function loadData(): void
     {
         if (null === $this->manager || null === $this->faker) {
@@ -30,13 +50,9 @@ class PostFixtures extends AbstractBaseFixtures implements DependentFixtureInter
             $post->setEdited($date);
             $post->setPublished($date);
             $post->setImage('default.jpeg');
+
             return $post;
         });
         $this->manager->flush();
-    }
-
-    public function getDependencies(): array
-    {
-        return [CategoryFixtures::class, TagFixtures::class];
     }
 }

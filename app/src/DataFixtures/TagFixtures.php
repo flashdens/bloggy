@@ -5,8 +5,25 @@ namespace App\DataFixtures;
 use App\Entity\Tag;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
+/**
+ * TagFixtures class.
+ */
 class TagFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
 {
+
+    /**
+     * Get the dependencies of the TagFixtures.
+     *
+     * @return array The dependencies
+     */
+    public function getDependencies()
+    {
+        return [CategoryFixtures::class];
+    }
+
+    /**
+     * Load data for Tag fixtures.
+     */
     protected function loadData(): void
     {
         if (null === $this->manager || null === $this->faker) {
@@ -24,10 +41,5 @@ class TagFixtures extends AbstractBaseFixtures implements DependentFixtureInterf
         });
 
         $this->manager->flush();
-    }
-
-    public function getDependencies()
-    {
-        return [CategoryFixtures::class];
     }
 }

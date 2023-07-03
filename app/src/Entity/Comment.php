@@ -8,6 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CommentRepository::class)]
 #[ORM\Table(name: 'comments')]
+/**
+ * Comment entity.
+ */
 class Comment
 {
     #[ORM\Id]
@@ -29,40 +32,33 @@ class Comment
     #[ORM\JoinColumn(nullable: false)]
     private ?User $author = null;
 
+    /**
+     * Get the ID of the comment.
+     *
+     * @return int|null The ID
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getAuthorID(): ?int
-    {
-        return $this->authorID;
-    }
-
-    public function setAuthorID(int $authorID): self
-    {
-        $this->authorID = $authorID;
-
-        return $this;
-    }
-
-    public function getPostID(): ?int
-    {
-        return $this->postID;
-    }
-
-    public function setPostID(int $postID): self
-    {
-        $this->postID = $postID;
-
-        return $this;
-    }
-
+    /**
+     * Get the published date of the comment.
+     *
+     * @return \DateTimeInterface|null The published date
+     */
     public function getPublished(): ?\DateTimeInterface
     {
         return $this->published;
     }
 
+    /**
+     * Set the published date of the comment.
+     *
+     * @param \DateTimeInterface $published The published date
+     *
+     * @return $this
+     */
     public function setPublished(\DateTimeInterface $published): self
     {
         $this->published = $published;
@@ -70,11 +66,23 @@ class Comment
         return $this;
     }
 
+    /**
+     * Get the content of the comment.
+     *
+     * @return string|null The content
+     */
     public function getContent(): ?string
     {
         return $this->content;
     }
 
+    /**
+     * Set the content of the comment.
+     *
+     * @param string $content The content
+     *
+     * @return $this
+     */
     public function setContent(string $content): self
     {
         $this->content = $content;
@@ -82,11 +90,23 @@ class Comment
         return $this;
     }
 
+    /**
+     * Get the post associated with the comment.
+     *
+     * @return Post|null The post
+     */
     public function getPost(): ?Post
     {
         return $this->post;
     }
 
+    /**
+     * Set the post associated with the comment.
+     *
+     * @param Post|null $post The post
+     *
+     * @return $this
+     */
     public function setPost(?Post $post): self
     {
         $this->post = $post;
@@ -94,11 +114,23 @@ class Comment
         return $this;
     }
 
+    /**
+     * Get the author of the comment.
+     *
+     * @return User|null The author
+     */
     public function getAuthor(): ?User
     {
         return $this->author;
     }
 
+    /**
+     * Set the author of the comment.
+     *
+     * @param User|null $author The author
+     *
+     * @return $this
+     */
     public function setAuthor(?User $author): self
     {
         $this->author = $author;

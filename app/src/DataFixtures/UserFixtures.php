@@ -1,7 +1,4 @@
 <?php
-/**
- * User fixtures.
- */
 
 namespace App\DataFixtures;
 
@@ -10,7 +7,7 @@ use App\Entity\User;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 /**
- * Class UserFixtures.
+ * UserFixtures class.
  */
 class UserFixtures extends AbstractBaseFixtures
 {
@@ -20,6 +17,8 @@ class UserFixtures extends AbstractBaseFixtures
     private UserPasswordHasherInterface $passwordHasher;
 
     /**
+     * UserFixtures constructor.
+     *
      * @param UserPasswordHasherInterface $passwordHasher Password hasher
      */
     public function __construct(UserPasswordHasherInterface $passwordHasher)
@@ -28,7 +27,7 @@ class UserFixtures extends AbstractBaseFixtures
     }
 
     /**
-     * Load data.
+     * Load data for User fixtures.
      */
     protected function loadData(): void
     {

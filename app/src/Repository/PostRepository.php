@@ -11,34 +11,62 @@ use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @extends ServiceEntityRepository<Post>
- *
- * @method Post|null find(  $id, $lockMode = null, $lockVersion = null)
- * @method Post|null findOneBy(array $criteria, array $orderBy = null)
- * @method Post[]    findAll()
- * @method Post[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- * @method Post|null findOneByTitle(string $title)
  */
 class PostRepository extends ServiceEntityRepository
 {
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
+    /**
+     * Gets or creates a QueryBuilder instance.
+     *
+     * @param QueryBuilder|null $queryBuilder The query builder (optional)
+     *
+     * @return QueryBuilder The query builder instance
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('post');
+    }
+
+    /**
+     * PostRepository constructor.
+     *
+     * @param ManagerRegistry $registry The manager registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Post::class);
     }
 
+    /**
+     * Saves the Post entity.
+     *
+     * @param Post $entity The post entity
+     */
     public function save(Post $entity): void
     {
         $this->getEntityManager()->persist($entity);
         $this->getEntityManager()->flush();
     }
 
+    /**
+     * Removes the Post entity.
+     *
+     * @param Post $entity The post entity
+     */
     public function remove(Post $entity): void
     {
         $this->getEntityManager()->remove($entity);
         $this->getEntityManager()->flush();
     }
 
+    /**
+     * Finds posts by a specific tag.
+     *
+     * @param Tag $tag The tag entity
+     *
+     * @return Post[] The array of posts
+     */
     public function findPostsByTag(Tag $tag): array
     {
         return $this->createQueryBuilder('t')
@@ -49,11 +77,14 @@ class PostRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        return $queryBuilder ?? $this->createQueryBuilder('post');
-    }
 
+    /**
+     * Returns a query builder for retrieving all posts with optional filters.
+     *
+     * @param array $filters The filters to apply (category, tag, post)
+     *
+     * @return QueryBuilder The query builder
+     */
     public function queryAll(array $filters): QueryBuilder
     {
         $queryBuilder = $this->getOrCreateQueryBuilder()
@@ -69,9 +100,16 @@ class PostRepository extends ServiceEntityRepository
         return $this->applyFiltersToList($queryBuilder, $filters);
     }
 
-    private function applyFiltersToList(QueryBuilder $queryBuilder, array $filters): QueryBuilder
+    /**
+     * Applies filters to the query builder.
+     *
+     * @param QueryBuilder $queryBuilder The query builder
+     * @param array        $filters      The filters to apply
+     *
+     * @return QueryBuilder The updated query builder
+     */
+    public function applyFiltersToList(QueryBuilder $queryBuilder, array $filters): QueryBuilder
     {
-
         if (isset($filters['category']) && $filters['category'] instanceof Category) {
             $queryBuilder->andWhere('category = :category')
                 ->setParameter('category', $filters['category']);
@@ -85,41 +123,20 @@ class PostRepository extends ServiceEntityRepository
         if (isset($filters['post']->title) && $filters['post'] instanceof Post) {
             $queryBuilder
                 ->andWhere('post.title LIKE :title')
-                ->setParameter('title', '%' . $filters['post']->title . '%');
+                ->setParameter('title', '%'.$filters['post']->title.'%');
         }
+
         return $queryBuilder;
     }
 
-
+    /**
+     * Deletes a post entity.
+     *
+     * @param Post $post The post entity
+     */
     public function delete(Post $post): void
     {
         $this->_em->remove($post);
         $this->_em->flush();
     }
-
 }
-
-//    /**
-//     * @return Post[] Returns an array of Post objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
-
-//    public function findOneBySomeField($value): ?Post
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }

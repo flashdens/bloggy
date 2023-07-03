@@ -8,8 +8,6 @@ use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Avatar>
- *
  * @method Avatar|null find($id, $lockMode = null, $lockVersion = null)
  * @method Avatar|null findOneBy(array $criteria, array $orderBy = null)
  * @method Avatar[]    findAll()
@@ -17,22 +15,48 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class AvatarRepository extends ServiceEntityRepository
 {
+    /**
+     * AvatarRepository constructor.
+     *
+     * @param ManagerRegistry $registry The manager registry
+     */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Avatar::class);
     }
 
+    /**
+     * Saves the Avatar entity.
+     *
+     * @param Avatar $entity The Avatar entity
+     *
+     * @return void
+     */
     public function save(Avatar $entity): void
     {
         $this->getEntityManager()->persist($entity);
         $this->getEntityManager()->flush();
     }
 
+    /**
+     * Gets or creates a QueryBuilder instance.
+     *
+     * @param QueryBuilder|null $queryBuilder The QueryBuilder instance
+     *
+     * @return QueryBuilder
+     */
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
-        return $queryBuilder ?? $this->createQueryBuilder('post');
+        return $queryBuilder ?? $this->createQueryBuilder('a');
     }
 
+    /**
+     * Removes the Avatar entity.
+     *
+     * @param Avatar $entity The Avatar entity
+     *
+     * @return void
+     */
     public function remove(Avatar $entity): void
     {
         $this->getOrCreateQueryBuilder()
@@ -41,31 +65,43 @@ class AvatarRepository extends ServiceEntityRepository
             ->setParameter('userId', $entity->getUser())
             ->getQuery()
             ->execute();
+
         $this->getEntityManager()->flush();
     }
 
-    //    /**
-    //     * @return Avatar[] Returns an array of Avatar objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('a')
-    //            ->andWhere('a.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('a.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    // # Uncomment and update the method if needed
 
-    //    public function findOneBySomeField($value): ?Avatar
-    //    {
-    //        return $this->createQueryBuilder('a')
-    //            ->andWhere('a.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    // /**
+    //  * Finds Avatar objects by example field.
+    //  *
+    //  * @param mixed $value
+    //  *
+    //  * @return Avatar[]
+    //  */
+    // public function findByExampleField($value): array
+    // {
+    //     return $this->createQueryBuilder('a')
+    //         ->andWhere('a.exampleField = :val')
+    //         ->setParameter('val', $value)
+    //         ->orderBy('a.id', 'ASC')
+    //         ->setMaxResults(10)
+    //         ->getQuery()
+    //         ->getResult();
+    // }
+
+    // /**
+    //  * Finds a single Avatar object by some field.
+    //  *
+    //  * @param mixed $value
+    //  *
+    //  * @return Avatar|null
+    //  */
+    // public function findOneBySomeField($value): ?Avatar
+    // {
+    //     return $this->createQueryBuilder('a')
+    //         ->andWhere('a.exampleField = :val')
+    //         ->setParameter('val', $value)
+    //         ->getQuery()
+    //         ->getOneOrNullResult();
+    // }
 }

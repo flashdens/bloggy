@@ -1,34 +1,23 @@
 <?php
-/**
- * File upload service.
- */
 
 namespace App\Service;
 
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
- * Class FileUploadService.
+ * File upload service class.
  */
 class FileUploadService implements FileUploadServiceInterface
 {
-    /**
-     * Target directory.
-     */
     private string $targetDirectory;
-
-    /**
-     * Slugger.
-     */
     private SluggerInterface $slugger;
 
     /**
      * Constructor.
      *
      * @param string           $targetDirectory Target directory
-     * @param SluggerInterface $slugger         Slugger
+     * @param SluggerInterface $slugger         Slugger interface
      */
     public function __construct(string $targetDirectory, SluggerInterface $slugger)
     {
@@ -37,11 +26,11 @@ class FileUploadService implements FileUploadServiceInterface
     }
 
     /**
-     * Upload file.
+     * Upload a file.
      *
      * @param UploadedFile|null $file File to upload
      *
-     * @return string Filename of uploaded file
+     * @return string Filename of the uploaded file
      */
     public function upload(?UploadedFile $file): string
     {
@@ -55,11 +44,12 @@ class FileUploadService implements FileUploadServiceInterface
         }
 
         $file->move($this->getTargetDirectory(), $fileName);
+
         return $fileName;
     }
 
     /**
-     * Getter for target directory.
+     * Get the target directory.
      *
      * @return string Target directory
      */

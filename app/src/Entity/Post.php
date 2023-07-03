@@ -10,6 +10,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 #[ORM\Table(name: 'posts')]
+/**
+ * Post entity.
+ */
 class Post
 {
     #[ORM\Id]
@@ -44,21 +47,41 @@ class Post
     #[ORM\Column(length: 191)]
     private ?string $image = null;
 
+    /**
+     * Post constructor.
+     */
     public function __construct()
     {
         $this->tags = new ArrayCollection();
     }
 
+    /**
+     * Get the ID of the post.
+     *
+     * @return int|null The ID of the post.
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * Get the content of the post.
+     *
+     * @return string|null The content of the post.
+     */
     public function getContent(): ?string
     {
         return $this->content;
     }
 
+    /**
+     * Set the content of the post.
+     *
+     * @param string $content The content of the post.
+     *
+     * @return $this
+     */
     public function setContent(string $content): self
     {
         $this->content = $content;
@@ -66,11 +89,23 @@ class Post
         return $this;
     }
 
+    /**
+     * Get the published datetime of the post.
+     *
+     * @return \DateTimeInterface|null The published datetime of the post.
+     */
     public function getPublished(): ?\DateTimeInterface
     {
         return $this->published;
     }
 
+    /**
+     * Set the published datetime of the post.
+     *
+     * @param \DateTimeInterface $published The published datetime of the post.
+     *
+     * @return $this
+     */
     public function setPublished(\DateTimeInterface $published): self
     {
         $this->published = $published;
@@ -78,11 +113,23 @@ class Post
         return $this;
     }
 
+    /**
+     * Get the edited datetime of the post.
+     *
+     * @return \DateTimeInterface|null The edited datetime of the post.
+     */
     public function getEdited(): ?\DateTimeInterface
     {
         return $this->edited;
     }
 
+    /**
+     * Set the edited datetime of the post.
+     *
+     * @param \DateTimeInterface $edited The edited datetime of the post.
+     *
+     * @return $this
+     */
     public function setEdited(\DateTimeInterface $edited): self
     {
         $this->edited = $edited;
@@ -90,11 +137,23 @@ class Post
         return $this;
     }
 
+    /**
+     * Get the category of the post.
+     *
+     * @return Category|null The category of the post.
+     */
     public function getCategory(): ?Category
     {
         return $this->category;
     }
 
+    /**
+     * Set the category of the post.
+     *
+     * @param Category|null $category The category of the post.
+     *
+     * @return $this
+     */
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
@@ -102,11 +161,23 @@ class Post
         return $this;
     }
 
+    /**
+     * Get the title of the post.
+     *
+     * @return string|null The title of the post.
+     */
     public function getTitle(): ?string
     {
         return $this->title;
     }
 
+    /**
+     * Set the title of the post.
+     *
+     * @param string $title The title of the post.
+     *
+     * @return $this
+     */
     public function setTitle(string $title): self
     {
         $this->title = $title;
@@ -114,11 +185,23 @@ class Post
         return $this;
     }
 
+    /**
+     * Get the number of views for the post.
+     *
+     * @return int|null The number of views for the post.
+     */
     public function getViews(): ?int
     {
         return $this->views;
     }
 
+    /**
+     * Set the number of views for the post.
+     *
+     * @param int $views The number of views for the post.
+     *
+     * @return $this
+     */
     public function setViews(int $views): self
     {
         $this->views = $views;
@@ -126,6 +209,11 @@ class Post
         return $this;
     }
 
+    /**
+     * Increment the number of views for the post.
+     *
+     * @return $this
+     */
     public function increment(): self
     {
         $this->views = $this->views + 1;
@@ -134,13 +222,22 @@ class Post
     }
 
     /**
-     * @return Collection<int, Tag>
+     * Get the tags associated with the post.
+     *
+     * @return Collection<int, Tag> The tags associated with the post.
      */
     public function getTags(): Collection
     {
         return $this->tags;
     }
 
+    /**
+     * Add a tag to the post.
+     *
+     * @param Tag $tag The tag to add.
+     *
+     * @return $this
+     */
     public function addTag(Tag $tag): self
     {
         if (!$this->tags->contains($tag)) {
@@ -150,6 +247,13 @@ class Post
         return $this;
     }
 
+    /**
+     * Remove a tag from the post.
+     *
+     * @param Tag $tag The tag to remove.
+     *
+     * @return $this
+     */
     public function removeTag(Tag $tag): self
     {
         $this->tags->removeElement($tag);
@@ -157,14 +261,27 @@ class Post
         return $this;
     }
 
+    /**
+     * Get the image filename of the post.
+     *
+     * @return string|null The image filename of the post.
+     */
     public function getImage(): ?string
     {
         return $this->image;
     }
 
-    public function setImage(string $image): static
+    /**
+     * Set the image filename of the post.
+     *
+     * @param string $image The image filename of the post.
+     *
+     * @return $this
+     */
+    public function setImage(string $image): self
     {
         $this->image = $image;
+
         return $this;
     }
 }

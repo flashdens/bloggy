@@ -13,8 +13,19 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+ * Class RegistrationFormType
+ *
+ * Form type for user registration.
+ */
 class RegistrationFormType extends AbstractType
 {
+    /**
+     * Build the form.
+     *
+     * @param FormBuilderInterface $builder The form builder.
+     * @param array                $options The options.
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -25,29 +36,30 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'message.username_taken',
+                        'message' => 'You must agree to the terms and conditions.',
                     ]),
                 ],
             ])
-                ->add('password', PasswordType::class, [
-                    // instead of being set onto the object directly,
-                    // this is read and encoded in the controller
-                    'attr' => ['autocomplete' => 'new-password'],
-                    'constraints' => [
-                        new NotBlank([
-                            'message' => 'message.blank',
-                        ]),
-                        new Length([
-                            'min' => 6,
-                            'minMessage' => 'message.passwordtoshort',
-                            // max length allowed by Symfony for security reasons
-                            'max' => 4096,
-                        ]),
-                    ],
-                ])
-        ;
+            ->add('password', PasswordType::class, [
+                'attr' => ['autocomplete' => 'new-password'],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Please enter a password.',
+                    ]),
+                    new Length([
+                        'min' => 6,
+                        'minMessage' => 'The password must be at least {{ limit }} characters long.',
+                        'max' => 4096, // Maximum length allowed by Symfony for security reasons
+                    ]),
+                ],
+            ]);
     }
 
+    /**
+     * Configure the options for the form.
+     *
+     * @param OptionsResolver $resolver The options resolver.
+     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

@@ -5,12 +5,31 @@ namespace App\DataFixtures;
 use App\Entity\Comment;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
+/**
+ * CommentFixtures class.
+ */
 class CommentFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
 {
+    /**
+     * Constructor for CommentFixtures.
+     */
     public function __construct()
     {
     }
 
+    /**
+     * Get the dependencies of the CommentFixtures.
+     *
+     * @return array The dependencies
+     */
+    public function getDependencies()
+    {
+        return [UserFixtures::class, PostFixtures::class];
+    }
+
+    /**
+     * Load data for Comment fixtures.
+     */
     protected function loadData(): void
     {
         if (null === $this->manager || null === $this->faker) {
@@ -30,10 +49,5 @@ class CommentFixtures extends AbstractBaseFixtures implements DependentFixtureIn
             return $comment;
         });
         $this->manager->flush();
-    }
-
-    public function getDependencies()
-    {
-        return [UserFixtures::class, PostFixtures::class];
     }
 }

@@ -6,9 +6,8 @@ use App\Entity\Comment;
 use App\Entity\Post;
 use App\Form\Type\CommentType;
 use App\Form\Type\PostType;
-use App\Service\CommentService;
-use App\Service\FileUploadServiceInterface;
-use App\Service\PostService;
+use App\Service\CommentServiceInterface;
+use App\Service\PostServiceInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -17,29 +16,44 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route(
-    '/post',
-)]
+/**
+ * Class PostController.
+ */
+
+#[Route('/post')]
 class PostController extends AbstractController
 {
-    private PostService $postService;
-    private CommentService $commentService;
+    private PostServiceInterface $postService;
+    private CommentServiceInterface $commentService;
     private TokenStorageInterface $tokenStorage;
 
-
-    public function __construct(PostService $postService, CommentService $commentService,
-                                TokenStorageInterface $tokenStorage)
+    /**
+     * PostController constructor.
+     *
+     * @param PostServiceInterface    $postService    Post service interface
+     * @param CommentServiceInterface $commentService Comment service interface
+     * @param TokenStorageInterface   $tokenStorage   Token storage
+     */
+    public function __construct(PostServiceInterface $postService, CommentServiceInterface $commentService, TokenStorageInterface $tokenStorage)
     {
         $this->postService = $postService;
         $this->commentService = $commentService;
         $this->tokenStorage = $tokenStorage;
     }
 
+    /**
+     * View a post.
+     *
+     * @param Request $request HTTP request
+     * @param Post    $post    Post entity
+     *
+     * @return Response HTTP response
+     */
     #[Route(
         '/{id}',
         name: 'view_post',
-        requirements: ['id' => '[0-9]\d*'],
-        methods: 'GET|POST'
+        requirements: ['id' => '\d+'],
+        methods: ['GET', 'POST']
     )]
     public function view(Request $request, Post $post): Response
     {
@@ -50,7 +64,7 @@ class PostController extends AbstractController
         );
 
         $comment = new Comment();
-        $form = $this->createForm(CommentType::class, $comment,);
+        $form = $this->createForm(CommentType::class, $comment);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -71,10 +85,17 @@ class PostController extends AbstractController
         );
     }
 
+    /**
+     * Create a post.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
+     */
     #[Route(
         '/create',
         name: 'create_post',
-        methods: 'GET|POST',
+        methods: ['GET', 'POST']
     )]
     #[IsGranted('ROLE_ADMIN')]
     public function create(Request $request): Response

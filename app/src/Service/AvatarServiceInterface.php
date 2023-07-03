@@ -11,20 +11,33 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * Class Avatar service.
+ * Interface AvatarServiceInterface.
  */
 interface AvatarServiceInterface
 {
     /**
-     * Create avatar.
+     * Create an avatar.
      *
-     * @param UploadedFile $uploadedFile Uploaded file
-     * @param Avatar       $avatar       Avatar entity
-     * @param User         $user         User interface
+     * @param UploadedFile  $uploadedFile Uploaded file
+     * @param Avatar        $avatar       Avatar entity
+     * @param UserInterface $user         User interface
      */
     public function create(UploadedFile $uploadedFile, Avatar $avatar, UserInterface $user): void;
 
+    /**
+     * Update an avatar.
+     *
+     * @param UploadedFile  $uploadedFile Uploaded file
+     * @param Avatar        $avatar       Avatar entity
+     * @param UserInterface $user         User interface
+     */
     public function update(UploadedFile $uploadedFile, Avatar $avatar, UserInterface $user): void;
 
+    /**
+     * Delete an avatar.
+     *
+     * @param Avatar        $avatar Avatar entity
+     * @param UserInterface $user   User interface
+     */
     public function delete(Avatar $avatar, UserInterface $user): void;
 }

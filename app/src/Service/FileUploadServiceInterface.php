@@ -1,28 +1,25 @@
 <?php
-/**
- * File upload service interface.
- */
 
 namespace App\Service;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Interface FileUploadService.
+ * Interface FileUploadServiceInterface.
  */
 interface FileUploadServiceInterface
 {
     /**
-     * Upload file.
+     * Upload a file.
      *
-     * @param UploadedFile $file File to upload
+     * @param UploadedFile|null $file File to upload
      *
-     * @return string Filename of uploaded file
+     * @return string Filename of the uploaded file
      */
     public function upload(?UploadedFile $file): string;
 
     /**
-     * Getter for target directory.
+     * Get the target directory.
      *
      * @return string Target directory
      */

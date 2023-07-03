@@ -15,22 +15,40 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class UserUtilsController.
+ */
 #[Route('/user')]
 #[IsGranted('ROLE_USER')]
 class UserUtilsController extends AbstractController
 {
+    /**
+     * UserService.
+     */
     private UserService $userService;
 
+    /**
+     * Security.
+     */
     private Security $security;
 
+    /**
+     * Translator.
+     */
     private TranslatorInterface $translator;
 
+    /**
+     * UserPasswordHasherInterface.
+     */
     private UserPasswordHasherInterface $passwordHasher;
 
     /**
-     * Constructor.
+     * UserUtilsController constructor.
      *
-     * @param TranslatorInterface $translator Translator
+     * @param UserService                 $userService    User service
+     * @param Security                    $security       Security
+     * @param TranslatorInterface         $translator     Translator
+     * @param UserPasswordHasherInterface $passwordHasher Password Hasher
      */
     public function __construct(UserService $userService, Security $security, TranslatorInterface $translator, UserPasswordHasherInterface $passwordHasher)
     {
@@ -40,6 +58,13 @@ class UserUtilsController extends AbstractController
         $this->passwordHasher = $passwordHasher;
     }
 
+    /**
+     * Change password action.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
+     */
     #[Route(path: '/change_password', name: 'user_edit_password')]
     public function changePassword(Request $request): Response
     {
@@ -78,12 +103,19 @@ class UserUtilsController extends AbstractController
         return $this->render(
             'user/utils/change_password.html.twig',
             [
-            'form' => $form->createView(),
-            'user' => $user,
+                'form' => $form->createView(),
+                'user' => $user,
             ]
         );
     }
 
+    /**
+     * Change email action.
+     *
+     * @param Request $request HTTP request
+     *
+     * @return Response HTTP response
+     */
     #[Route(path: '/change_email', name: 'user_edit_email')]
     public function changeUsername(Request $request): Response
     {
