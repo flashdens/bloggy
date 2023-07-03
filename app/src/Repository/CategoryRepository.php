@@ -49,6 +49,7 @@ class CategoryRepository extends ServiceEntityRepository
     {
         return $this->getOrCreateQueryBuilder()
             ->select('partial c.{id, name}')
+            ->join()
             ->orderBy('c.id', 'ASC');
     }
 

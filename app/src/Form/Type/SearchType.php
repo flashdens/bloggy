@@ -29,7 +29,7 @@ class SearchType extends AbstractType
                 'label' => false,
                 'required' => true,
                 'attr' => [
-                    'placeholder' => 'Enter your search query',
+                    'placeholder' => 'action.search',
                     'class' => 'form-control',
                 ],
                 'constraints' => [

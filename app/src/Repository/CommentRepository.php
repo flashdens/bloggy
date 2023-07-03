@@ -72,7 +72,9 @@ class CommentRepository extends ServiceEntityRepository
     public function findAll(): array
     {
         return $this->createQueryBuilder('c')
-            ->select('partial c. {id, content}')
+            ->select('partial c. {id, content},
+                partial post.{id}')
+            ->join('c.post', 'post')
             ->getQuery()
             ->getResult();
     }
