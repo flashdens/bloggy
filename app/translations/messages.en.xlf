@@ -4,7 +4,7 @@
     <body>
    <trans-unit id="message.created_successfully">
      <source>message.created_successfully</source>
-     <target>Message created successfully</target>
+     <target>Created successfully</target>
    </trans-unit>
    <trans-unit id="category.edited_successfully">
      <source>category.edited_successfully</source>

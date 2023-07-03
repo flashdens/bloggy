@@ -3,102 +3,102 @@ Search.appendIndex(
                 {
             "fqsen": "\\App\\Controller\\Admin\\CategoryCrudController",
             "name": "CategoryCrudController",
-            "summary": "",
+            "summary": "Class\u0020CategoryCrudController.",
             "url": "classes/App-Controller-Admin-CategoryCrudController.html"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CategoryCrudController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "CategoryCrudController\u0020constructor.",
             "url": "classes/App-Controller-Admin-CategoryCrudController.html#method___construct"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CategoryCrudController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Show\u0020category\u0020list.",
             "url": "classes/App-Controller-Admin-CategoryCrudController.html#method_index"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CategoryCrudController\u003A\u003Acreate\u0028\u0029",
             "name": "create",
-            "summary": "",
+            "summary": "Create\u0020a\u0020new\u0020category.",
             "url": "classes/App-Controller-Admin-CategoryCrudController.html#method_create"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CategoryCrudController\u003A\u003Aview\u0028\u0029",
             "name": "view",
-            "summary": "",
+            "summary": "View\u0020category\u0020details.",
             "url": "classes/App-Controller-Admin-CategoryCrudController.html#method_view"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CategoryCrudController\u003A\u003Aedit\u0028\u0029",
             "name": "edit",
-            "summary": "",
+            "summary": "Edit\u0020a\u0020category.",
             "url": "classes/App-Controller-Admin-CategoryCrudController.html#method_edit"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CategoryCrudController\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020category.",
             "url": "classes/App-Controller-Admin-CategoryCrudController.html#method_delete"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CategoryCrudController\u003A\u003A\u0024categoryService",
             "name": "categoryService",
-            "summary": "",
+            "summary": "Category\u0020service.",
             "url": "classes/App-Controller-Admin-CategoryCrudController.html#property_categoryService"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CategoryCrudController\u003A\u003A\u0024translator",
             "name": "translator",
-            "summary": "",
+            "summary": "Translator.",
             "url": "classes/App-Controller-Admin-CategoryCrudController.html#property_translator"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CommentCrudController",
             "name": "CommentCrudController",
-            "summary": "",
+            "summary": "Class\u0020CommentCrudController.",
             "url": "classes/App-Controller-Admin-CommentCrudController.html"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CommentCrudController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "AdminController\u0020constructor.",
             "url": "classes/App-Controller-Admin-CommentCrudController.html#method___construct"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CommentCrudController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Show\u0020all\u0020comments.",
             "url": "classes/App-Controller-Admin-CommentCrudController.html#method_index"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CommentCrudController\u003A\u003Aview\u0028\u0029",
             "name": "view",
-            "summary": "",
+            "summary": "View\u0020a\u0020comment.",
             "url": "classes/App-Controller-Admin-CommentCrudController.html#method_view"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CommentCrudController\u003A\u003Aedit\u0028\u0029",
             "name": "edit",
-            "summary": "",
+            "summary": "Edit\u0020a\u0020comment.",
             "url": "classes/App-Controller-Admin-CommentCrudController.html#method_edit"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CommentCrudController\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020comment.",
             "url": "classes/App-Controller-Admin-CommentCrudController.html#method_delete"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CommentCrudController\u003A\u003A\u0024commentService",
             "name": "commentService",
-            "summary": "",
+            "summary": "Comment\u0020service.",
             "url": "classes/App-Controller-Admin-CommentCrudController.html#property_commentService"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\CommentCrudController\u003A\u003A\u0024translator",
             "name": "translator",
-            "summary": "",
+            "summary": "Translator.",
             "url": "classes/App-Controller-Admin-CommentCrudController.html#property_translator"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\PostCrudController",
             "name": "PostCrudController",
-            "summary": "",
+            "summary": "Class\u0020PostCrudController.",
             "url": "classes/App-Controller-Admin-PostCrudController.html"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\PostCrudController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor.",
             "url": "classes/App-Controller-Admin-PostCrudController.html#method___construct"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\PostCrudController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Show\u0020all\u0020posts.",
             "url": "classes/App-Controller-Admin-PostCrudController.html#method_index"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\PostCrudController\u003A\u003Aedit\u0028\u0029",
@@ -108,7 +108,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\Admin\\PostCrudController\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020post.",
             "url": "classes/App-Controller-Admin-PostCrudController.html#method_delete"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\PostCrudController\u003A\u003A\u0024postService",
@@ -123,32 +123,37 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\Admin\\TagCrudController",
             "name": "TagCrudController",
-            "summary": "",
+            "summary": "Class\u0020TagCrudController.",
             "url": "classes/App-Controller-Admin-TagCrudController.html"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\TagCrudController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "TagCrudController\u0020constructor.",
             "url": "classes/App-Controller-Admin-TagCrudController.html#method___construct"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\TagCrudController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Show\u0020all\u0020tags.",
             "url": "classes/App-Controller-Admin-TagCrudController.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\Admin\\TagCrudController\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "Create\u0020a\u0020new\u0020tag.",
+            "url": "classes/App-Controller-Admin-TagCrudController.html#method_create"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\TagCrudController\u003A\u003Aview\u0028\u0029",
             "name": "view",
-            "summary": "",
+            "summary": "View\u0020tag.",
             "url": "classes/App-Controller-Admin-TagCrudController.html#method_view"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\TagCrudController\u003A\u003Aedit\u0028\u0029",
             "name": "edit",
-            "summary": "",
+            "summary": "Edit\u0020tag.",
             "url": "classes/App-Controller-Admin-TagCrudController.html#method_edit"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\TagCrudController\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Delete\u0020tag.",
             "url": "classes/App-Controller-Admin-TagCrudController.html#method_delete"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\TagCrudController\u003A\u003A\u0024tagService",
@@ -163,62 +168,62 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\Admin\\UserCrudController",
             "name": "UserCrudController",
-            "summary": "",
+            "summary": "Class\u0020UserCrudController.",
             "url": "classes/App-Controller-Admin-UserCrudController.html"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\UserCrudController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "UserCrudController\u0020constructor.",
             "url": "classes/App-Controller-Admin-UserCrudController.html#method___construct"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\UserCrudController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Show\u0020all\u0020users.",
             "url": "classes/App-Controller-Admin-UserCrudController.html#method_index"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\UserCrudController\u003A\u003Aview\u0028\u0029",
             "name": "view",
-            "summary": "",
+            "summary": "View\u0020user.",
             "url": "classes/App-Controller-Admin-UserCrudController.html#method_view"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\UserCrudController\u003A\u003Aedit\u0028\u0029",
             "name": "edit",
-            "summary": "",
+            "summary": "Edit\u0020user.",
             "url": "classes/App-Controller-Admin-UserCrudController.html#method_edit"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\UserCrudController\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Delete\u0020user.",
             "url": "classes/App-Controller-Admin-UserCrudController.html#method_delete"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\UserCrudController\u003A\u003Aban\u0028\u0029",
             "name": "ban",
-            "summary": "",
+            "summary": "Ban\u0020user.",
             "url": "classes/App-Controller-Admin-UserCrudController.html#method_ban"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\UserCrudController\u003A\u003A\u0024userService",
             "name": "userService",
-            "summary": "",
+            "summary": "User\u0020service.",
             "url": "classes/App-Controller-Admin-UserCrudController.html#property_userService"
         },                {
             "fqsen": "\\App\\Controller\\Admin\\UserCrudController\u003A\u003A\u0024translator",
             "name": "translator",
-            "summary": "",
+            "summary": "Translator.",
             "url": "classes/App-Controller-Admin-UserCrudController.html#property_translator"
         },                {
             "fqsen": "\\App\\Controller\\Auth\\RegistrationController",
             "name": "RegistrationController",
-            "summary": "",
+            "summary": "Class\u0020RegistrationController.",
             "url": "classes/App-Controller-Auth-RegistrationController.html"
         },                {
             "fqsen": "\\App\\Controller\\Auth\\RegistrationController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "RegistrationController\u0020constructor.",
             "url": "classes/App-Controller-Auth-RegistrationController.html#method___construct"
         },                {
             "fqsen": "\\App\\Controller\\Auth\\RegistrationController\u003A\u003Aregister\u0028\u0029",
             "name": "register",
-            "summary": "",
+            "summary": "Register\u0020a\u0020new\u0020user.",
             "url": "classes/App-Controller-Auth-RegistrationController.html#method_register"
         },                {
             "fqsen": "\\App\\Controller\\Auth\\RegistrationController\u003A\u003A\u0024userService",
@@ -228,57 +233,62 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\Auth\\SecurityController",
             "name": "SecurityController",
-            "summary": "",
+            "summary": "Class\u0020SecurityController.",
             "url": "classes/App-Controller-Auth-SecurityController.html"
         },                {
             "fqsen": "\\App\\Controller\\Auth\\SecurityController\u003A\u003Alogin\u0028\u0029",
             "name": "login",
-            "summary": "",
+            "summary": "Log\u0020in\u0020user.",
             "url": "classes/App-Controller-Auth-SecurityController.html#method_login"
         },                {
             "fqsen": "\\App\\Controller\\Auth\\SecurityController\u003A\u003Alogout\u0028\u0029",
             "name": "logout",
-            "summary": "",
+            "summary": "Log\u0020out\u0020user.",
             "url": "classes/App-Controller-Auth-SecurityController.html#method_logout"
         },                {
             "fqsen": "\\App\\Controller\\IndexController",
             "name": "IndexController",
-            "summary": "Class\u0020HelloController.",
+            "summary": "Class\u0020IndexController.",
             "url": "classes/App-Controller-IndexController.html"
         },                {
             "fqsen": "\\App\\Controller\\IndexController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "IndexController\u0020constructor.",
             "url": "classes/App-Controller-IndexController.html#method___construct"
         },                {
             "fqsen": "\\App\\Controller\\IndexController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Index\u0020action.",
             "url": "classes/App-Controller-IndexController.html#method_index"
+        },                {
+            "fqsen": "\\App\\Controller\\IndexController\u003A\u003AgetFilters\u0028\u0029",
+            "name": "getFilters",
+            "summary": "Get\u0020filters\u0020from\u0020request.",
+            "url": "classes/App-Controller-IndexController.html#method_getFilters"
         },                {
             "fqsen": "\\App\\Controller\\IndexController\u003A\u003A\u0024postService",
             "name": "postService",
-            "summary": "",
+            "summary": "Post\u0020service.",
             "url": "classes/App-Controller-IndexController.html#property_postService"
         },                {
             "fqsen": "\\App\\Controller\\PostController",
             "name": "PostController",
-            "summary": "",
+            "summary": "Class\u0020PostController.",
             "url": "classes/App-Controller-PostController.html"
         },                {
             "fqsen": "\\App\\Controller\\PostController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "PostController\u0020constructor.",
             "url": "classes/App-Controller-PostController.html#method___construct"
         },                {
             "fqsen": "\\App\\Controller\\PostController\u003A\u003Aview\u0028\u0029",
             "name": "view",
-            "summary": "",
+            "summary": "View\u0020a\u0020post.",
             "url": "classes/App-Controller-PostController.html#method_view"
         },                {
             "fqsen": "\\App\\Controller\\PostController\u003A\u003Acreate\u0028\u0029",
             "name": "create",
-            "summary": "",
+            "summary": "Create\u0020a\u0020post.",
             "url": "classes/App-Controller-PostController.html#method_create"
         },                {
             "fqsen": "\\App\\Controller\\PostController\u003A\u003A\u0024postService",
@@ -296,26 +306,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-PostController.html#property_tokenStorage"
         },                {
-            "fqsen": "\\App\\Controller\\SearchController",
-            "name": "SearchController",
-            "summary": "",
-            "url": "classes/App-Controller-SearchController.html"
-        },                {
-            "fqsen": "\\App\\Controller\\SearchController\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/App-Controller-SearchController.html#method___construct"
-        },                {
-            "fqsen": "\\App\\Controller\\SearchController\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/App-Controller-SearchController.html#method_index"
-        },                {
-            "fqsen": "\\App\\Controller\\SearchController\u003A\u003A\u0024postService",
-            "name": "postService",
-            "summary": "",
-            "url": "classes/App-Controller-SearchController.html#property_postService"
-        },                {
             "fqsen": "\\App\\Controller\\User\\AvatarController",
             "name": "AvatarController",
             "summary": "Class\u0020AvatarController.",
@@ -323,7 +313,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\User\\AvatarController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Constructor.",
+            "summary": "AvatarController\u0020constructor.",
             "url": "classes/App-Controller-User-AvatarController.html#method___construct"
         },                {
             "fqsen": "\\App\\Controller\\User\\AvatarController\u003A\u003Acreate\u0028\u0029",
@@ -338,7 +328,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\User\\AvatarController\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Delete\u0020action.",
             "url": "classes/App-Controller-User-AvatarController.html#method_delete"
         },                {
             "fqsen": "\\App\\Controller\\User\\AvatarController\u003A\u003A\u0024avatarService",
@@ -353,67 +343,67 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Controller\\User\\AvatarController\u003A\u003A\u0024security",
             "name": "security",
-            "summary": "",
+            "summary": "Security.",
             "url": "classes/App-Controller-User-AvatarController.html#property_security"
         },                {
             "fqsen": "\\App\\Controller\\User\\UserIndexController",
             "name": "UserIndexController",
-            "summary": "",
+            "summary": "Class\u0020UserIndexController.",
             "url": "classes/App-Controller-User-UserIndexController.html"
         },                {
             "fqsen": "\\App\\Controller\\User\\UserIndexController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "UserIndexController\u0020constructor.",
             "url": "classes/App-Controller-User-UserIndexController.html#method___construct"
         },                {
             "fqsen": "\\App\\Controller\\User\\UserIndexController\u003A\u003Aindex\u0028\u0029",
             "name": "index",
-            "summary": "",
+            "summary": "Index\u0020action.",
             "url": "classes/App-Controller-User-UserIndexController.html#method_index"
         },                {
             "fqsen": "\\App\\Controller\\User\\UserIndexController\u003A\u003A\u0024security",
             "name": "security",
-            "summary": "",
+            "summary": "Security.",
             "url": "classes/App-Controller-User-UserIndexController.html#property_security"
         },                {
             "fqsen": "\\App\\Controller\\User\\UserUtilsController",
             "name": "UserUtilsController",
-            "summary": "",
+            "summary": "Class\u0020UserUtilsController.",
             "url": "classes/App-Controller-User-UserUtilsController.html"
         },                {
             "fqsen": "\\App\\Controller\\User\\UserUtilsController\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Constructor.",
+            "summary": "UserUtilsController\u0020constructor.",
             "url": "classes/App-Controller-User-UserUtilsController.html#method___construct"
         },                {
             "fqsen": "\\App\\Controller\\User\\UserUtilsController\u003A\u003AchangePassword\u0028\u0029",
             "name": "changePassword",
-            "summary": "",
+            "summary": "Change\u0020password\u0020action.",
             "url": "classes/App-Controller-User-UserUtilsController.html#method_changePassword"
         },                {
             "fqsen": "\\App\\Controller\\User\\UserUtilsController\u003A\u003AchangeUsername\u0028\u0029",
             "name": "changeUsername",
-            "summary": "",
+            "summary": "Change\u0020email\u0020action.",
             "url": "classes/App-Controller-User-UserUtilsController.html#method_changeUsername"
         },                {
             "fqsen": "\\App\\Controller\\User\\UserUtilsController\u003A\u003A\u0024userService",
             "name": "userService",
-            "summary": "",
+            "summary": "UserService.",
             "url": "classes/App-Controller-User-UserUtilsController.html#property_userService"
         },                {
             "fqsen": "\\App\\Controller\\User\\UserUtilsController\u003A\u003A\u0024security",
             "name": "security",
-            "summary": "",
+            "summary": "Security.",
             "url": "classes/App-Controller-User-UserUtilsController.html#property_security"
         },                {
             "fqsen": "\\App\\Controller\\User\\UserUtilsController\u003A\u003A\u0024translator",
             "name": "translator",
-            "summary": "",
+            "summary": "Translator.",
             "url": "classes/App-Controller-User-UserUtilsController.html#property_translator"
         },                {
             "fqsen": "\\App\\Controller\\User\\UserUtilsController\u003A\u003A\u0024passwordHasher",
             "name": "passwordHasher",
-            "summary": "",
+            "summary": "UserPasswordHasherInterface.",
             "url": "classes/App-Controller-User-UserUtilsController.html#property_passwordHasher"
         },                {
             "fqsen": "\\App\\DataFixtures\\AbstractBaseFixtures",
@@ -463,92 +453,92 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\DataFixtures\\AppFixtures",
             "name": "AppFixtures",
-            "summary": "",
+            "summary": "AppFixtures\u0020class.",
             "url": "classes/App-DataFixtures-AppFixtures.html"
         },                {
             "fqsen": "\\App\\DataFixtures\\AppFixtures\u003A\u003Aload\u0028\u0029",
             "name": "load",
-            "summary": "",
+            "summary": "Load\u0020data\u0020for\u0020App\u0020fixtures.",
             "url": "classes/App-DataFixtures-AppFixtures.html#method_load"
         },                {
             "fqsen": "\\App\\DataFixtures\\CategoryFixtures",
             "name": "CategoryFixtures",
-            "summary": "Class\u0020AbstractBaseFixtures.",
+            "summary": "CategoryFixtures\u0020class.",
             "url": "classes/App-DataFixtures-CategoryFixtures.html"
         },                {
             "fqsen": "\\App\\DataFixtures\\CategoryFixtures\u003A\u003AloadData\u0028\u0029",
             "name": "loadData",
-            "summary": "Load\u0020data.",
+            "summary": "Load\u0020data\u0020for\u0020Category\u0020fixtures.",
             "url": "classes/App-DataFixtures-CategoryFixtures.html#method_loadData"
         },                {
             "fqsen": "\\App\\DataFixtures\\CommentFixtures",
             "name": "CommentFixtures",
-            "summary": "Class\u0020AbstractBaseFixtures.",
+            "summary": "CommentFixtures\u0020class.",
             "url": "classes/App-DataFixtures-CommentFixtures.html"
         },                {
             "fqsen": "\\App\\DataFixtures\\CommentFixtures\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020for\u0020CommentFixtures.",
             "url": "classes/App-DataFixtures-CommentFixtures.html#method___construct"
-        },                {
-            "fqsen": "\\App\\DataFixtures\\CommentFixtures\u003A\u003AloadData\u0028\u0029",
-            "name": "loadData",
-            "summary": "Load\u0020data.",
-            "url": "classes/App-DataFixtures-CommentFixtures.html#method_loadData"
         },                {
             "fqsen": "\\App\\DataFixtures\\CommentFixtures\u003A\u003AgetDependencies\u0028\u0029",
             "name": "getDependencies",
-            "summary": "",
+            "summary": "Get\u0020the\u0020dependencies\u0020of\u0020the\u0020CommentFixtures.",
             "url": "classes/App-DataFixtures-CommentFixtures.html#method_getDependencies"
+        },                {
+            "fqsen": "\\App\\DataFixtures\\CommentFixtures\u003A\u003AloadData\u0028\u0029",
+            "name": "loadData",
+            "summary": "Load\u0020data\u0020for\u0020Comment\u0020fixtures.",
+            "url": "classes/App-DataFixtures-CommentFixtures.html#method_loadData"
         },                {
             "fqsen": "\\App\\DataFixtures\\PostFixtures",
             "name": "PostFixtures",
-            "summary": "Class\u0020AbstractBaseFixtures.",
+            "summary": "PostFixtures\u0020class.",
             "url": "classes/App-DataFixtures-PostFixtures.html"
         },                {
             "fqsen": "\\App\\DataFixtures\\PostFixtures\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor\u0020for\u0020PostFixtures.",
             "url": "classes/App-DataFixtures-PostFixtures.html#method___construct"
-        },                {
-            "fqsen": "\\App\\DataFixtures\\PostFixtures\u003A\u003AloadData\u0028\u0029",
-            "name": "loadData",
-            "summary": "Load\u0020data.",
-            "url": "classes/App-DataFixtures-PostFixtures.html#method_loadData"
         },                {
             "fqsen": "\\App\\DataFixtures\\PostFixtures\u003A\u003AgetDependencies\u0028\u0029",
             "name": "getDependencies",
-            "summary": "",
+            "summary": "Get\u0020the\u0020dependencies\u0020of\u0020the\u0020PostFixtures.",
             "url": "classes/App-DataFixtures-PostFixtures.html#method_getDependencies"
+        },                {
+            "fqsen": "\\App\\DataFixtures\\PostFixtures\u003A\u003AloadData\u0028\u0029",
+            "name": "loadData",
+            "summary": "Load\u0020data\u0020for\u0020Post\u0020fixtures.",
+            "url": "classes/App-DataFixtures-PostFixtures.html#method_loadData"
         },                {
             "fqsen": "\\App\\DataFixtures\\TagFixtures",
             "name": "TagFixtures",
-            "summary": "Class\u0020AbstractBaseFixtures.",
+            "summary": "TagFixtures\u0020class.",
             "url": "classes/App-DataFixtures-TagFixtures.html"
-        },                {
-            "fqsen": "\\App\\DataFixtures\\TagFixtures\u003A\u003AloadData\u0028\u0029",
-            "name": "loadData",
-            "summary": "Load\u0020data.",
-            "url": "classes/App-DataFixtures-TagFixtures.html#method_loadData"
         },                {
             "fqsen": "\\App\\DataFixtures\\TagFixtures\u003A\u003AgetDependencies\u0028\u0029",
             "name": "getDependencies",
-            "summary": "",
+            "summary": "Get\u0020the\u0020dependencies\u0020of\u0020the\u0020TagFixtures.",
             "url": "classes/App-DataFixtures-TagFixtures.html#method_getDependencies"
+        },                {
+            "fqsen": "\\App\\DataFixtures\\TagFixtures\u003A\u003AloadData\u0028\u0029",
+            "name": "loadData",
+            "summary": "Load\u0020data\u0020for\u0020Tag\u0020fixtures.",
+            "url": "classes/App-DataFixtures-TagFixtures.html#method_loadData"
         },                {
             "fqsen": "\\App\\DataFixtures\\UserFixtures",
             "name": "UserFixtures",
-            "summary": "Class\u0020UserFixtures.",
+            "summary": "UserFixtures\u0020class.",
             "url": "classes/App-DataFixtures-UserFixtures.html"
         },                {
             "fqsen": "\\App\\DataFixtures\\UserFixtures\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "UserFixtures\u0020constructor.",
             "url": "classes/App-DataFixtures-UserFixtures.html#method___construct"
         },                {
             "fqsen": "\\App\\DataFixtures\\UserFixtures\u003A\u003AloadData\u0028\u0029",
             "name": "loadData",
-            "summary": "Load\u0020data.",
+            "summary": "Load\u0020data\u0020for\u0020User\u0020fixtures.",
             "url": "classes/App-DataFixtures-UserFixtures.html#method_loadData"
         },                {
             "fqsen": "\\App\\DataFixtures\\UserFixtures\u003A\u003A\u0024passwordHasher",
@@ -563,27 +553,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\Avatar\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "",
+            "summary": "Get\u0020the\u0020ID\u0020of\u0020the\u0020avatar.",
             "url": "classes/App-Entity-Avatar.html#method_getId"
         },                {
             "fqsen": "\\App\\Entity\\Avatar\u003A\u003AgetUser\u0028\u0029",
             "name": "getUser",
-            "summary": "",
+            "summary": "Get\u0020the\u0020user\u0020associated\u0020with\u0020the\u0020avatar.",
             "url": "classes/App-Entity-Avatar.html#method_getUser"
         },                {
             "fqsen": "\\App\\Entity\\Avatar\u003A\u003AsetUser\u0028\u0029",
             "name": "setUser",
-            "summary": "",
+            "summary": "Set\u0020the\u0020user\u0020associated\u0020with\u0020the\u0020avatar.",
             "url": "classes/App-Entity-Avatar.html#method_setUser"
         },                {
             "fqsen": "\\App\\Entity\\Avatar\u003A\u003AgetFileName\u0028\u0029",
             "name": "getFileName",
-            "summary": "",
+            "summary": "Get\u0020the\u0020file\u0020name\u0020of\u0020the\u0020avatar.",
             "url": "classes/App-Entity-Avatar.html#method_getFileName"
         },                {
             "fqsen": "\\App\\Entity\\Avatar\u003A\u003AsetFileName\u0028\u0029",
             "name": "setFileName",
-            "summary": "",
+            "summary": "Set\u0020the\u0020file\u0020name\u0020of\u0020the\u0020avatar.",
             "url": "classes/App-Entity-Avatar.html#method_setFileName"
         },                {
             "fqsen": "\\App\\Entity\\Avatar\u003A\u003A\u0024id",
@@ -608,37 +598,37 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\Category\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Category\u0020constructor.",
             "url": "classes/App-Entity-Category.html#method___construct"
         },                {
             "fqsen": "\\App\\Entity\\Category\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "",
+            "summary": "Get\u0020the\u0020ID\u0020of\u0020the\u0020category.",
             "url": "classes/App-Entity-Category.html#method_getId"
         },                {
             "fqsen": "\\App\\Entity\\Category\u003A\u003AgetName\u0028\u0029",
             "name": "getName",
-            "summary": "",
+            "summary": "Get\u0020the\u0020name\u0020of\u0020the\u0020category.",
             "url": "classes/App-Entity-Category.html#method_getName"
         },                {
             "fqsen": "\\App\\Entity\\Category\u003A\u003AsetName\u0028\u0029",
             "name": "setName",
-            "summary": "",
+            "summary": "Set\u0020the\u0020name\u0020of\u0020the\u0020category.",
             "url": "classes/App-Entity-Category.html#method_setName"
         },                {
             "fqsen": "\\App\\Entity\\Category\u003A\u003AgetPosts\u0028\u0029",
             "name": "getPosts",
-            "summary": "",
+            "summary": "Get\u0020the\u0020posts\u0020associated\u0020with\u0020the\u0020category.",
             "url": "classes/App-Entity-Category.html#method_getPosts"
         },                {
             "fqsen": "\\App\\Entity\\Category\u003A\u003AaddPost\u0028\u0029",
             "name": "addPost",
-            "summary": "",
+            "summary": "Add\u0020a\u0020post\u0020to\u0020the\u0020category.",
             "url": "classes/App-Entity-Category.html#method_addPost"
         },                {
             "fqsen": "\\App\\Entity\\Category\u003A\u003AremovePost\u0028\u0029",
             "name": "removePost",
-            "summary": "",
+            "summary": "Remove\u0020a\u0020post\u0020from\u0020the\u0020category.",
             "url": "classes/App-Entity-Category.html#method_removePost"
         },                {
             "fqsen": "\\App\\Entity\\Category\u003A\u003A\u0024id",
@@ -663,67 +653,47 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "",
+            "summary": "Get\u0020the\u0020ID\u0020of\u0020the\u0020comment.",
             "url": "classes/App-Entity-Comment.html#method_getId"
-        },                {
-            "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetAuthorID\u0028\u0029",
-            "name": "getAuthorID",
-            "summary": "",
-            "url": "classes/App-Entity-Comment.html#method_getAuthorID"
-        },                {
-            "fqsen": "\\App\\Entity\\Comment\u003A\u003AsetAuthorID\u0028\u0029",
-            "name": "setAuthorID",
-            "summary": "",
-            "url": "classes/App-Entity-Comment.html#method_setAuthorID"
-        },                {
-            "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetPostID\u0028\u0029",
-            "name": "getPostID",
-            "summary": "",
-            "url": "classes/App-Entity-Comment.html#method_getPostID"
-        },                {
-            "fqsen": "\\App\\Entity\\Comment\u003A\u003AsetPostID\u0028\u0029",
-            "name": "setPostID",
-            "summary": "",
-            "url": "classes/App-Entity-Comment.html#method_setPostID"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetPublished\u0028\u0029",
             "name": "getPublished",
-            "summary": "",
+            "summary": "Get\u0020the\u0020published\u0020date\u0020of\u0020the\u0020comment.",
             "url": "classes/App-Entity-Comment.html#method_getPublished"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AsetPublished\u0028\u0029",
             "name": "setPublished",
-            "summary": "",
+            "summary": "Set\u0020the\u0020published\u0020date\u0020of\u0020the\u0020comment.",
             "url": "classes/App-Entity-Comment.html#method_setPublished"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetContent\u0028\u0029",
             "name": "getContent",
-            "summary": "",
+            "summary": "Get\u0020the\u0020content\u0020of\u0020the\u0020comment.",
             "url": "classes/App-Entity-Comment.html#method_getContent"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AsetContent\u0028\u0029",
             "name": "setContent",
-            "summary": "",
+            "summary": "Set\u0020the\u0020content\u0020of\u0020the\u0020comment.",
             "url": "classes/App-Entity-Comment.html#method_setContent"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetPost\u0028\u0029",
             "name": "getPost",
-            "summary": "",
+            "summary": "Get\u0020the\u0020post\u0020associated\u0020with\u0020the\u0020comment.",
             "url": "classes/App-Entity-Comment.html#method_getPost"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AsetPost\u0028\u0029",
             "name": "setPost",
-            "summary": "",
+            "summary": "Set\u0020the\u0020post\u0020associated\u0020with\u0020the\u0020comment.",
             "url": "classes/App-Entity-Comment.html#method_setPost"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AgetAuthor\u0028\u0029",
             "name": "getAuthor",
-            "summary": "",
+            "summary": "Get\u0020the\u0020author\u0020of\u0020the\u0020comment.",
             "url": "classes/App-Entity-Comment.html#method_getAuthor"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003AsetAuthor\u0028\u0029",
             "name": "setAuthor",
-            "summary": "",
+            "summary": "Set\u0020the\u0020author\u0020of\u0020the\u0020comment.",
             "url": "classes/App-Entity-Comment.html#method_setAuthor"
         },                {
             "fqsen": "\\App\\Entity\\Comment\u003A\u003A\u0024id",
@@ -778,93 +748,103 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Post\u0020constructor.",
             "url": "classes/App-Entity-Post.html#method___construct"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "",
+            "summary": "Get\u0020the\u0020ID\u0020of\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_getId"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AgetContent\u0028\u0029",
             "name": "getContent",
-            "summary": "",
+            "summary": "Get\u0020the\u0020content\u0020of\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_getContent"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AsetContent\u0028\u0029",
             "name": "setContent",
-            "summary": "",
+            "summary": "Set\u0020the\u0020content\u0020of\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_setContent"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AgetPublished\u0028\u0029",
             "name": "getPublished",
-            "summary": "",
+            "summary": "Get\u0020the\u0020published\u0020datetime\u0020of\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_getPublished"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AsetPublished\u0028\u0029",
             "name": "setPublished",
-            "summary": "",
+            "summary": "Set\u0020the\u0020published\u0020datetime\u0020of\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_setPublished"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AgetEdited\u0028\u0029",
             "name": "getEdited",
-            "summary": "",
+            "summary": "Get\u0020the\u0020edited\u0020datetime\u0020of\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_getEdited"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AsetEdited\u0028\u0029",
             "name": "setEdited",
-            "summary": "",
+            "summary": "Set\u0020the\u0020edited\u0020datetime\u0020of\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_setEdited"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AgetCategory\u0028\u0029",
             "name": "getCategory",
-            "summary": "",
+            "summary": "Get\u0020the\u0020category\u0020of\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_getCategory"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AsetCategory\u0028\u0029",
             "name": "setCategory",
-            "summary": "",
+            "summary": "Set\u0020the\u0020category\u0020of\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_setCategory"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AgetTitle\u0028\u0029",
             "name": "getTitle",
-            "summary": "",
+            "summary": "Get\u0020the\u0020title\u0020of\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_getTitle"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AsetTitle\u0028\u0029",
             "name": "setTitle",
-            "summary": "",
+            "summary": "Set\u0020the\u0020title\u0020of\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_setTitle"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AgetViews\u0028\u0029",
             "name": "getViews",
-            "summary": "",
+            "summary": "Get\u0020the\u0020number\u0020of\u0020views\u0020for\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_getViews"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AsetViews\u0028\u0029",
             "name": "setViews",
-            "summary": "",
+            "summary": "Set\u0020the\u0020number\u0020of\u0020views\u0020for\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_setViews"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003Aincrement\u0028\u0029",
             "name": "increment",
-            "summary": "",
+            "summary": "Increment\u0020the\u0020number\u0020of\u0020views\u0020for\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_increment"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AgetTags\u0028\u0029",
             "name": "getTags",
-            "summary": "",
+            "summary": "Get\u0020the\u0020tags\u0020associated\u0020with\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_getTags"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AaddTag\u0028\u0029",
             "name": "addTag",
-            "summary": "",
+            "summary": "Add\u0020a\u0020tag\u0020to\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_addTag"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003AremoveTag\u0028\u0029",
             "name": "removeTag",
-            "summary": "",
+            "summary": "Remove\u0020a\u0020tag\u0020from\u0020the\u0020post.",
             "url": "classes/App-Entity-Post.html#method_removeTag"
+        },                {
+            "fqsen": "\\App\\Entity\\Post\u003A\u003AgetImage\u0028\u0029",
+            "name": "getImage",
+            "summary": "Get\u0020the\u0020image\u0020filename\u0020of\u0020the\u0020post.",
+            "url": "classes/App-Entity-Post.html#method_getImage"
+        },                {
+            "fqsen": "\\App\\Entity\\Post\u003A\u003AsetImage\u0028\u0029",
+            "name": "setImage",
+            "summary": "Set\u0020the\u0020image\u0020filename\u0020of\u0020the\u0020post.",
+            "url": "classes/App-Entity-Post.html#method_setImage"
         },                {
             "fqsen": "\\App\\Entity\\Post\u003A\u003A\u0024id",
             "name": "id",
@@ -911,6 +891,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-Post.html#property_tags"
         },                {
+            "fqsen": "\\App\\Entity\\Post\u003A\u003A\u0024image",
+            "name": "image",
+            "summary": "",
+            "url": "classes/App-Entity-Post.html#property_image"
+        },                {
             "fqsen": "\\App\\Entity\\Tag",
             "name": "Tag",
             "summary": "",
@@ -918,67 +903,67 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor.\u0020Initializes\u0020the\u0020posts\u0020collection.",
             "url": "classes/App-Entity-Tag.html#method___construct"
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "",
+            "summary": "Get\u0020the\u0020ID\u0020of\u0020the\u0020tag.",
             "url": "classes/App-Entity-Tag.html#method_getId"
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003AgetCreatedAt\u0028\u0029",
             "name": "getCreatedAt",
-            "summary": "",
+            "summary": "Get\u0020the\u0020creation\u0020date\u0020of\u0020the\u0020tag.",
             "url": "classes/App-Entity-Tag.html#method_getCreatedAt"
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003AsetCreatedAt\u0028\u0029",
             "name": "setCreatedAt",
-            "summary": "",
+            "summary": "Set\u0020the\u0020creation\u0020date\u0020of\u0020the\u0020tag.",
             "url": "classes/App-Entity-Tag.html#method_setCreatedAt"
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003AgetUpdatedAt\u0028\u0029",
             "name": "getUpdatedAt",
-            "summary": "",
+            "summary": "Get\u0020the\u0020update\u0020date\u0020of\u0020the\u0020tag.",
             "url": "classes/App-Entity-Tag.html#method_getUpdatedAt"
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003AsetUpdatedAt\u0028\u0029",
             "name": "setUpdatedAt",
-            "summary": "",
+            "summary": "Set\u0020the\u0020update\u0020date\u0020of\u0020the\u0020tag.",
             "url": "classes/App-Entity-Tag.html#method_setUpdatedAt"
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003AgetSlug\u0028\u0029",
             "name": "getSlug",
-            "summary": "",
+            "summary": "Get\u0020the\u0020slug\u0020of\u0020the\u0020tag.",
             "url": "classes/App-Entity-Tag.html#method_getSlug"
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003AsetSlug\u0028\u0029",
             "name": "setSlug",
-            "summary": "",
+            "summary": "Set\u0020the\u0020slug\u0020of\u0020the\u0020tag.",
             "url": "classes/App-Entity-Tag.html#method_setSlug"
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003AgetTitle\u0028\u0029",
             "name": "getTitle",
-            "summary": "",
+            "summary": "Get\u0020the\u0020title\u0020of\u0020the\u0020tag.",
             "url": "classes/App-Entity-Tag.html#method_getTitle"
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003AsetTitle\u0028\u0029",
             "name": "setTitle",
-            "summary": "",
+            "summary": "Set\u0020the\u0020title\u0020of\u0020the\u0020tag.",
             "url": "classes/App-Entity-Tag.html#method_setTitle"
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003AgetPosts\u0028\u0029",
             "name": "getPosts",
-            "summary": "",
+            "summary": "Get\u0020the\u0020posts\u0020associated\u0020with\u0020the\u0020tag.",
             "url": "classes/App-Entity-Tag.html#method_getPosts"
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003AaddPost\u0028\u0029",
             "name": "addPost",
-            "summary": "",
+            "summary": "Add\u0020a\u0020post\u0020to\u0020the\u0020tag.",
             "url": "classes/App-Entity-Tag.html#method_addPost"
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003AremovePost\u0028\u0029",
             "name": "removePost",
-            "summary": "",
+            "summary": "Remove\u0020a\u0020post\u0020from\u0020the\u0020tag.",
             "url": "classes/App-Entity-Tag.html#method_removePost"
         },                {
             "fqsen": "\\App\\Entity\\Tag\u003A\u003A\u0024id",
@@ -1018,22 +1003,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor.",
             "url": "classes/App-Entity-User.html#method___construct"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AgetId\u0028\u0029",
             "name": "getId",
-            "summary": "",
+            "summary": "Get\u0020the\u0020ID\u0020of\u0020the\u0020user.",
             "url": "classes/App-Entity-User.html#method_getId"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AgetEmail\u0028\u0029",
             "name": "getEmail",
-            "summary": "",
+            "summary": "Get\u0020the\u0020email\u0020of\u0020the\u0020user.",
             "url": "classes/App-Entity-User.html#method_getEmail"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AsetEmail\u0028\u0029",
             "name": "setEmail",
-            "summary": "",
+            "summary": "Set\u0020the\u0020email\u0020of\u0020the\u0020user.",
             "url": "classes/App-Entity-User.html#method_setEmail"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AgetUserIdentifier\u0028\u0029",
@@ -1053,7 +1038,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AsetRoles\u0028\u0029",
             "name": "setRoles",
-            "summary": "",
+            "summary": "Set\u0020the\u0020roles\u0020of\u0020the\u0020user.",
             "url": "classes/App-Entity-User.html#method_setRoles"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AgetPassword\u0028\u0029",
@@ -1063,7 +1048,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AsetPassword\u0028\u0029",
             "name": "setPassword",
-            "summary": "",
+            "summary": "Set\u0020the\u0020password\u0020of\u0020the\u0020user.",
             "url": "classes/App-Entity-User.html#method_setPassword"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AgetSalt\u0028\u0029",
@@ -1076,49 +1061,49 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Entity-User.html#method_eraseCredentials"
         },                {
-            "fqsen": "\\App\\Entity\\User\u003A\u003AIsBanned\u0028\u0029",
-            "name": "IsBanned",
+            "fqsen": "\\App\\Entity\\User\u003A\u003A\u0024isBanned",
+            "name": "isBanned",
             "summary": "",
-            "url": "classes/App-Entity-User.html#method_IsBanned"
+            "url": "classes/App-Entity-User.html#property_isBanned"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AsetIsBanned\u0028\u0029",
             "name": "setIsBanned",
-            "summary": "",
+            "summary": "Set\u0020the\u0020banned\u0020status\u0020of\u0020the\u0020user.",
             "url": "classes/App-Entity-User.html#method_setIsBanned"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AgetJoined\u0028\u0029",
             "name": "getJoined",
-            "summary": "",
+            "summary": "Get\u0020the\u0020join\u0020date\u0020of\u0020the\u0020user.",
             "url": "classes/App-Entity-User.html#method_getJoined"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AsetJoined\u0028\u0029",
             "name": "setJoined",
-            "summary": "",
+            "summary": "Set\u0020the\u0020join\u0020date\u0020of\u0020the\u0020user.",
             "url": "classes/App-Entity-User.html#method_setJoined"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AgetComments\u0028\u0029",
             "name": "getComments",
-            "summary": "",
+            "summary": "Get\u0020the\u0020comments\u0020written\u0020by\u0020the\u0020user.",
             "url": "classes/App-Entity-User.html#method_getComments"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AaddComment\u0028\u0029",
             "name": "addComment",
-            "summary": "",
+            "summary": "Add\u0020a\u0020comment\u0020written\u0020by\u0020the\u0020user.",
             "url": "classes/App-Entity-User.html#method_addComment"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AremoveComment\u0028\u0029",
             "name": "removeComment",
-            "summary": "",
+            "summary": "Remove\u0020a\u0020comment\u0020written\u0020by\u0020the\u0020user.",
             "url": "classes/App-Entity-User.html#method_removeComment"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AgetAvatar\u0028\u0029",
             "name": "getAvatar",
-            "summary": "",
+            "summary": "Get\u0020the\u0020avatar\u0020of\u0020the\u0020user.",
             "url": "classes/App-Entity-User.html#method_getAvatar"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003AsetAvatar\u0028\u0029",
             "name": "setAvatar",
-            "summary": "",
+            "summary": "Set\u0020the\u0020avatar\u0020of\u0020the\u0020user.",
             "url": "classes/App-Entity-User.html#method_setAvatar"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003A\u0024id",
@@ -1140,11 +1125,6 @@ Search.appendIndex(
             "name": "password",
             "summary": "",
             "url": "classes/App-Entity-User.html#property_password"
-        },                {
-            "fqsen": "\\App\\Entity\\User\u003A\u003A\u0024isBanned",
-            "name": "isBanned",
-            "summary": "",
-            "url": "classes/App-Entity-User.html#property_isBanned"
         },                {
             "fqsen": "\\App\\Entity\\User\u003A\u003A\u0024joined",
             "name": "joined",
@@ -1248,22 +1228,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Form\\Type\\PasswordChangeType",
             "name": "PasswordChangeType",
-            "summary": "",
+            "summary": "Class\u0020PasswordChangeType",
             "url": "classes/App-Form-Type-PasswordChangeType.html"
         },                {
             "fqsen": "\\App\\Form\\Type\\PasswordChangeType\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
-            "summary": "",
+            "summary": "Build\u0020the\u0020form.",
             "url": "classes/App-Form-Type-PasswordChangeType.html#method_buildForm"
         },                {
             "fqsen": "\\App\\Form\\Type\\PasswordChangeType\u003A\u003AconfigureOptions\u0028\u0029",
             "name": "configureOptions",
-            "summary": "Configures\u0020the\u0020options\u0020for\u0020this\u0020type.",
+            "summary": "Configure\u0020the\u0020options\u0020for\u0020the\u0020form.",
             "url": "classes/App-Form-Type-PasswordChangeType.html#method_configureOptions"
         },                {
             "fqsen": "\\App\\Form\\Type\\PasswordChangeType\u003A\u003AgetBlockPrefix\u0028\u0029",
             "name": "getBlockPrefix",
-            "summary": "Returns\u0020the\u0020prefix\u0020of\u0020the\u0020template\u0020block\u0020name\u0020for\u0020this\u0020type.",
+            "summary": "Get\u0020the\u0020block\u0020prefix\u0020for\u0020the\u0020form.",
             "url": "classes/App-Form-Type-PasswordChangeType.html#method_getBlockPrefix"
         },                {
             "fqsen": "\\App\\Form\\Type\\PostType",
@@ -1273,7 +1253,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Form\\Type\\PostType\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "PostType\u0020constructor.",
             "url": "classes/App-Form-Type-PostType.html#method___construct"
         },                {
             "fqsen": "\\App\\Form\\Type\\PostType\u003A\u003AbuildForm\u0028\u0029",
@@ -1298,32 +1278,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Form\\Type\\RegistrationFormType",
             "name": "RegistrationFormType",
-            "summary": "",
+            "summary": "Class\u0020RegistrationFormType",
             "url": "classes/App-Form-Type-RegistrationFormType.html"
         },                {
             "fqsen": "\\App\\Form\\Type\\RegistrationFormType\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
-            "summary": "",
+            "summary": "Build\u0020the\u0020form.",
             "url": "classes/App-Form-Type-RegistrationFormType.html#method_buildForm"
         },                {
             "fqsen": "\\App\\Form\\Type\\RegistrationFormType\u003A\u003AconfigureOptions\u0028\u0029",
             "name": "configureOptions",
-            "summary": "",
+            "summary": "Configure\u0020the\u0020options\u0020for\u0020the\u0020form.",
             "url": "classes/App-Form-Type-RegistrationFormType.html#method_configureOptions"
         },                {
             "fqsen": "\\App\\Form\\Type\\SearchType",
             "name": "SearchType",
-            "summary": "",
+            "summary": "Class\u0020SearchType",
             "url": "classes/App-Form-Type-SearchType.html"
         },                {
             "fqsen": "\\App\\Form\\Type\\SearchType\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
-            "summary": "",
+            "summary": "Build\u0020the\u0020form.",
             "url": "classes/App-Form-Type-SearchType.html#method_buildForm"
         },                {
             "fqsen": "\\App\\Form\\Type\\SearchType\u003A\u003AconfigureOptions\u0028\u0029",
             "name": "configureOptions",
-            "summary": "",
+            "summary": "Configure\u0020the\u0020options\u0020for\u0020the\u0020form.",
             "url": "classes/App-Form-Type-SearchType.html#method_configureOptions"
         },                {
             "fqsen": "\\App\\Form\\Type\\TagType",
@@ -1348,12 +1328,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Form\\Type\\UserType",
             "name": "UserType",
-            "summary": "",
+            "summary": "User\u0020type.",
             "url": "classes/App-Form-Type-UserType.html"
         },                {
             "fqsen": "\\App\\Form\\Type\\UserType\u003A\u003AbuildForm\u0028\u0029",
             "name": "buildForm",
-            "summary": "",
+            "summary": "Builds\u0020the\u0020form.",
             "url": "classes/App-Form-Type-UserType.html#method_buildForm"
         },                {
             "fqsen": "\\App\\Form\\Type\\UserType\u003A\u003AconfigureOptions\u0028\u0029",
@@ -1378,22 +1358,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Repository\\AvatarRepository\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "AvatarRepository\u0020constructor.",
             "url": "classes/App-Repository-AvatarRepository.html#method___construct"
         },                {
             "fqsen": "\\App\\Repository\\AvatarRepository\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Saves\u0020the\u0020Avatar\u0020entity.",
             "url": "classes/App-Repository-AvatarRepository.html#method_save"
         },                {
             "fqsen": "\\App\\Repository\\AvatarRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
             "name": "getOrCreateQueryBuilder",
-            "summary": "",
+            "summary": "Gets\u0020or\u0020creates\u0020a\u0020QueryBuilder\u0020instance.",
             "url": "classes/App-Repository-AvatarRepository.html#method_getOrCreateQueryBuilder"
         },                {
             "fqsen": "\\App\\Repository\\AvatarRepository\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "",
+            "summary": "Removes\u0020the\u0020Avatar\u0020entity.",
             "url": "classes/App-Repository-AvatarRepository.html#method_remove"
         },                {
             "fqsen": "\\App\\Repository\\CategoryRepository",
@@ -1401,29 +1381,29 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Repository-CategoryRepository.html"
         },                {
-            "fqsen": "\\App\\Repository\\CategoryRepository\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/App-Repository-CategoryRepository.html#method___construct"
-        },                {
             "fqsen": "\\App\\Repository\\CategoryRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
             "name": "getOrCreateQueryBuilder",
-            "summary": "",
+            "summary": "Gets\u0020or\u0020creates\u0020a\u0020QueryBuilder\u0020instance.",
             "url": "classes/App-Repository-CategoryRepository.html#method_getOrCreateQueryBuilder"
+        },                {
+            "fqsen": "\\App\\Repository\\CategoryRepository\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "CategoryRepository\u0020constructor.",
+            "url": "classes/App-Repository-CategoryRepository.html#method___construct"
         },                {
             "fqsen": "\\App\\Repository\\CategoryRepository\u003A\u003AqueryAll\u0028\u0029",
             "name": "queryAll",
-            "summary": "",
+            "summary": "Returns\u0020a\u0020query\u0020builder\u0020for\u0020retrieving\u0020all\u0020categories.",
             "url": "classes/App-Repository-CategoryRepository.html#method_queryAll"
         },                {
             "fqsen": "\\App\\Repository\\CategoryRepository\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Saves\u0020the\u0020Category\u0020entity.",
             "url": "classes/App-Repository-CategoryRepository.html#method_save"
         },                {
             "fqsen": "\\App\\Repository\\CategoryRepository\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "",
+            "summary": "Removes\u0020the\u0020Category\u0020entity.",
             "url": "classes/App-Repository-CategoryRepository.html#method_remove"
         },                {
             "fqsen": "\\App\\Repository\\CategoryRepository\u003A\u003APAGINATOR_ITEMS_PER_PAGE",
@@ -1436,30 +1416,30 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Repository-CommentRepository.html"
         },                {
+            "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
+            "name": "getOrCreateQueryBuilder",
+            "summary": "Gets\u0020or\u0020creates\u0020a\u0020QueryBuilder\u0020instance.",
+            "url": "classes/App-Repository-CommentRepository.html#method_getOrCreateQueryBuilder"
+        },                {
             "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "CommentRepository\u0020constructor.",
             "url": "classes/App-Repository-CommentRepository.html#method___construct"
         },                {
             "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Saves\u0020the\u0020Comment\u0020entity.",
             "url": "classes/App-Repository-CommentRepository.html#method_save"
         },                {
             "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "",
+            "summary": "Removes\u0020the\u0020Comment\u0020entity.",
             "url": "classes/App-Repository-CommentRepository.html#method_remove"
         },                {
-            "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
-            "name": "getOrCreateQueryBuilder",
-            "summary": "",
-            "url": "classes/App-Repository-CommentRepository.html#method_getOrCreateQueryBuilder"
-        },                {
-            "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003AqueryAll\u0028\u0029",
-            "name": "queryAll",
-            "summary": "",
-            "url": "classes/App-Repository-CommentRepository.html#method_queryAll"
+            "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003AfindAll\u0028\u0029",
+            "name": "findAll",
+            "summary": "Find\u0020all\u0020comments.",
+            "url": "classes/App-Repository-CommentRepository.html#method_findAll"
         },                {
             "fqsen": "\\App\\Repository\\CommentRepository\u003A\u003APAGINATOR_ITEMS_PER_PAGE",
             "name": "PAGINATOR_ITEMS_PER_PAGE",
@@ -1471,44 +1451,44 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Repository-PostRepository.html"
         },                {
+            "fqsen": "\\App\\Repository\\PostRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
+            "name": "getOrCreateQueryBuilder",
+            "summary": "Gets\u0020or\u0020creates\u0020a\u0020QueryBuilder\u0020instance.",
+            "url": "classes/App-Repository-PostRepository.html#method_getOrCreateQueryBuilder"
+        },                {
             "fqsen": "\\App\\Repository\\PostRepository\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "PostRepository\u0020constructor.",
             "url": "classes/App-Repository-PostRepository.html#method___construct"
         },                {
             "fqsen": "\\App\\Repository\\PostRepository\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Saves\u0020the\u0020Post\u0020entity.",
             "url": "classes/App-Repository-PostRepository.html#method_save"
         },                {
             "fqsen": "\\App\\Repository\\PostRepository\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "",
+            "summary": "Removes\u0020the\u0020Post\u0020entity.",
             "url": "classes/App-Repository-PostRepository.html#method_remove"
         },                {
             "fqsen": "\\App\\Repository\\PostRepository\u003A\u003AfindPostsByTag\u0028\u0029",
             "name": "findPostsByTag",
-            "summary": "",
+            "summary": "Finds\u0020posts\u0020by\u0020a\u0020specific\u0020tag.",
             "url": "classes/App-Repository-PostRepository.html#method_findPostsByTag"
-        },                {
-            "fqsen": "\\App\\Repository\\PostRepository\u003A\u003Asearch\u0028\u0029",
-            "name": "search",
-            "summary": "",
-            "url": "classes/App-Repository-PostRepository.html#method_search"
-        },                {
-            "fqsen": "\\App\\Repository\\PostRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
-            "name": "getOrCreateQueryBuilder",
-            "summary": "",
-            "url": "classes/App-Repository-PostRepository.html#method_getOrCreateQueryBuilder"
         },                {
             "fqsen": "\\App\\Repository\\PostRepository\u003A\u003AqueryAll\u0028\u0029",
             "name": "queryAll",
-            "summary": "",
+            "summary": "Returns\u0020a\u0020query\u0020builder\u0020for\u0020retrieving\u0020all\u0020posts\u0020with\u0020optional\u0020filters.",
             "url": "classes/App-Repository-PostRepository.html#method_queryAll"
+        },                {
+            "fqsen": "\\App\\Repository\\PostRepository\u003A\u003AapplyFiltersToList\u0028\u0029",
+            "name": "applyFiltersToList",
+            "summary": "Applies\u0020filters\u0020to\u0020the\u0020query\u0020builder.",
+            "url": "classes/App-Repository-PostRepository.html#method_applyFiltersToList"
         },                {
             "fqsen": "\\App\\Repository\\PostRepository\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Deletes\u0020a\u0020post\u0020entity.",
             "url": "classes/App-Repository-PostRepository.html#method_delete"
         },                {
             "fqsen": "\\App\\Repository\\PostRepository\u003A\u003APAGINATOR_ITEMS_PER_PAGE",
@@ -1521,29 +1501,29 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Repository-TagRepository.html"
         },                {
+            "fqsen": "\\App\\Repository\\TagRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
+            "name": "getOrCreateQueryBuilder",
+            "summary": "Returns\u0020a\u0020QueryBuilder\u0020instance.",
+            "url": "classes/App-Repository-TagRepository.html#method_getOrCreateQueryBuilder"
+        },                {
             "fqsen": "\\App\\Repository\\TagRepository\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "TagRepository\u0020constructor.",
             "url": "classes/App-Repository-TagRepository.html#method___construct"
         },                {
             "fqsen": "\\App\\Repository\\TagRepository\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Saves\u0020a\u0020tag\u0020entity.",
             "url": "classes/App-Repository-TagRepository.html#method_save"
         },                {
             "fqsen": "\\App\\Repository\\TagRepository\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "",
+            "summary": "Removes\u0020a\u0020tag\u0020entity.",
             "url": "classes/App-Repository-TagRepository.html#method_remove"
-        },                {
-            "fqsen": "\\App\\Repository\\TagRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
-            "name": "getOrCreateQueryBuilder",
-            "summary": "",
-            "url": "classes/App-Repository-TagRepository.html#method_getOrCreateQueryBuilder"
         },                {
             "fqsen": "\\App\\Repository\\TagRepository\u003A\u003AqueryAll\u0028\u0029",
             "name": "queryAll",
-            "summary": "",
+            "summary": "Returns\u0020a\u0020QueryBuilder\u0020instance\u0020with\u0020ordered\u0020tags.",
             "url": "classes/App-Repository-TagRepository.html#method_queryAll"
         },                {
             "fqsen": "\\App\\Repository\\TagRepository\u003A\u003APAGINATOR_ITEMS_PER_PAGE",
@@ -1558,38 +1538,38 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Repository\\UserRepository\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "UserRepository\u0020constructor.",
             "url": "classes/App-Repository-UserRepository.html#method___construct"
-        },                {
-            "fqsen": "\\App\\Repository\\UserRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
-            "name": "getOrCreateQueryBuilder",
-            "summary": "",
-            "url": "classes/App-Repository-UserRepository.html#method_getOrCreateQueryBuilder"
         },                {
             "fqsen": "\\App\\Repository\\UserRepository\u003A\u003Asave\u0028\u0029",
             "name": "save",
-            "summary": "",
+            "summary": "Saves\u0020a\u0020user\u0020entity.",
             "url": "classes/App-Repository-UserRepository.html#method_save"
         },                {
             "fqsen": "\\App\\Repository\\UserRepository\u003A\u003Aremove\u0028\u0029",
             "name": "remove",
-            "summary": "",
+            "summary": "Removes\u0020a\u0020user\u0020entity.",
             "url": "classes/App-Repository-UserRepository.html#method_remove"
         },                {
             "fqsen": "\\App\\Repository\\UserRepository\u003A\u003AqueryAll\u0028\u0029",
             "name": "queryAll",
-            "summary": "",
+            "summary": "Returns\u0020a\u0020QueryBuilder\u0020instance\u0020with\u0020ordered\u0020users.",
             "url": "classes/App-Repository-UserRepository.html#method_queryAll"
         },                {
             "fqsen": "\\App\\Repository\\UserRepository\u003A\u003AgetAdmins\u0028\u0029",
             "name": "getAdmins",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020number\u0020of\u0020admins.",
             "url": "classes/App-Repository-UserRepository.html#method_getAdmins"
         },                {
             "fqsen": "\\App\\Repository\\UserRepository\u003A\u003AupgradePassword\u0028\u0029",
             "name": "upgradePassword",
             "summary": "Used\u0020to\u0020upgrade\u0020\u0028rehash\u0029\u0020the\u0020user\u0027s\u0020password\u0020automatically\u0020over\u0020time.",
             "url": "classes/App-Repository-UserRepository.html#method_upgradePassword"
+        },                {
+            "fqsen": "\\App\\Repository\\UserRepository\u003A\u003AgetOrCreateQueryBuilder\u0028\u0029",
+            "name": "getOrCreateQueryBuilder",
+            "summary": "Returns\u0020a\u0020QueryBuilder\u0020instance.",
+            "url": "classes/App-Repository-UserRepository.html#method_getOrCreateQueryBuilder"
         },                {
             "fqsen": "\\App\\Repository\\UserRepository\u003A\u003APAGINATOR_ITEMS_PER_PAGE",
             "name": "PAGINATOR_ITEMS_PER_PAGE",
@@ -1598,32 +1578,32 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Security\\LoginFormAuthenticator",
             "name": "LoginFormAuthenticator",
-            "summary": "",
+            "summary": "Class\u0020LoginFormAuthenticator",
             "url": "classes/App-Security-LoginFormAuthenticator.html"
         },                {
             "fqsen": "\\App\\Security\\LoginFormAuthenticator\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "LoginFormAuthenticator\u0020constructor.",
             "url": "classes/App-Security-LoginFormAuthenticator.html#method___construct"
         },                {
             "fqsen": "\\App\\Security\\LoginFormAuthenticator\u003A\u003Asupports\u0028\u0029",
             "name": "supports",
-            "summary": "",
+            "summary": "Checks\u0020if\u0020the\u0020authenticator\u0020supports\u0020the\u0020current\u0020request.",
             "url": "classes/App-Security-LoginFormAuthenticator.html#method_supports"
         },                {
             "fqsen": "\\App\\Security\\LoginFormAuthenticator\u003A\u003Aauthenticate\u0028\u0029",
             "name": "authenticate",
-            "summary": "",
+            "summary": "Authenticates\u0020the\u0020user\u0027s\u0020login\u0020credentials.",
             "url": "classes/App-Security-LoginFormAuthenticator.html#method_authenticate"
         },                {
             "fqsen": "\\App\\Security\\LoginFormAuthenticator\u003A\u003AonAuthenticationSuccess\u0028\u0029",
             "name": "onAuthenticationSuccess",
-            "summary": "",
+            "summary": "Handles\u0020successful\u0020authentication.",
             "url": "classes/App-Security-LoginFormAuthenticator.html#method_onAuthenticationSuccess"
         },                {
             "fqsen": "\\App\\Security\\LoginFormAuthenticator\u003A\u003AgetLoginUrl\u0028\u0029",
             "name": "getLoginUrl",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020login\u0020URL.",
             "url": "classes/App-Security-LoginFormAuthenticator.html#method_getLoginUrl"
         },                {
             "fqsen": "\\App\\Security\\LoginFormAuthenticator\u003A\u003ALOGIN_ROUTE",
@@ -1643,22 +1623,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Security\\UserChecker",
             "name": "UserChecker",
-            "summary": "",
+            "summary": "Class\u0020UserChecker",
             "url": "classes/App-Security-UserChecker.html"
         },                {
             "fqsen": "\\App\\Security\\UserChecker\u003A\u003AcheckPreAuth\u0028\u0029",
             "name": "checkPreAuth",
-            "summary": "",
+            "summary": "Checks\u0020the\u0020user\u0020account\u0020status\u0020before\u0020authentication.",
             "url": "classes/App-Security-UserChecker.html#method_checkPreAuth"
         },                {
             "fqsen": "\\App\\Security\\UserChecker\u003A\u003AcheckPostAuth\u0028\u0029",
             "name": "checkPostAuth",
-            "summary": "",
+            "summary": "Checks\u0020the\u0020user\u0020account\u0020status\u0020after\u0020authentication.",
             "url": "classes/App-Security-UserChecker.html#method_checkPostAuth"
         },                {
             "fqsen": "\\App\\Service\\AvatarService",
             "name": "AvatarService",
-            "summary": "Class\u0020Avatar\u0020service.",
+            "summary": "Avatar\u0020service\u0020class.",
             "url": "classes/App-Service-AvatarService.html"
         },                {
             "fqsen": "\\App\\Service\\AvatarService\u003A\u003A__construct\u0028\u0029",
@@ -1668,17 +1648,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Service\\AvatarService\u003A\u003Acreate\u0028\u0029",
             "name": "create",
-            "summary": "Create\u0020avatar.",
+            "summary": "Create\u0020an\u0020avatar.",
             "url": "classes/App-Service-AvatarService.html#method_create"
         },                {
             "fqsen": "\\App\\Service\\AvatarService\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
-            "summary": "",
+            "summary": "Update\u0020an\u0020avatar.",
             "url": "classes/App-Service-AvatarService.html#method_update"
         },                {
             "fqsen": "\\App\\Service\\AvatarService\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Delete\u0020an\u0020avatar.",
             "url": "classes/App-Service-AvatarService.html#method_delete"
         },                {
             "fqsen": "\\App\\Service\\AvatarService\u003A\u003A\u0024targetDirectory",
@@ -1688,12 +1668,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Service\\AvatarService\u003A\u003A\u0024avatarRepository",
             "name": "avatarRepository",
-            "summary": "Avatar\u0020repository.",
+            "summary": "",
             "url": "classes/App-Service-AvatarService.html#property_avatarRepository"
         },                {
             "fqsen": "\\App\\Service\\AvatarService\u003A\u003A\u0024fileUploadService",
             "name": "fileUploadService",
-            "summary": "File\u0020upload\u0020service.",
+            "summary": "",
             "url": "classes/App-Service-AvatarService.html#property_fileUploadService"
         },                {
             "fqsen": "\\App\\Service\\AvatarService\u003A\u003A\u0024filesystem",
@@ -1703,57 +1683,57 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Service\\AvatarServiceInterface",
             "name": "AvatarServiceInterface",
-            "summary": "Class\u0020Avatar\u0020service.",
+            "summary": "Interface\u0020AvatarServiceInterface.",
             "url": "classes/App-Service-AvatarServiceInterface.html"
         },                {
             "fqsen": "\\App\\Service\\AvatarServiceInterface\u003A\u003Acreate\u0028\u0029",
             "name": "create",
-            "summary": "Create\u0020avatar.",
+            "summary": "Create\u0020an\u0020avatar.",
             "url": "classes/App-Service-AvatarServiceInterface.html#method_create"
         },                {
             "fqsen": "\\App\\Service\\AvatarServiceInterface\u003A\u003Aupdate\u0028\u0029",
             "name": "update",
-            "summary": "",
+            "summary": "Update\u0020an\u0020avatar.",
             "url": "classes/App-Service-AvatarServiceInterface.html#method_update"
         },                {
             "fqsen": "\\App\\Service\\AvatarServiceInterface\u003A\u003Adelete\u0028\u0029",
             "name": "delete",
-            "summary": "",
+            "summary": "Delete\u0020an\u0020avatar.",
             "url": "classes/App-Service-AvatarServiceInterface.html#method_delete"
         },                {
             "fqsen": "\\App\\Service\\CategoryService",
             "name": "CategoryService",
-            "summary": "",
+            "summary": "Category\u0020service\u0020class.",
             "url": "classes/App-Service-CategoryService.html"
         },                {
             "fqsen": "\\App\\Service\\CategoryService\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructor.",
             "url": "classes/App-Service-CategoryService.html#method___construct"
         },                {
             "fqsen": "\\App\\Service\\CategoryService\u003A\u003AgetPaginatedList\u0028\u0029",
             "name": "getPaginatedList",
-            "summary": "",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020categories.",
             "url": "classes/App-Service-CategoryService.html#method_getPaginatedList"
         },                {
             "fqsen": "\\App\\Service\\CategoryService\u003A\u003AgetPaginatedListOfPosts\u0028\u0029",
             "name": "getPaginatedListOfPosts",
-            "summary": "",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020posts\u0020for\u0020a\u0020category.",
             "url": "classes/App-Service-CategoryService.html#method_getPaginatedListOfPosts"
         },                {
             "fqsen": "\\App\\Service\\CategoryService\u003A\u003AsaveCategory\u0028\u0029",
             "name": "saveCategory",
-            "summary": "",
+            "summary": "Save\u0020a\u0020category.",
             "url": "classes/App-Service-CategoryService.html#method_saveCategory"
         },                {
             "fqsen": "\\App\\Service\\CategoryService\u003A\u003AdeleteCategory\u0028\u0029",
             "name": "deleteCategory",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020category.",
             "url": "classes/App-Service-CategoryService.html#method_deleteCategory"
         },                {
             "fqsen": "\\App\\Service\\CategoryService\u003A\u003AfindOneById\u0028\u0029",
             "name": "findOneById",
-            "summary": "",
+            "summary": "Find\u0020a\u0020category\u0020by\u0020ID.",
             "url": "classes/App-Service-CategoryService.html#method_findOneById"
         },                {
             "fqsen": "\\App\\Service\\CategoryService\u003A\u003A\u0024categoryRepository",
@@ -1773,82 +1753,77 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Service\\CategoryServiceInterface",
             "name": "CategoryServiceInterface",
-            "summary": "",
+            "summary": "Interface\u0020CategoryServiceInterface.",
             "url": "classes/App-Service-CategoryServiceInterface.html"
         },                {
             "fqsen": "\\App\\Service\\CategoryServiceInterface\u003A\u003AgetPaginatedList\u0028\u0029",
             "name": "getPaginatedList",
-            "summary": "",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020categories.",
             "url": "classes/App-Service-CategoryServiceInterface.html#method_getPaginatedList"
         },                {
             "fqsen": "\\App\\Service\\CategoryServiceInterface\u003A\u003AfindOneById\u0028\u0029",
             "name": "findOneById",
-            "summary": "",
+            "summary": "Find\u0020a\u0020category\u0020by\u0020ID.",
             "url": "classes/App-Service-CategoryServiceInterface.html#method_findOneById"
         },                {
             "fqsen": "\\App\\Service\\CommentService",
             "name": "CommentService",
-            "summary": "",
+            "summary": "Comment\u0020service.",
             "url": "classes/App-Service-CommentService.html"
         },                {
             "fqsen": "\\App\\Service\\CommentService\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "CommentService\u0020constructor.",
             "url": "classes/App-Service-CommentService.html#method___construct"
         },                {
             "fqsen": "\\App\\Service\\CommentService\u003A\u003AgetPaginatedList\u0028\u0029",
             "name": "getPaginatedList",
-            "summary": "",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020comments\u0020for\u0020a\u0020specific\u0020post.",
             "url": "classes/App-Service-CommentService.html#method_getPaginatedList"
         },                {
             "fqsen": "\\App\\Service\\CommentService\u003A\u003AgetPaginatedListOfAllComments\u0028\u0029",
             "name": "getPaginatedListOfAllComments",
-            "summary": "",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020all\u0020comments.",
             "url": "classes/App-Service-CommentService.html#method_getPaginatedListOfAllComments"
         },                {
             "fqsen": "\\App\\Service\\CommentService\u003A\u003AsaveComment\u0028\u0029",
             "name": "saveComment",
-            "summary": "",
+            "summary": "Save\u0020a\u0020comment.",
             "url": "classes/App-Service-CommentService.html#method_saveComment"
         },                {
             "fqsen": "\\App\\Service\\CommentService\u003A\u003AdeleteComment\u0028\u0029",
             "name": "deleteComment",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020comment.",
             "url": "classes/App-Service-CommentService.html#method_deleteComment"
         },                {
             "fqsen": "\\App\\Service\\CommentService\u003A\u003A\u0024commentRepository",
             "name": "commentRepository",
-            "summary": "",
+            "summary": "Comment\u0020repository.",
             "url": "classes/App-Service-CommentService.html#property_commentRepository"
-        },                {
-            "fqsen": "\\App\\Service\\CommentService\u003A\u003A\u0024postRepository",
-            "name": "postRepository",
-            "summary": "",
-            "url": "classes/App-Service-CommentService.html#property_postRepository"
         },                {
             "fqsen": "\\App\\Service\\CommentService\u003A\u003A\u0024paginator",
             "name": "paginator",
-            "summary": "",
+            "summary": "Paginator.",
             "url": "classes/App-Service-CommentService.html#property_paginator"
         },                {
             "fqsen": "\\App\\Service\\CommentServiceInterface",
             "name": "CommentServiceInterface",
-            "summary": "",
+            "summary": "Interface\u0020CommentServiceInterface.",
             "url": "classes/App-Service-CommentServiceInterface.html"
         },                {
             "fqsen": "\\App\\Service\\CommentServiceInterface\u003A\u003AgetPaginatedList\u0028\u0029",
             "name": "getPaginatedList",
-            "summary": "",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020comments\u0020for\u0020a\u0020specific\u0020post.",
             "url": "classes/App-Service-CommentServiceInterface.html#method_getPaginatedList"
         },                {
             "fqsen": "\\App\\Service\\CommentServiceInterface\u003A\u003AsaveComment\u0028\u0029",
             "name": "saveComment",
-            "summary": "",
+            "summary": "Save\u0020a\u0020comment.",
             "url": "classes/App-Service-CommentServiceInterface.html#method_saveComment"
         },                {
             "fqsen": "\\App\\Service\\FileUploadService",
             "name": "FileUploadService",
-            "summary": "Class\u0020FileUploadService.",
+            "summary": "File\u0020upload\u0020service\u0020class.",
             "url": "classes/App-Service-FileUploadService.html"
         },                {
             "fqsen": "\\App\\Service\\FileUploadService\u003A\u003A__construct\u0028\u0029",
@@ -1858,168 +1833,163 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Service\\FileUploadService\u003A\u003Aupload\u0028\u0029",
             "name": "upload",
-            "summary": "Upload\u0020file.",
+            "summary": "Upload\u0020a\u0020file.",
             "url": "classes/App-Service-FileUploadService.html#method_upload"
         },                {
             "fqsen": "\\App\\Service\\FileUploadService\u003A\u003AgetTargetDirectory\u0028\u0029",
             "name": "getTargetDirectory",
-            "summary": "Getter\u0020for\u0020target\u0020directory.",
+            "summary": "Get\u0020the\u0020target\u0020directory.",
             "url": "classes/App-Service-FileUploadService.html#method_getTargetDirectory"
         },                {
             "fqsen": "\\App\\Service\\FileUploadService\u003A\u003A\u0024targetDirectory",
             "name": "targetDirectory",
-            "summary": "Target\u0020directory.",
+            "summary": "",
             "url": "classes/App-Service-FileUploadService.html#property_targetDirectory"
         },                {
             "fqsen": "\\App\\Service\\FileUploadService\u003A\u003A\u0024slugger",
             "name": "slugger",
-            "summary": "Slugger.",
+            "summary": "",
             "url": "classes/App-Service-FileUploadService.html#property_slugger"
         },                {
             "fqsen": "\\App\\Service\\FileUploadServiceInterface",
             "name": "FileUploadServiceInterface",
-            "summary": "Interface\u0020FileUploadService.",
+            "summary": "Interface\u0020FileUploadServiceInterface.",
             "url": "classes/App-Service-FileUploadServiceInterface.html"
         },                {
             "fqsen": "\\App\\Service\\FileUploadServiceInterface\u003A\u003Aupload\u0028\u0029",
             "name": "upload",
-            "summary": "Upload\u0020file.",
+            "summary": "Upload\u0020a\u0020file.",
             "url": "classes/App-Service-FileUploadServiceInterface.html#method_upload"
         },                {
             "fqsen": "\\App\\Service\\FileUploadServiceInterface\u003A\u003AgetTargetDirectory\u0028\u0029",
             "name": "getTargetDirectory",
-            "summary": "Getter\u0020for\u0020target\u0020directory.",
+            "summary": "Get\u0020the\u0020target\u0020directory.",
             "url": "classes/App-Service-FileUploadServiceInterface.html#method_getTargetDirectory"
         },                {
             "fqsen": "\\App\\Service\\PostService",
             "name": "PostService",
-            "summary": "",
+            "summary": "Class\u0020PostService",
             "url": "classes/App-Service-PostService.html"
         },                {
             "fqsen": "\\App\\Service\\PostService\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "PostService\u0020constructor.",
             "url": "classes/App-Service-PostService.html#method___construct"
         },                {
             "fqsen": "\\App\\Service\\PostService\u003A\u003AgetPaginatedList\u0028\u0029",
             "name": "getPaginatedList",
-            "summary": "",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020posts.",
             "url": "classes/App-Service-PostService.html#method_getPaginatedList"
         },                {
             "fqsen": "\\App\\Service\\PostService\u003A\u003AincrementViews\u0028\u0029",
             "name": "incrementViews",
-            "summary": "",
+            "summary": "Increment\u0020the\u0020view\u0020count\u0020of\u0020a\u0020post.",
             "url": "classes/App-Service-PostService.html#method_incrementViews"
         },                {
             "fqsen": "\\App\\Service\\PostService\u003A\u003AsavePost\u0028\u0029",
             "name": "savePost",
-            "summary": "",
+            "summary": "Save\u0020a\u0020post.",
             "url": "classes/App-Service-PostService.html#method_savePost"
         },                {
             "fqsen": "\\App\\Service\\PostService\u003A\u003AdeletePost\u0028\u0029",
             "name": "deletePost",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020post.",
             "url": "classes/App-Service-PostService.html#method_deletePost"
         },                {
             "fqsen": "\\App\\Service\\PostService\u003A\u003AdeleteComments\u0028\u0029",
             "name": "deleteComments",
-            "summary": "",
+            "summary": "Delete\u0020comments\u0020associated\u0020with\u0020a\u0020post.",
             "url": "classes/App-Service-PostService.html#method_deleteComments"
         },                {
-            "fqsen": "\\App\\Service\\PostService\u003A\u003Asearch\u0028\u0029",
-            "name": "search",
-            "summary": "",
-            "url": "classes/App-Service-PostService.html#method_search"
+            "fqsen": "\\App\\Service\\PostService\u003A\u003AfindOneByTitle\u0028\u0029",
+            "name": "findOneByTitle",
+            "summary": "Find\u0020a\u0020post\u0020by\u0020its\u0020title.",
+            "url": "classes/App-Service-PostService.html#method_findOneByTitle"
+        },                {
+            "fqsen": "\\App\\Service\\PostService\u003A\u003AprepareFilters\u0028\u0029",
+            "name": "prepareFilters",
+            "summary": "Prepare\u0020filters\u0020for\u0020querying\u0020posts.",
+            "url": "classes/App-Service-PostService.html#method_prepareFilters"
         },                {
             "fqsen": "\\App\\Service\\PostService\u003A\u003A\u0024postRepository",
             "name": "postRepository",
-            "summary": "",
+            "summary": "Post\u0020repository.",
             "url": "classes/App-Service-PostService.html#property_postRepository"
+        },                {
+            "fqsen": "\\App\\Service\\PostService\u003A\u003A\u0024commentRepository",
+            "name": "commentRepository",
+            "summary": "Comment\u0020repository.",
+            "url": "classes/App-Service-PostService.html#property_commentRepository"
+        },                {
+            "fqsen": "\\App\\Service\\PostService\u003A\u003A\u0024categoryService",
+            "name": "categoryService",
+            "summary": "Category\u0020service.",
+            "url": "classes/App-Service-PostService.html#property_categoryService"
+        },                {
+            "fqsen": "\\App\\Service\\PostService\u003A\u003A\u0024tagService",
+            "name": "tagService",
+            "summary": "Tag\u0020service.",
+            "url": "classes/App-Service-PostService.html#property_tagService"
         },                {
             "fqsen": "\\App\\Service\\PostService\u003A\u003A\u0024entityManager",
             "name": "entityManager",
-            "summary": "",
+            "summary": "Entity\u0020manager.",
             "url": "classes/App-Service-PostService.html#property_entityManager"
         },                {
             "fqsen": "\\App\\Service\\PostService\u003A\u003A\u0024paginator",
             "name": "paginator",
-            "summary": "",
+            "summary": "Paginator.",
             "url": "classes/App-Service-PostService.html#property_paginator"
         },                {
-            "fqsen": "\\App\\Service\\PostService\u003A\u003A\u0024commentRepository",
-            "name": "commentRepository",
-            "summary": "",
-            "url": "classes/App-Service-PostService.html#property_commentRepository"
-        },                {
-            "fqsen": "\\App\\Service\\PostServiceInterface",
-            "name": "PostServiceinterface",
-            "summary": "",
-            "url": "classes/App-Service-PostServiceinterface.html"
-        },                {
-            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AgetPaginatedList\u0028\u0029",
-            "name": "getPaginatedList",
-            "summary": "",
-            "url": "classes/App-Service-PostServiceinterface.html#method_getPaginatedList"
-        },                {
-            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AincrementViews\u0028\u0029",
-            "name": "incrementViews",
-            "summary": "",
-            "url": "classes/App-Service-PostServiceinterface.html#method_incrementViews"
-        },                {
-            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AsavePost\u0028\u0029",
-            "name": "savePost",
-            "summary": "",
-            "url": "classes/App-Service-PostServiceinterface.html#method_savePost"
-        },                {
-            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AdeletePost\u0028\u0029",
-            "name": "deletePost",
-            "summary": "",
-            "url": "classes/App-Service-PostServiceinterface.html#method_deletePost"
-        },                {
-            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AdeleteComments\u0028\u0029",
-            "name": "deleteComments",
-            "summary": "",
-            "url": "classes/App-Service-PostServiceinterface.html#method_deleteComments"
+            "fqsen": "\\App\\Service\\PostService\u003A\u003A\u0024fileUploadService",
+            "name": "fileUploadService",
+            "summary": "File\u0020upload\u0020service.",
+            "url": "classes/App-Service-PostService.html#property_fileUploadService"
         },                {
             "fqsen": "\\App\\Service\\TagService",
             "name": "TagService",
-            "summary": "",
+            "summary": "Class\u0020TagService",
             "url": "classes/App-Service-TagService.html"
         },                {
             "fqsen": "\\App\\Service\\TagService\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "TagService\u0020constructor.",
             "url": "classes/App-Service-TagService.html#method___construct"
         },                {
             "fqsen": "\\App\\Service\\TagService\u003A\u003AfindOneByTitle\u0028\u0029",
             "name": "findOneByTitle",
-            "summary": "",
+            "summary": "Find\u0020a\u0020tag\u0020by\u0020its\u0020title.",
             "url": "classes/App-Service-TagService.html#method_findOneByTitle"
         },                {
             "fqsen": "\\App\\Service\\TagService\u003A\u003AsaveTag\u0028\u0029",
             "name": "saveTag",
-            "summary": "",
+            "summary": "Save\u0020a\u0020tag.",
             "url": "classes/App-Service-TagService.html#method_saveTag"
         },                {
             "fqsen": "\\App\\Service\\TagService\u003A\u003AdeleteTag\u0028\u0029",
             "name": "deleteTag",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020tag.",
             "url": "classes/App-Service-TagService.html#method_deleteTag"
         },                {
-            "fqsen": "\\App\\Service\\TagService\u003A\u003AgetPaginatedListOfAll\u0028\u0029",
-            "name": "getPaginatedListOfAll",
-            "summary": "",
-            "url": "classes/App-Service-TagService.html#method_getPaginatedListOfAll"
+            "fqsen": "\\App\\Service\\TagService\u003A\u003AgetPaginatedListOfAllTags\u0028\u0029",
+            "name": "getPaginatedListOfAllTags",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020all\u0020tags.",
+            "url": "classes/App-Service-TagService.html#method_getPaginatedListOfAllTags"
         },                {
-            "fqsen": "\\App\\Service\\TagService\u003A\u003AgetPaginatedListOfPosts\u0028\u0029",
-            "name": "getPaginatedListOfPosts",
-            "summary": "",
-            "url": "classes/App-Service-TagService.html#method_getPaginatedListOfPosts"
+            "fqsen": "\\App\\Service\\TagService\u003A\u003AgetPaginatedListOfPostsByTag\u0028\u0029",
+            "name": "getPaginatedListOfPostsByTag",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020posts\u0020by\u0020tag.",
+            "url": "classes/App-Service-TagService.html#method_getPaginatedListOfPostsByTag"
         },                {
             "fqsen": "\\App\\Service\\TagService\u003A\u003AincludesTag\u0028\u0029",
             "name": "includesTag",
-            "summary": "",
+            "summary": "Check\u0020if\u0020a\u0020tag\u0020is\u0020already\u0020included\u0020in\u0020an\u0020array.",
             "url": "classes/App-Service-TagService.html#method_includesTag"
+        },                {
+            "fqsen": "\\App\\Service\\TagService\u003A\u003AfindOneById\u0028\u0029",
+            "name": "findOneById",
+            "summary": "Find\u0020a\u0020tag\u0020by\u0020its\u0020ID.",
+            "url": "classes/App-Service-TagService.html#method_findOneById"
         },                {
             "fqsen": "\\App\\Service\\TagService\u003A\u003A\u0024tagRepository",
             "name": "tagRepository",
@@ -2038,73 +2008,168 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Service\\TagServiceInterface",
             "name": "TagServiceInterface",
-            "summary": "",
+            "summary": "Interface\u0020TagServiceInterface.",
             "url": "classes/App-Service-TagServiceInterface.html"
+        },                {
+            "fqsen": "\\App\\Service\\TagServiceInterface\u003A\u003AfindOneByTitle\u0028\u0029",
+            "name": "findOneByTitle",
+            "summary": "Find\u0020a\u0020tag\u0020by\u0020its\u0020title.",
+            "url": "classes/App-Service-TagServiceInterface.html#method_findOneByTitle"
+        },                {
+            "fqsen": "\\App\\Service\\TagServiceInterface\u003A\u003AsaveTag\u0028\u0029",
+            "name": "saveTag",
+            "summary": "Save\u0020a\u0020tag.",
+            "url": "classes/App-Service-TagServiceInterface.html#method_saveTag"
+        },                {
+            "fqsen": "\\App\\Service\\TagServiceInterface\u003A\u003AdeleteTag\u0028\u0029",
+            "name": "deleteTag",
+            "summary": "Delete\u0020a\u0020tag.",
+            "url": "classes/App-Service-TagServiceInterface.html#method_deleteTag"
+        },                {
+            "fqsen": "\\App\\Service\\TagServiceInterface\u003A\u003AgetPaginatedListOfAllTags\u0028\u0029",
+            "name": "getPaginatedListOfAllTags",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020all\u0020tags.",
+            "url": "classes/App-Service-TagServiceInterface.html#method_getPaginatedListOfAllTags"
+        },                {
+            "fqsen": "\\App\\Service\\TagServiceInterface\u003A\u003AgetPaginatedListOfPostsByTag\u0028\u0029",
+            "name": "getPaginatedListOfPostsByTag",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020posts\u0020associated\u0020with\u0020a\u0020specific\u0020tag.",
+            "url": "classes/App-Service-TagServiceInterface.html#method_getPaginatedListOfPostsByTag"
+        },                {
+            "fqsen": "\\App\\Service\\TagServiceInterface\u003A\u003AincludesTag\u0028\u0029",
+            "name": "includesTag",
+            "summary": "Check\u0020if\u0020a\u0020tag\u0020is\u0020already\u0020included\u0020in\u0020an\u0020array.",
+            "url": "classes/App-Service-TagServiceInterface.html#method_includesTag"
+        },                {
+            "fqsen": "\\App\\Service\\TagServiceInterface\u003A\u003AfindOneById\u0028\u0029",
+            "name": "findOneById",
+            "summary": "Find\u0020a\u0020tag\u0020by\u0020its\u0020ID.",
+            "url": "classes/App-Service-TagServiceInterface.html#method_findOneById"
         },                {
             "fqsen": "\\App\\Service\\UserService",
             "name": "UserService",
-            "summary": "",
+            "summary": "User\u0020service.",
             "url": "classes/App-Service-UserService.html"
         },                {
             "fqsen": "\\App\\Service\\UserService\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "UserService\u0020constructor.",
             "url": "classes/App-Service-UserService.html#method___construct"
         },                {
             "fqsen": "\\App\\Service\\UserService\u003A\u003AsaveUser\u0028\u0029",
             "name": "saveUser",
-            "summary": "",
+            "summary": "Save\u0020a\u0020user.",
             "url": "classes/App-Service-UserService.html#method_saveUser"
         },                {
             "fqsen": "\\App\\Service\\UserService\u003A\u003AdeleteUser\u0028\u0029",
             "name": "deleteUser",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020user.",
             "url": "classes/App-Service-UserService.html#method_deleteUser"
         },                {
             "fqsen": "\\App\\Service\\UserService\u003A\u003AbanOrUnbanUser\u0028\u0029",
             "name": "banOrUnbanUser",
-            "summary": "",
+            "summary": "Ban\u0020or\u0020unban\u0020a\u0020user.",
             "url": "classes/App-Service-UserService.html#method_banOrUnbanUser"
         },                {
             "fqsen": "\\App\\Service\\UserService\u003A\u003AgetPaginatedList\u0028\u0029",
             "name": "getPaginatedList",
-            "summary": "",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020users.",
             "url": "classes/App-Service-UserService.html#method_getPaginatedList"
         },                {
             "fqsen": "\\App\\Service\\UserService\u003A\u003AgetPaginatedListOfComments\u0028\u0029",
             "name": "getPaginatedListOfComments",
-            "summary": "",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020comments\u0020by\u0020user.",
             "url": "classes/App-Service-UserService.html#method_getPaginatedListOfComments"
         },                {
             "fqsen": "\\App\\Service\\UserService\u003A\u003A\u0024userRepository",
             "name": "userRepository",
-            "summary": "",
+            "summary": "User\u0020repository.",
             "url": "classes/App-Service-UserService.html#property_userRepository"
         },                {
             "fqsen": "\\App\\Service\\UserService\u003A\u003A\u0024commentRepository",
             "name": "commentRepository",
-            "summary": "",
+            "summary": "Comment\u0020repository.",
             "url": "classes/App-Service-UserService.html#property_commentRepository"
         },                {
             "fqsen": "\\App\\Service\\UserService\u003A\u003A\u0024paginator",
             "name": "paginator",
-            "summary": "",
+            "summary": "Paginator.",
             "url": "classes/App-Service-UserService.html#property_paginator"
         },                {
             "fqsen": "\\App\\Service\\UserServiceInterface",
             "name": "UserServiceInterface",
-            "summary": "",
+            "summary": "Interface\u0020UserServiceInterface.",
             "url": "classes/App-Service-UserServiceInterface.html"
         },                {
             "fqsen": "\\App\\Service\\UserServiceInterface\u003A\u003AsaveUser\u0028\u0029",
             "name": "saveUser",
-            "summary": "",
+            "summary": "Save\u0020a\u0020user.",
             "url": "classes/App-Service-UserServiceInterface.html#method_saveUser"
         },                {
             "fqsen": "\\App\\Service\\UserServiceInterface\u003A\u003AdeleteUser\u0028\u0029",
             "name": "deleteUser",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020user.",
             "url": "classes/App-Service-UserServiceInterface.html#method_deleteUser"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\PasswordResetType",
+            "name": "PasswordResetType",
+            "summary": "Class\u0020PasswordChangeType",
+            "url": "classes/App-Form-Type-PasswordResetType.html"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\PasswordResetType\u003A\u003AbuildForm\u0028\u0029",
+            "name": "buildForm",
+            "summary": "Build\u0020the\u0020form.",
+            "url": "classes/App-Form-Type-PasswordResetType.html#method_buildForm"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\PasswordResetType\u003A\u003AconfigureOptions\u0028\u0029",
+            "name": "configureOptions",
+            "summary": "Configure\u0020the\u0020options\u0020for\u0020the\u0020form.",
+            "url": "classes/App-Form-Type-PasswordResetType.html#method_configureOptions"
+        },                {
+            "fqsen": "\\App\\Form\\Type\\PasswordResetType\u003A\u003AgetBlockPrefix\u0028\u0029",
+            "name": "getBlockPrefix",
+            "summary": "Get\u0020the\u0020block\u0020prefix\u0020for\u0020the\u0020form.",
+            "url": "classes/App-Form-Type-PasswordResetType.html#method_getBlockPrefix"
+        },                {
+            "fqsen": "\\App\\Service\\PostServiceInterface",
+            "name": "PostServiceInterface",
+            "summary": "Interface\u0020PostServiceInterface.",
+            "url": "classes/App-Service-PostServiceInterface.html"
+        },                {
+            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AgetPaginatedList\u0028\u0029",
+            "name": "getPaginatedList",
+            "summary": "Get\u0020a\u0020paginated\u0020list\u0020of\u0020posts.",
+            "url": "classes/App-Service-PostServiceInterface.html#method_getPaginatedList"
+        },                {
+            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AincrementViews\u0028\u0029",
+            "name": "incrementViews",
+            "summary": "Increment\u0020the\u0020views\u0020of\u0020a\u0020post.",
+            "url": "classes/App-Service-PostServiceInterface.html#method_incrementViews"
+        },                {
+            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AsavePost\u0028\u0029",
+            "name": "savePost",
+            "summary": "Save\u0020a\u0020post.",
+            "url": "classes/App-Service-PostServiceInterface.html#method_savePost"
+        },                {
+            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AdeletePost\u0028\u0029",
+            "name": "deletePost",
+            "summary": "Delete\u0020a\u0020post.",
+            "url": "classes/App-Service-PostServiceInterface.html#method_deletePost"
+        },                {
+            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AdeleteComments\u0028\u0029",
+            "name": "deleteComments",
+            "summary": "Delete\u0020comments\u0020of\u0020a\u0020post.",
+            "url": "classes/App-Service-PostServiceInterface.html#method_deleteComments"
+        },                {
+            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AfindOneByTitle\u0028\u0029",
+            "name": "findOneByTitle",
+            "summary": "Find\u0020a\u0020post\u0020by\u0020its\u0020title.",
+            "url": "classes/App-Service-PostServiceInterface.html#method_findOneByTitle"
+        },                {
+            "fqsen": "\\App\\Service\\PostServiceInterface\u003A\u003AprepareFilters\u0028\u0029",
+            "name": "prepareFilters",
+            "summary": "Prepare\u0020filters\u0020for\u0020querying\u0020posts.",
+            "url": "classes/App-Service-PostServiceInterface.html#method_prepareFilters"
         },                {
             "fqsen": "\\",
             "name": "\\",

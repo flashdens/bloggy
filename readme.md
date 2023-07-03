@@ -1,4 +1,6 @@
-![title](app/public/img/logotext.png)
+<p align="center">
+<img src="app/public/img/logotext.png" alt="logo">
+</p>
 
 ### EN
 
@@ -31,7 +33,25 @@ DATABASE_URL=mysql://symfony:symfony@mysql:3306/symfony?serverVersion=5.7
   ``
 6. The app should be accessible at ``localhost:8000``. You can find the login credentials at ``app/src/DataFixtures/UserFixtures``. 
 
-Starter kit is based on [The perfect kit starter for a Symfony 4 project with Docker and PHP 7.2](https://medium.com/@romaricp/the-perfect-kit-starter-for-a-symfony-4-project-with-docker-and-php-7-2-fda447b6bca1).
+## Database structure
+
+<p align="center">
+<img src="app/public/img/screenshots/diagram.png" alt="db structure">
+</p>
+
+## Screenshots
+
+<p align="center">
+<img src="app/public/img/screenshots/screen1.png" alt="Screenshot 1">
+</p>
+
+<p align="center">
+<img src="app/public/img/screenshots/screen2.png" alt="Screenshot 2">
+</p>
+
+<p align="center">
+<img src="app/public/img/screenshots/screen4.png" alt="Screenshot 3">
+</p>
 
 ## What is inside?
 

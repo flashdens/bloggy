@@ -44,7 +44,7 @@
        </trans-unit>
        <trans-unit id="message.edited_successfully">
          <source>message.edited_successfully</source>
-         <target>Wiadomość została pomyślnie edytowana</target>
+         <target>Edycja pomyślna</target>
        </trans-unit>
        <trans-unit id="message.invalid_password">
          <source>message.invalid_password</source>
@@ -100,7 +100,7 @@
        </trans-unit>
        <trans-unit id="hello.message">
          <source>hello.message</source>
-         <target>Cześć, wiadomość</target>
+         <target>Cześć, </target>
        </trans-unit>
        <trans-unit id="action.utils">
          <source>action.utils</source>

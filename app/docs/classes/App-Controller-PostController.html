@@ -138,12 +138,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/PostController.php"><a href="files/src-controller-postcontroller.html"><abbr title="src/Controller/PostController.php">PostController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
-        
-    <section class="phpdocumentor-description"></section>
+            <p class="phpdocumentor-summary">Class PostController.</p>
+
 
 
 
@@ -161,14 +161,14 @@
                     <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/App-Controller-PostController.html#property_commentService">$commentService</a>
     <span>
-                        &nbsp;: <a href="classes/App-Service-CommentService.html"><abbr title="\App\Service\CommentService">CommentService</abbr></a>            </span>
+                        &nbsp;: <a href="classes/App-Service-CommentServiceInterface.html"><abbr title="\App\Service\CommentServiceInterface">CommentServiceInterface</abbr></a>            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/App-Controller-PostController.html#property_postService">$postService</a>
     <span>
-                        &nbsp;: <a href="classes/App-Service-PostService.html"><abbr title="\App\Service\PostService">PostService</abbr></a>            </span>
+                        &nbsp;: <a href="classes/App-Service-PostServiceInterface.html"><abbr title="\App\Service\PostServiceInterface">PostServiceInterface</abbr></a>            </span>
 </dt>
 <dd></dd>
 
@@ -184,21 +184,21 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd></dd>
+<dd>PostController constructor.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Controller-PostController.html#method_create">create()</a>
     <span>
                                 &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
 </dt>
-<dd></dd>
+<dd>Create a post.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Controller-PostController.html#method_view">view()</a>
     <span>
                                 &nbsp;: <abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr>    </span>
 </dt>
-<dd></dd>
+<dd>View a post.</dd>
 
         </dl>
 
@@ -228,14 +228,14 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/PostController.php"><a href="files/src-controller-postcontroller.html"><abbr title="src/Controller/PostController.php">PostController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/App-Service-CommentService.html"><abbr title="\App\Service\CommentService">CommentService</abbr></a></span>
+        <span class="phpdocumentor-signature__type"><a href="classes/App-Service-CommentServiceInterface.html"><abbr title="\App\Service\CommentServiceInterface">CommentServiceInterface</abbr></a></span>
     <span class="phpdocumentor-signature__name">$commentService</span>
     </code>
 
@@ -262,14 +262,14 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/PostController.php"><a href="files/src-controller-postcontroller.html"><abbr title="src/Controller/PostController.php">PostController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/App-Service-PostService.html"><abbr title="\App\Service\PostService">PostService</abbr></a></span>
+        <span class="phpdocumentor-signature__type"><a href="classes/App-Service-PostServiceInterface.html"><abbr title="\App\Service\PostServiceInterface">PostServiceInterface</abbr></a></span>
     <span class="phpdocumentor-signature__name">$postService</span>
     </code>
 
@@ -296,7 +296,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/PostController.php"><a href="files/src-controller-postcontroller.html"><abbr title="src/Controller/PostController.php">PostController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -334,33 +334,35 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/PostController.php"><a href="files/src-controller-postcontroller.html"><abbr title="src/Controller/PostController.php">PostController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">PostController constructor.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Service-PostService.html"><abbr title="\App\Service\PostService">PostService</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$postService</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Service-CommentService.html"><abbr title="\App\Service\CommentService">CommentService</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$commentService</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface">TokenStorageInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tokenStorage</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Service-PostServiceInterface.html"><abbr title="\App\Service\PostServiceInterface">PostServiceInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$postService</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Service-CommentServiceInterface.html"><abbr title="\App\Service\CommentServiceInterface">CommentServiceInterface</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$commentService</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface">TokenStorageInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tokenStorage</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$postService</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Service-PostService.html"><abbr title="\App\Service\PostService">PostService</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Service-PostServiceInterface.html"><abbr title="\App\Service\PostServiceInterface">PostServiceInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Post service interface</p>
+</section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$commentService</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Service-CommentService.html"><abbr title="\App\Service\CommentService">CommentService</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Service-CommentServiceInterface.html"><abbr title="\App\Service\CommentServiceInterface">CommentServiceInterface</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Comment service interface</p>
+</section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
@@ -368,7 +370,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface">TokenStorageInterface</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Token storage</p>
+</section>
 
             </dd>
             </dl>
@@ -394,17 +397,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/PostController.php"><a href="files/src-controller-postcontroller.html"><abbr title="src/Controller/PostController.php">PostController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">95</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Create a post.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Request">Request</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -412,7 +415,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Request">Request</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>HTTP request</p>
+</section>
 
             </dd>
             </dl>
@@ -422,7 +426,9 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>HTTP response</p>
+</section>
+
     
 </article>
                     <article
@@ -438,17 +444,17 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Controller/PostController.php"><a href="files/src-controller-postcontroller.html"><abbr title="src/Controller/PostController.php">PostController.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">View a post.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                 <span class="phpdocumentor-signature__name">view</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Request">Request</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Post.html"><abbr title="\App\Entity\Post">Post</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$post</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -456,7 +462,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\Request">Request</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>HTTP request</p>
+</section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
@@ -464,7 +471,8 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Post.html"><abbr title="\App\Entity\Post">Post</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>Post entity</p>
+</section>
 
             </dd>
             </dl>
@@ -474,7 +482,9 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><abbr title="\Symfony\Component\HttpFoundation\Response">Response</abbr></span>
             &mdash;
-        
+            <section class="phpdocumentor-description"><p>HTTP response</p>
+</section>
+
     
 </article>
             </section>

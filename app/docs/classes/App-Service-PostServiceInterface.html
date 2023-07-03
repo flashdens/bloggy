@@ -119,7 +119,7 @@
 
     <article class="phpdocumentor-element -interface">
         <h2 class="phpdocumentor-content__title">
-    TagServiceInterface
+    PostServiceInterface
                 <div class="phpdocumentor-element__package">
             in
             <ul class="phpdocumentor-breadcrumbs">
@@ -129,16 +129,14 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/TagServiceInterface.php"><a href="files/src-service-tagserviceinterface.html"><abbr title="src/Service/TagServiceInterface.php">TagServiceInterface.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/PostServiceInterface.php"><a href="files/src-service-postserviceinterface.html"><abbr title="src/Service/PostServiceInterface.php">PostServiceInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Interface TagServiceInterface.</p>
+            <p class="phpdocumentor-summary">Interface PostServiceInterface.</p>
 
-    <section class="phpdocumentor-description"><p>This interface defines methods for managing tags.</p>
-</section>
 
 
 
@@ -154,53 +152,53 @@
 
 <dl class="phpdocumentor-table-of-contents">
                         <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Service-TagServiceInterface.html#method_deleteTag">deleteTag()</a>
+    <a href="classes/App-Service-PostServiceInterface.html#method_deleteComments">deleteComments()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Delete a tag.</dd>
+<dd>Delete comments of a post.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Service-TagServiceInterface.html#method_findOneById">findOneById()</a>
-    <span>
-                                &nbsp;: <a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a>|null    </span>
-</dt>
-<dd>Find a tag by its ID.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Service-TagServiceInterface.html#method_findOneByTitle">findOneByTitle()</a>
-    <span>
-                                &nbsp;: <a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a>|null    </span>
-</dt>
-<dd>Find a tag by its title.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Service-TagServiceInterface.html#method_getPaginatedListOfAllTags">getPaginatedListOfAllTags()</a>
-    <span>
-                                &nbsp;: <abbr title="\Knp\Component\Pager\Pagination\PaginationInterface">PaginationInterface</abbr>    </span>
-</dt>
-<dd>Get a paginated list of all tags.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Service-TagServiceInterface.html#method_getPaginatedListOfPostsByTag">getPaginatedListOfPostsByTag()</a>
-    <span>
-                                &nbsp;: <abbr title="\Knp\Component\Pager\Pagination\PaginationInterface">PaginationInterface</abbr>    </span>
-</dt>
-<dd>Get a paginated list of posts associated with a specific tag.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Service-TagServiceInterface.html#method_includesTag">includesTag()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Check if a tag is already included in an array.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Service-TagServiceInterface.html#method_saveTag">saveTag()</a>
+    <a href="classes/App-Service-PostServiceInterface.html#method_deletePost">deletePost()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Save a tag.</dd>
+<dd>Delete a post.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Service-PostServiceInterface.html#method_findOneByTitle">findOneByTitle()</a>
+    <span>
+                                &nbsp;: <a href="classes/App-Entity-Post.html"><abbr title="\App\Entity\Post">Post</abbr></a>|null    </span>
+</dt>
+<dd>Find a post by its title.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Service-PostServiceInterface.html#method_getPaginatedList">getPaginatedList()</a>
+    <span>
+                                &nbsp;: <abbr title="\Knp\Component\Pager\Pagination\PaginationInterface">PaginationInterface</abbr>    </span>
+</dt>
+<dd>Get a paginated list of posts.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Service-PostServiceInterface.html#method_incrementViews">incrementViews()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Increment the views of a post.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Service-PostServiceInterface.html#method_prepareFilters">prepareFilters()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Prepare filters for querying posts.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-Service-PostServiceInterface.html#method_savePost">savePost()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Save a post.</dd>
 
         </dl>
 
@@ -211,7 +209,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/App-Service-TagServiceInterface.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/App-Service-PostServiceInterface.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article
         class="phpdocumentor-element
@@ -219,32 +217,32 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_deleteTag">
-        deleteTag()
-        <a href="classes/App-Service-TagServiceInterface.html#method_deleteTag" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_deleteComments">
+        deleteComments()
+        <a href="classes/App-Service-PostServiceInterface.html#method_deleteComments" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/TagServiceInterface.php"><a href="files/src-service-tagserviceinterface.html"><abbr title="src/Service/TagServiceInterface.php">TagServiceInterface.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/PostServiceInterface.php"><a href="files/src-service-postserviceinterface.html"><abbr title="src/Service/PostServiceInterface.php">PostServiceInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Delete a tag.</p>
+        <p class="phpdocumentor-summary">Delete comments of a post.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">deleteTag</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tag</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                <span class="phpdocumentor-signature__name">deleteComments</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Post.html"><abbr title="\App\Entity\Post">Post</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$post</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$tag</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$post</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Post.html"><abbr title="\App\Entity\Post">Post</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The tag to delete</p>
+                    <section class="phpdocumentor-description"><p>Post entity</p>
 </section>
 
             </dd>
@@ -264,32 +262,32 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_findOneById">
-        findOneById()
-        <a href="classes/App-Service-TagServiceInterface.html#method_findOneById" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_deletePost">
+        deletePost()
+        <a href="classes/App-Service-PostServiceInterface.html#method_deletePost" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/TagServiceInterface.php"><a href="files/src-service-tagserviceinterface.html"><abbr title="src/Service/TagServiceInterface.php">TagServiceInterface.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/PostServiceInterface.php"><a href="files/src-service-postserviceinterface.html"><abbr title="src/Service/PostServiceInterface.php">PostServiceInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Find a tag by its ID.</p>
+        <p class="phpdocumentor-summary">Delete a post.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">findOneById</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$id</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">deletePost</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Post.html"><abbr title="\App\Entity\Post">Post</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$post</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$id</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                <span class="phpdocumentor-signature__argument__name">$post</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Post.html"><abbr title="\App\Entity\Post">Post</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The ID of the tag</p>
+                    <section class="phpdocumentor-description"><p>Post entity</p>
 </section>
 
             </dd>
@@ -298,11 +296,9 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>The tag entity if found, null otherwise</p>
-</section>
-
+        
     
 </article>
                     <article
@@ -313,20 +309,20 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_findOneByTitle">
         findOneByTitle()
-        <a href="classes/App-Service-TagServiceInterface.html#method_findOneByTitle" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/App-Service-PostServiceInterface.html#method_findOneByTitle" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/TagServiceInterface.php"><a href="files/src-service-tagserviceinterface.html"><abbr title="src/Service/TagServiceInterface.php">TagServiceInterface.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/PostServiceInterface.php"><a href="files/src-service-postserviceinterface.html"><abbr title="src/Service/PostServiceInterface.php">PostServiceInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Find a tag by its title.</p>
+        <p class="phpdocumentor-summary">Find a post by its title.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">findOneByTitle</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$title</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a>|null</span></code>
+                <span class="phpdocumentor-signature__name">findOneByTitle</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$title</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Entity-Post.html"><abbr title="\App\Entity\Post">Post</abbr></a>|null</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -336,7 +332,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The title of the tag</p>
+                    <section class="phpdocumentor-description"><p>Post title</p>
 </section>
 
             </dd>
@@ -345,9 +341,9 @@
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/App-Entity-Post.html"><abbr title="\App\Entity\Post">Post</abbr></a>|null</span>
             &mdash;
-            <section class="phpdocumentor-description"><p>The tag entity if found, null otherwise</p>
+            <section class="phpdocumentor-description"><p>Found post or null if not found</p>
 </section>
 
     
@@ -358,22 +354,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getPaginatedListOfAllTags">
-        getPaginatedListOfAllTags()
-        <a href="classes/App-Service-TagServiceInterface.html#method_getPaginatedListOfAllTags" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getPaginatedList">
+        getPaginatedList()
+        <a href="classes/App-Service-PostServiceInterface.html#method_getPaginatedList" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/TagServiceInterface.php"><a href="files/src-service-tagserviceinterface.html"><abbr title="src/Service/TagServiceInterface.php">TagServiceInterface.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/PostServiceInterface.php"><a href="files/src-service-postserviceinterface.html"><abbr title="src/Service/PostServiceInterface.php">PostServiceInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get a paginated list of all tags.</p>
+        <p class="phpdocumentor-summary">Get a paginated list of posts.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getPaginatedListOfAllTags</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Knp\Component\Pager\Pagination\PaginationInterface">PaginationInterface</abbr></span></code>
+                <span class="phpdocumentor-signature__name">getPaginatedList</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filters</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Knp\Component\Pager\Pagination\PaginationInterface">PaginationInterface</abbr></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -383,7 +379,16 @@
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The page number</p>
+                    <section class="phpdocumentor-description"><p>Page number</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$filters</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Filters to apply</p>
 </section>
 
             </dd>
@@ -394,7 +399,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type"><abbr title="\Knp\Component\Pager\Pagination\PaginationInterface">PaginationInterface</abbr></span>
             &mdash;
-            <section class="phpdocumentor-description"><p>The paginated list of tags</p>
+            <section class="phpdocumentor-description"><p>Paginated list of posts</p>
 </section>
 
     
@@ -405,144 +410,133 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getPaginatedListOfPostsByTag">
-        getPaginatedListOfPostsByTag()
-        <a href="classes/App-Service-TagServiceInterface.html#method_getPaginatedListOfPostsByTag" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_incrementViews">
+        incrementViews()
+        <a href="classes/App-Service-PostServiceInterface.html#method_incrementViews" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/TagServiceInterface.php"><a href="files/src-service-tagserviceinterface.html"><abbr title="src/Service/TagServiceInterface.php">TagServiceInterface.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">55</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Get a paginated list of posts associated with a specific tag.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">getPaginatedListOfPostsByTag</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$page</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tag</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Knp\Component\Pager\Pagination\PaginationInterface">PaginationInterface</abbr></span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$page</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The page number</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$tag</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The tag entity</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><abbr title="\Knp\Component\Pager\Pagination\PaginationInterface">PaginationInterface</abbr></span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>The paginated list of posts</p>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_includesTag">
-        includesTag()
-        <a href="classes/App-Service-TagServiceInterface.html#method_includesTag" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/TagServiceInterface.php"><a href="files/src-service-tagserviceinterface.html"><abbr title="src/Service/TagServiceInterface.php">TagServiceInterface.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">65</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Check if a tag is already included in an array.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">includesTag</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tag</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a>&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tags</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$tag</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Tag entity to check</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$tags</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, <a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a>&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Array of tags</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
-            &mdash;
-            <section class="phpdocumentor-description"><p>True if the tag is included, false otherwise</p>
-</section>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_saveTag">
-        saveTag()
-        <a href="classes/App-Service-TagServiceInterface.html#method_saveTag" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/TagServiceInterface.php"><a href="files/src-service-tagserviceinterface.html"><abbr title="src/Service/TagServiceInterface.php">TagServiceInterface.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/PostServiceInterface.php"><a href="files/src-service-postserviceinterface.html"><abbr title="src/Service/PostServiceInterface.php">PostServiceInterface.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Save a tag.</p>
+        <p class="phpdocumentor-summary">Increment the views of a post.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                <span class="phpdocumentor-signature__name">saveTag</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$tag</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                <span class="phpdocumentor-signature__name">incrementViews</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Post.html"><abbr title="\App\Entity\Post">Post</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$post</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$tag</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Tag.html"><abbr title="\App\Entity\Tag">Tag</abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$post</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Post.html"><abbr title="\App\Entity\Post">Post</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The tag to save</p>
+                    <section class="phpdocumentor-description"><p>Post entity</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">void</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_prepareFilters">
+        prepareFilters()
+        <a href="classes/App-Service-PostServiceInterface.html#method_prepareFilters" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/PostServiceInterface.php"><a href="files/src-service-postserviceinterface.html"><abbr title="src/Service/PostServiceInterface.php">PostServiceInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">69</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Prepare filters for querying posts.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">prepareFilters</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filters</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$filters</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Filters to apply</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+            <section class="phpdocumentor-description"><p>Prepared filters</p>
+</section>
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_savePost">
+        savePost()
+        <a href="classes/App-Service-PostServiceInterface.html#method_savePost" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Service/PostServiceInterface.php"><a href="files/src-service-postserviceinterface.html"><abbr title="src/Service/PostServiceInterface.php">PostServiceInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">37</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Save a post.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                <span class="phpdocumentor-signature__name">savePost</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Post.html"><abbr title="\App\Entity\Post">Post</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$post</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\File\UploadedFile">UploadedFile</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$image</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$post</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Entity-Post.html"><abbr title="\App\Entity\Post">Post</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Post entity</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$image</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Symfony\Component\HttpFoundation\File\UploadedFile">UploadedFile</abbr>|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Uploaded image file</p>
 </section>
 
             </dd>
@@ -634,7 +628,7 @@
 </section>
             </div>
         </div>
-        <a href="classes/App-Service-TagServiceInterface.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/App-Service-PostServiceInterface.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
