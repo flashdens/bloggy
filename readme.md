@@ -1,4 +1,35 @@
-# Docker Symfony Starter Kit
+![title](app/public/img/logotext.png)
+
+### EN
+
+**Bloggy** is a web blog app written in **PHP** using the **Symfony** framework. 
+It offers a *beautiful* user interface that lets you write posts, comment on them,
+end even set your own avatar. It also features an administration panel that lets you CRUD everything.
+Bloggy was written as an uni project for the **Interactive System** subject.
+
+### PL
+
+**Bloggy** to aplikacja webowa, będąca blogiem internetowym, napisana w **PHP** z użyciem frameworka **Symfony**.
+Oferuje *przepiękny* interfejs użytkownika pozwalający na pisanie postów i komentarzy, a nawet ustawienie własnego awatara.
+Zawiera również potężny panel administratora, który pozwala na CRUDowanie wszystkim (chodzi o zawartość - takie rzeczy może robić tylko admin).
+Aplikacja napisana jako zaliczenie na przedmiot **System interakcyjny - projekt**.
+
+## A short guide to set up **bloggy** on your machine 
+
+0. Install [Docker](https://www.docker.com/products/docker-desktop) and [Docker Compose](https://docs.docker.com/compose/install) on your machine
+1. Clone the git repository to the desired folder
+2. Build the containers with ``./build.env.sh`` 
+3. Enter the environment with ``docker-compose exec php bash``
+4. Specify the MySQL database connection URL in the ``.env`` file:
+```yaml
+DATABASE_URL=mysql://symfony:symfony@mysql:3306/symfony?serverVersion=5.7
+```
+5. Set up the database and load sample content to it wih:
+  ``
+    bin/console doctrine:migrations:migrate
+    bin/console doctrine:fixtures:load
+  ``
+6. The app should be accessible at ``localhost:8000``. You can find the login credentials at ``app/src/DataFixtures/UserFixtures``. 
 
 Starter kit is based on [The perfect kit starter for a Symfony 4 project with Docker and PHP 7.2](https://medium.com/@romaricp/the-perfect-kit-starter-for-a-symfony-4-project-with-docker-and-php-7-2-fda447b6bca1).
 
