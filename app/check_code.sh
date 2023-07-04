@@ -4,12 +4,14 @@ rm -f -- $RESULT_FILE
 touch $RESULT_FILE
 
 echo "Installing dependencies..."
+{
   composer install --no-interaction
   composer require --dev friendsofphp/php-cs-fixer  --no-interaction
   composer require --dev squizlabs/php_codesniffer  --no-interaction
   composer require --dev escapestudios/symfony2-coding-standard  --no-interaction
   ./vendor/bin/phpcs --config-set installed_paths $(realpath vendor/escapestudios/symfony2-coding-standard)
   ./vendor/bin/phpcs --config-set default_standard Symfony
+} > /dev/null 2>&1
 rm -f -- .php-cs-fixer.dist.php
 rm -f -- .php-cs-fixer.cache
 
@@ -40,3 +42,4 @@ echo "Tear down..."
   rm -rf var
   rm -rf vendor
 } > /dev/null 2>&1
+

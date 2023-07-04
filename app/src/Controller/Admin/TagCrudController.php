@@ -2,9 +2,7 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Category;
 use App\Entity\Tag;
-use App\Form\Type\CategoryType;
 use App\Form\Type\TagType;
 use App\Service\TagServiceInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -36,7 +34,6 @@ class TagCrudController extends AbstractController
         $this->tagService = $tagService;
         $this->translator = $translator;
     }
-
 
     /**
      * Show all tags.

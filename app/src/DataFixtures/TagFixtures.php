@@ -10,7 +10,6 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
  */
 class TagFixtures extends AbstractBaseFixtures implements DependentFixtureInterface
 {
-
     /**
      * Get the dependencies of the TagFixtures.
      *

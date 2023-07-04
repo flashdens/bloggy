@@ -19,7 +19,6 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class PostController.
  */
-
 #[Route('/post')]
 class PostController extends AbstractController
 {

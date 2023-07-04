@@ -25,8 +25,9 @@ class PostCrudController extends AbstractController
 
     /**
      * Constructor.
-     * @param PostServiceInterface $postService Post service.
-     * @param TranslatorInterface  $translator  Translator.
+     *
+     * @param PostServiceInterface $postService post service
+     * @param TranslatorInterface  $translator  translator
      */
     public function __construct(PostServiceInterface $postService, TranslatorInterface $translator)
     {

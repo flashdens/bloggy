@@ -17,20 +17,7 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class TagRepository extends ServiceEntityRepository
 {
-
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
-
-    /**
-     * Returns a QueryBuilder instance.
-     *
-     * @param QueryBuilder|null $queryBuilder the QueryBuilder instance
-     *
-     * @return QueryBuilder the QueryBuilder instance
-     */
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        return $queryBuilder ?? $this->createQueryBuilder('tag');
-    }
 
 
     /**
@@ -69,7 +56,6 @@ class TagRepository extends ServiceEntityRepository
         }
     }
 
-
     /**
      * Returns a QueryBuilder instance with ordered tags.
      *
@@ -79,5 +65,18 @@ class TagRepository extends ServiceEntityRepository
     {
         return $this->getOrCreateQueryBuilder()
             ->orderBy('tag.id', 'DESC');
+    }
+
+
+    /**
+     * Returns a QueryBuilder instance.
+     *
+     * @param QueryBuilder|null $queryBuilder the QueryBuilder instance
+     *
+     * @return QueryBuilder the QueryBuilder instance
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('tag');
     }
 }

@@ -5,7 +5,6 @@ namespace App\Service;
 use App\Entity\Comment;
 use App\Entity\Post;
 use App\Repository\CommentRepository;
-use DateTimeImmutable;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
@@ -16,15 +15,11 @@ class CommentService implements CommentServiceInterface
 {
     /**
      * Comment repository.
-     *
-     * @var CommentRepository
      */
     private CommentRepository $commentRepository;
 
     /**
      * Paginator.
-     *
-     * @var PaginatorInterface
      */
     private PaginatorInterface $paginator;
 
@@ -83,7 +78,7 @@ class CommentService implements CommentServiceInterface
     public function saveComment(Comment $comment): void
     {
         if (null == $comment->getId()) {
-            $comment->setPublished(new DateTimeImmutable());
+            $comment->setPublished(new \DateTimeImmutable());
         }
         $this->commentRepository->save($comment);
     }

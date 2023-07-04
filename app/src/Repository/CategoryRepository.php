@@ -17,33 +17,21 @@ class CategoryRepository extends ServiceEntityRepository
 {
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
-    /**
-     * Gets or creates a QueryBuilder instance.
-     *
-     * @param QueryBuilder|null $queryBuilder The query builder (optional)
-     *
-     * @return QueryBuilder The query builder instance
-     */
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        return $queryBuilder ?? $this->createQueryBuilder('c');
-    }
 
     /**
      * CategoryRepository constructor.
      *
-     * @param ManagerRegistry $registry The registry for managing entities.
+     * @param ManagerRegistry $registry the registry for managing entities
      */
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Category::class);
     }
 
-
     /**
      * Returns a query builder for retrieving all categories.
      *
-     * @return QueryBuilder The QueryBuilder instance.
+     * @return QueryBuilder the QueryBuilder instance
      */
     public function queryAll(): QueryBuilder
     {
@@ -55,9 +43,7 @@ class CategoryRepository extends ServiceEntityRepository
     /**
      * Saves the Category entity.
      *
-     * @param Category $entity The Category entity to save.
-     *
-     * @return void
+     * @param Category $entity the Category entity to save
      */
     public function save(Category $entity): void
     {
@@ -68,14 +54,24 @@ class CategoryRepository extends ServiceEntityRepository
     /**
      * Removes the Category entity.
      *
-     * @param Category $entity The Category entity to remove.
-     *
-     * @return void
+     * @param Category $entity the Category entity to remove
      */
     public function remove(Category $entity): void
     {
         $this->getEntityManager()->remove($entity);
         $this->getEntityManager()->flush();
+    }
+
+    /**
+     * Gets or creates a QueryBuilder instance.
+     *
+     * @param QueryBuilder|null $queryBuilder The query builder (optional)
+     *
+     * @return QueryBuilder The query builder instance
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('c');
     }
 
     // # Uncomment and update the method if needed

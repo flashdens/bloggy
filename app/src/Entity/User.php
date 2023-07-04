@@ -6,7 +6,6 @@ namespace App\Entity;
 
 use App\Entity\Enum\UserRole;
 use App\Repository\UserRepository;
-use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -53,7 +52,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Avatar $avatar = null;
-
 
     /**
      * Constructor.
@@ -123,7 +121,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * @return array $roles userRoles
      *
      * @see UserInterface
-     *
      */
     public function getRoles(): array
     {
@@ -149,7 +146,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     *
      * @return string $password
      *
      * @see PasswordAuthenticatedUserInterface
@@ -178,8 +174,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
      *
      * @return string|null
-     *
      * @see UserInterface
+     *
      */
     public function getSalt(): ?string
     {
@@ -222,9 +218,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Get the join date of the user.
      *
-     * @return DateTimeInterface|null The join date
+     * @return \DateTimeInterface|null The join date
      */
-    public function getJoined(): ?DateTimeInterface
+    public function getJoined(): ?\DateTimeInterface
     {
         return $this->joined;
     }
@@ -232,11 +228,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * Set the join date of the user.
      *
-     * @param DateTimeInterface $joined The join date
+     * @param \DateTimeInterface $joined The join date
      *
      * @return $this
      */
-    public function setJoined(DateTimeInterface $joined): self
+    public function setJoined(\DateTimeInterface $joined): self
     {
         $this->joined = $joined;
 

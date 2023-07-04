@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Form\Type\PasswordResetType;
-use App\Form\Type\UserType;
 use App\Service\UserServiceInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,15 +22,11 @@ class UserCrudController extends AbstractController
 {
     /**
      * User service.
-     *
-     * @var UserServiceInterface
      */
     private UserServiceInterface $userService;
 
     /**
      * Translator.
-     *
-     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
 
@@ -46,7 +41,6 @@ class UserCrudController extends AbstractController
         $this->userService = $userService;
         $this->translator = $translator;
     }
-
 
     /**
      * Show all users.

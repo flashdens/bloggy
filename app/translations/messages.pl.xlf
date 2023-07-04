@@ -587,9 +587,13 @@
            <target>Reset hasła</target>
        </trans-unit>
       <trans-unit id="action.add">
-           <source>action.add</source>
-           <target>Dodaj</target>
+           <source>action.reset_password</source>
+           <target>Resetuj hasło</target>
        </trans-unit>
-      </body>
+      <trans-unit id="tag.create">
+           <source>tag.create</source>
+           <target>Stwórz tag</target>
+       </trans-unit>
+    </body>
   </file>
 </xliff>

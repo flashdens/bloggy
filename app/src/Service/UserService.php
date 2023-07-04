@@ -15,22 +15,16 @@ class UserService implements UserServiceInterface
 {
     /**
      * User repository.
-     *
-     * @var UserRepository
      */
     private UserRepository $userRepository;
 
     /**
      * Comment repository.
-     *
-     * @var CommentRepository
      */
     private CommentRepository $commentRepository;
 
     /**
      * Paginator.
-     *
-     * @var PaginatorInterface
      */
     private PaginatorInterface $paginator;
 

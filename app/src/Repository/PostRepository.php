@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Post;
 use App\Entity\Tag;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\NonUniqueResultException;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -15,19 +16,7 @@ use Doctrine\Persistence\ManagerRegistry;
 class PostRepository extends ServiceEntityRepository
 {
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
-
-    /**
-     * Gets or creates a QueryBuilder instance.
-     *
-     * @param QueryBuilder|null $queryBuilder The query builder (optional)
-     *
-     * @return QueryBuilder The query builder instance
-     */
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        return $queryBuilder ?? $this->createQueryBuilder('post');
-    }
-
+    
     /**
      * PostRepository constructor.
      *
@@ -77,6 +66,22 @@ class PostRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * Finds a single post entity by its title.
+     *
+     * @param string $title The title of the post
+     *
+     * @return Post|null The post entity or null if it does not exist
+     * @throws NonUniqueResultException
+     */
+    public function findOneByTitle(string $title): ?Post
+    {
+        return $this->createQueryBuilder('post')
+            ->andWhere('post.title LIKE :title')
+            ->setParameter('title', '%'.$title.'%')
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 
     /**
      * Returns a query builder for retrieving all posts with optional filters.
@@ -120,12 +125,15 @@ class PostRepository extends ServiceEntityRepository
                 ->setParameter('tag', $filters['tag']);
         }
 
-        if (isset($filters['post']->title) && $filters['post'] instanceof Post) {
+
+        if (isset($filters['post'])) {
             $queryBuilder
                 ->andWhere('post.title LIKE :title')
-                ->setParameter('title', '%'.$filters['post']->title.'%');
+                ->setParameter('title',
+                    $filters['post'] instanceof Post
+                        ? '%'.$filters['post']->title.'%'
+                        : 'NULL');
         }
-
         return $queryBuilder;
     }
 
@@ -139,4 +147,17 @@ class PostRepository extends ServiceEntityRepository
         $this->_em->remove($post);
         $this->_em->flush();
     }
+
+    /**
+     * Gets or creates a QueryBuilder instance.
+     *
+     * @param QueryBuilder|null $queryBuilder The query builder (optional)
+     *
+     * @return QueryBuilder The query builder instance
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('post');
+    }
+
 }

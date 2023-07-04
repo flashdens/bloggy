@@ -58,7 +58,7 @@ class Post
     /**
      * Get the ID of the post.
      *
-     * @return int|null The ID of the post.
+     * @return int|null the ID of the post
      */
     public function getId(): ?int
     {
@@ -68,7 +68,7 @@ class Post
     /**
      * Get the content of the post.
      *
-     * @return string|null The content of the post.
+     * @return string|null the content of the post
      */
     public function getContent(): ?string
     {
@@ -78,7 +78,7 @@ class Post
     /**
      * Set the content of the post.
      *
-     * @param string $content The content of the post.
+     * @param string $content the content of the post
      *
      * @return $this
      */
@@ -92,7 +92,7 @@ class Post
     /**
      * Get the published datetime of the post.
      *
-     * @return \DateTimeInterface|null The published datetime of the post.
+     * @return \DateTimeInterface|null the published datetime of the post
      */
     public function getPublished(): ?\DateTimeInterface
     {
@@ -102,7 +102,7 @@ class Post
     /**
      * Set the published datetime of the post.
      *
-     * @param \DateTimeInterface $published The published datetime of the post.
+     * @param \DateTimeInterface $published the published datetime of the post
      *
      * @return $this
      */
@@ -116,7 +116,7 @@ class Post
     /**
      * Get the edited datetime of the post.
      *
-     * @return \DateTimeInterface|null The edited datetime of the post.
+     * @return \DateTimeInterface|null the edited datetime of the post
      */
     public function getEdited(): ?\DateTimeInterface
     {
@@ -126,7 +126,7 @@ class Post
     /**
      * Set the edited datetime of the post.
      *
-     * @param \DateTimeInterface $edited The edited datetime of the post.
+     * @param \DateTimeInterface $edited the edited datetime of the post
      *
      * @return $this
      */
@@ -140,7 +140,7 @@ class Post
     /**
      * Get the category of the post.
      *
-     * @return Category|null The category of the post.
+     * @return Category|null the category of the post
      */
     public function getCategory(): ?Category
     {
@@ -150,7 +150,7 @@ class Post
     /**
      * Set the category of the post.
      *
-     * @param Category|null $category The category of the post.
+     * @param Category|null $category the category of the post
      *
      * @return $this
      */
@@ -164,7 +164,7 @@ class Post
     /**
      * Get the title of the post.
      *
-     * @return string|null The title of the post.
+     * @return string|null the title of the post
      */
     public function getTitle(): ?string
     {
@@ -174,7 +174,7 @@ class Post
     /**
      * Set the title of the post.
      *
-     * @param string $title The title of the post.
+     * @param string $title the title of the post
      *
      * @return $this
      */
@@ -188,7 +188,7 @@ class Post
     /**
      * Get the number of views for the post.
      *
-     * @return int|null The number of views for the post.
+     * @return int|null the number of views for the post
      */
     public function getViews(): ?int
     {
@@ -198,7 +198,7 @@ class Post
     /**
      * Set the number of views for the post.
      *
-     * @param int $views The number of views for the post.
+     * @param int $views the number of views for the post
      *
      * @return $this
      */
@@ -224,7 +224,7 @@ class Post
     /**
      * Get the tags associated with the post.
      *
-     * @return Collection<int, Tag> The tags associated with the post.
+     * @return Collection<int, Tag> the tags associated with the post
      */
     public function getTags(): Collection
     {
@@ -234,7 +234,7 @@ class Post
     /**
      * Add a tag to the post.
      *
-     * @param Tag $tag The tag to add.
+     * @param Tag $tag the tag to add
      *
      * @return $this
      */
@@ -250,7 +250,7 @@ class Post
     /**
      * Remove a tag from the post.
      *
-     * @param Tag $tag The tag to remove.
+     * @param Tag $tag the tag to remove
      *
      * @return $this
      */
@@ -264,7 +264,7 @@ class Post
     /**
      * Get the image filename of the post.
      *
-     * @return string|null The image filename of the post.
+     * @return string|null the image filename of the post
      */
     public function getImage(): ?string
     {
@@ -274,7 +274,7 @@ class Post
     /**
      * Set the image filename of the post.
      *
-     * @param string $image The image filename of the post.
+     * @param string $image the image filename of the post
      *
      * @return $this
      */

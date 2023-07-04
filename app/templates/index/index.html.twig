@@ -44,6 +44,7 @@
                             </div>
 
                         <div class="row">
+                            {% if posts is defined and posts.items|length %}
                             {% for post in posts.items %}
                                 <div class="col-md-4">
                                     <div class="card mb-4 box-shadow h-auto">
@@ -84,6 +85,9 @@
                                     </div>
                                 </div>
                             {% endfor %}
+                            {% else %}
+                                <h3> {{ 'message.no_records_found'|trans }} </h3>
+                            {% endif %}
                             <div class="navigation text-center">
                                 {{ knp_pagination_render(posts) }}
                             </div>

@@ -29,8 +29,6 @@ class AvatarRepository extends ServiceEntityRepository
      * Saves the Avatar entity.
      *
      * @param Avatar $entity The Avatar entity
-     *
-     * @return void
      */
     public function save(Avatar $entity): void
     {
@@ -39,23 +37,9 @@ class AvatarRepository extends ServiceEntityRepository
     }
 
     /**
-     * Gets or creates a QueryBuilder instance.
-     *
-     * @param QueryBuilder|null $queryBuilder The QueryBuilder instance
-     *
-     * @return QueryBuilder
-     */
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        return $queryBuilder ?? $this->createQueryBuilder('a');
-    }
-
-    /**
      * Removes the Avatar entity.
      *
      * @param Avatar $entity The Avatar entity
-     *
-     * @return void
      */
     public function remove(Avatar $entity): void
     {
@@ -68,6 +52,7 @@ class AvatarRepository extends ServiceEntityRepository
 
         $this->getEntityManager()->flush();
     }
+
 
     // # Uncomment and update the method if needed
 

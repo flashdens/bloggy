@@ -10,7 +10,7 @@ use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
 /**
- * Class TagService
+ * Class TagService.
  *
  * Service class for managing tags.
  */
@@ -23,9 +23,9 @@ class TagService implements TagServiceInterface
     /**
      * TagService constructor.
      *
-     * @param TagRepository      $tagRepository  The tag repository.
-     * @param PostRepository     $postRepository The post repository.
-     * @param PaginatorInterface $paginator      The paginator.
+     * @param TagRepository      $tagRepository  the tag repository
+     * @param PostRepository     $postRepository the post repository
+     * @param PaginatorInterface $paginator      the paginator
      */
     public function __construct(TagRepository $tagRepository, PostRepository $postRepository, PaginatorInterface $paginator)
     {
@@ -37,9 +37,9 @@ class TagService implements TagServiceInterface
     /**
      * Find a tag by its title.
      *
-     * @param string $title Tag title.
+     * @param string $title tag title
      *
-     * @return Tag|null Tag entity or null if not found.
+     * @return Tag|null tag entity or null if not found
      */
     public function findOneByTitle(string $title): ?Tag
     {
@@ -49,7 +49,7 @@ class TagService implements TagServiceInterface
     /**
      * Save a tag.
      *
-     * @param Tag $tag Tag entity to save.
+     * @param Tag $tag tag entity to save
      */
     public function saveTag(Tag $tag): void
     {
@@ -63,7 +63,7 @@ class TagService implements TagServiceInterface
     /**
      * Delete a tag.
      *
-     * @param Tag $tag Tag entity to delete.
+     * @param Tag $tag tag entity to delete
      */
     public function deleteTag(Tag $tag): void
     {
@@ -77,9 +77,9 @@ class TagService implements TagServiceInterface
     /**
      * Get a paginated list of all tags.
      *
-     * @param int $page Page number.
+     * @param int $page page number
      *
-     * @return PaginationInterface Paginated list of tags.
+     * @return PaginationInterface paginated list of tags
      */
     public function getPaginatedListOfAllTags(int $page): PaginationInterface
     {
@@ -93,10 +93,10 @@ class TagService implements TagServiceInterface
     /**
      * Get a paginated list of posts by tag.
      *
-     * @param int $page Page number.
-     * @param Tag $tag  Tag entity.
+     * @param int $page page number
+     * @param Tag $tag  tag entity
      *
-     * @return PaginationInterface Paginated list of posts.
+     * @return PaginationInterface paginated list of posts
      */
     public function getPaginatedListOfPostsByTag(int $page, Tag $tag): PaginationInterface
     {
@@ -110,10 +110,10 @@ class TagService implements TagServiceInterface
     /**
      * Check if a tag is already included in an array.
      *
-     * @param Tag   $tag  Tag entity to check.
-     * @param Tag[] $tags Array of tags.
+     * @param Tag   $tag  tag entity to check
+     * @param Tag[] $tags array of tags
      *
-     * @return bool True if the tag is included, false otherwise.
+     * @return bool true if the tag is included, false otherwise
      */
     public function includesTag(Tag $tag, array $tags): bool
     {
@@ -129,9 +129,9 @@ class TagService implements TagServiceInterface
     /**
      * Find a tag by its ID.
      *
-     * @param int $id Tag ID.
+     * @param int $id tag ID
      *
-     * @return Tag|null Tag entity or null if not found.
+     * @return Tag|null tag entity or null if not found
      */
     public function findOneById(int $id): ?Tag
     {

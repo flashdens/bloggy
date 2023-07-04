@@ -34,7 +34,6 @@ class PostType extends AbstractType
         $this->dataTransformer = $dataTransformer;
     }
 
-
     /**
      * Builds the form.
      *

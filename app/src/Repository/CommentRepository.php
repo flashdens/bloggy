@@ -12,25 +12,9 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Comment|null findOneBy(array $criteria, array $orderBy = null)
  * @method Comment[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-
-
 class CommentRepository extends ServiceEntityRepository
 {
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
-
-
-    /**
-     * Gets or creates a QueryBuilder instance.
-     *
-     * @param QueryBuilder|null $queryBuilder The query builder (optional)
-     *
-     * @return QueryBuilder The query builder instance
-     */
-    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
-    {
-        return $queryBuilder ?? $this->createQueryBuilder('c');
-    }
-
 
     /**
      * CommentRepository constructor.
@@ -67,7 +51,7 @@ class CommentRepository extends ServiceEntityRepository
     /**
      * Find all comments.
      *
-     * @return array Comments.
+     * @return array comments
      */
     public function findAll(): array
     {
@@ -78,6 +62,19 @@ class CommentRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    /**
+     * Gets or creates a QueryBuilder instance.
+     *
+     * @param QueryBuilder|null $queryBuilder The query builder (optional)
+     *
+     * @return QueryBuilder The query builder instance
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('c');
+    }
+
 
     // # Uncomment and update the method if needed
 

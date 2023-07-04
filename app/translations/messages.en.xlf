@@ -550,6 +550,38 @@
            <source>action.add</source>
            <target>Add</target>
        </trans-unit>
+       <trans-unit id="password.edit">
+          <source>password.edit</source>
+          <target>Edit Password</target>
+       </trans-unit>
+       <trans-unit id="user.delete">
+          <source>user.delete</source>
+          <target>Delete User</target>
+       </trans-unit>
+       <trans-unit id="post.delete">
+          <source>post.delete</source>
+          <target>Delete Post</target>
+       </trans-unit>
+       <trans-unit id="post.edit">
+          <source>post.edit</source>
+          <target>Edit Post</target>
+       </trans-unit>
+       <trans-unit id="tag.delete">
+          <source>tag.delete</source>
+          <target>Delete Tag</target>
+       </trans-unit>
+       <trans-unit id="tag.create">
+          <source>tag.create</source>
+          <target>Create Tag</target>
+       </trans-unit>
+       <trans-unit id="comment.delete">
+          <source>comment.delete</source>
+          <target>Delete Comment</target>
+       </trans-unit>
+       <trans-unit id="category.delete">
+          <source>category.delete</source>
+          <target>Delete Category</target>
+       </trans-unit>
        </body>
   </file>
 </xliff>

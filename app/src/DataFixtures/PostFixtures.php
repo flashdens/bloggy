@@ -17,7 +17,6 @@ class PostFixtures extends AbstractBaseFixtures implements DependentFixtureInter
     {
     }
 
-
     /**
      * Get the dependencies of the PostFixtures.
      *

@@ -9,7 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Regex;
 
 /**
- * Class SearchType
+ * Class SearchType.
  *
  * Form type for search functionality.
  */
@@ -18,8 +18,8 @@ class SearchType extends AbstractType
     /**
      * Build the form.
      *
-     * @param FormBuilderInterface $builder The form builder.
-     * @param array                $options The options.
+     * @param FormBuilderInterface $builder the form builder
+     * @param array                $options the options
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -44,7 +44,7 @@ class SearchType extends AbstractType
     /**
      * Configure the options for the form.
      *
-     * @param OptionsResolver $resolver The options resolver.
+     * @param OptionsResolver $resolver the options resolver
      */
     public function configureOptions(OptionsResolver $resolver): void
     {

@@ -21,8 +21,6 @@ class IndexController extends AbstractController
 {
     /**
      * Post service.
-     *
-     * @var PostServiceInterface
      */
     private PostServiceInterface $postService;
 

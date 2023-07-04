@@ -6,12 +6,13 @@ use App\Entity\Post;
 use App\Repository\CommentRepository;
 use App\Repository\PostRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\NonUniqueResultException;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Class PostService
+ * Class PostService.
  *
  * Service class for managing posts.
  */
@@ -19,63 +20,49 @@ class PostService implements PostServiceInterface
 {
     /**
      * Post repository.
-     *
-     * @var PostRepository
      */
     private PostRepository $postRepository;
 
     /**
      * Comment repository.
-     *
-     * @var CommentRepository
      */
     private CommentRepository $commentRepository;
 
     /**
      * Category service.
-     *
-     * @var CategoryServiceInterface
      */
     private CategoryServiceInterface $categoryService;
 
     /**
      * Tag service.
-     *
-     * @var TagServiceInterface
      */
     private TagServiceInterface $tagService;
 
     /**
      * Entity manager.
-     *
-     * @var EntityManagerInterface
      */
     private EntityManagerInterface $entityManager;
 
     /**
      * Paginator.
-     *
-     * @var PaginatorInterface
      */
     private PaginatorInterface $paginator;
 
     /**
      * File upload service.
-     *
-     * @var FileUploadServiceInterface
      */
     private FileUploadServiceInterface $fileUploadService;
 
     /**
      * PostService constructor.
      *
-     * @param PostRepository             $postRepository    The post repository.
-     * @param CommentRepository          $commentRepository The comment repository.
-     * @param CategoryServiceInterface   $categoryService   The category service.
-     * @param EntityManagerInterface     $entityManager     The entity manager.
-     * @param TagServiceInterface        $tagService        The tag service.
-     * @param PaginatorInterface         $paginator         The paginator.
-     * @param FileUploadServiceInterface $fileUploadService The file upload service.
+     * @param PostRepository             $postRepository    the post repository
+     * @param CommentRepository          $commentRepository the comment repository
+     * @param CategoryServiceInterface   $categoryService   the category service
+     * @param EntityManagerInterface     $entityManager     the entity manager
+     * @param TagServiceInterface        $tagService        the tag service
+     * @param PaginatorInterface         $paginator         the paginator
+     * @param FileUploadServiceInterface $fileUploadService the file upload service
      */
     public function __construct(PostRepository $postRepository, CommentRepository $commentRepository, CategoryServiceInterface $categoryService, EntityManagerInterface $entityManager, TagServiceInterface $tagService, PaginatorInterface $paginator, FileUploadServiceInterface $fileUploadService)
     {
@@ -91,10 +78,10 @@ class PostService implements PostServiceInterface
     /**
      * Get a paginated list of posts.
      *
-     * @param int   $page    Page number.
-     * @param array $filters Filters for querying posts.
+     * @param int   $page    page number
+     * @param array $filters filters for querying posts
      *
-     * @return PaginationInterface Paginated list of posts.
+     * @return PaginationInterface paginated list of posts
      */
     public function getPaginatedList(int $page, array $filters = []): PaginationInterface
     {
@@ -110,7 +97,7 @@ class PostService implements PostServiceInterface
     /**
      * Increment the view count of a post.
      *
-     * @param Post $post Post entity.
+     * @param Post $post post entity
      */
     public function incrementViews(Post $post): void
     {
@@ -122,8 +109,8 @@ class PostService implements PostServiceInterface
     /**
      * Save a post.
      *
-     * @param Post              $post  Post entity.
-     * @param UploadedFile|null $image Uploaded file for the post's image.
+     * @param Post              $post  post entity
+     * @param UploadedFile|null $image uploaded file for the post's image
      */
     public function savePost(Post $post, ?UploadedFile $image): void
     {
@@ -145,7 +132,7 @@ class PostService implements PostServiceInterface
     /**
      * Delete a post.
      *
-     * @param Post $post Post entity to delete.
+     * @param Post $post post entity to delete
      */
     public function deletePost(Post $post): void
     {
@@ -156,7 +143,7 @@ class PostService implements PostServiceInterface
     /**
      * Delete comments associated with a post.
      *
-     * @param Post $post Post entity.
+     * @param Post $post post entity
      */
     public function deleteComments(Post $post): void
     {
@@ -169,9 +156,10 @@ class PostService implements PostServiceInterface
     /**
      * Find a post by its title.
      *
-     * @param string $title Post title.
+     * @param string $title post title
      *
-     * @return Post|null Post entity or null if not found.
+     * @return Post|null post entity or null if not found
+     * @throws NonUniqueResultException
      */
     public function findOneByTitle(string $title): ?Post
     {
@@ -181,9 +169,10 @@ class PostService implements PostServiceInterface
     /**
      * Prepare filters for querying posts.
      *
-     * @param array $filters Filters array.
+     * @param array $filters filters array
      *
-     * @return array Prepared filters array.
+     * @return array prepared filters array
+     * @throws NonUniqueResultException
      */
     public function prepareFilters(array $filters): array
     {
@@ -204,12 +193,12 @@ class PostService implements PostServiceInterface
         }
 
         if (!empty($filters['post'])) {
-            $post = $this->postRepository->findOneByTitle($filters['post']['search']);
-            if (null !== $post) {
+            $post = $this->findOneByTitle($filters['post']['search']);
+            if (null !== $post)
                 $resultFilters['post'] = $post;
-            }
+            else
+                $resultFilters['post'] = "1=2";
         }
-
         return $resultFilters;
     }
 }

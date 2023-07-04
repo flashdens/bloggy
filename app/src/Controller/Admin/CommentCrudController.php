@@ -22,15 +22,11 @@ class CommentCrudController extends AbstractController
 {
     /**
      * Comment service.
-     *
-     * @var CommentServiceInterface
      */
     private CommentServiceInterface $commentService;
 
     /**
      * Translator.
-     *
-     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
 

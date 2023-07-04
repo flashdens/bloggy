@@ -8,7 +8,7 @@ use Symfony\Component\Security\Core\User\UserCheckerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * Class UserChecker
+ * Class UserChecker.
  */
 class UserChecker implements UserCheckerInterface
 {

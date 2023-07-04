@@ -22,15 +22,11 @@ class CategoryCrudController extends AbstractController
 {
     /**
      * Category service.
-     *
-     * @var CategoryServiceInterface
      */
     private CategoryServiceInterface $categoryService;
 
     /**
      * Translator.
-     *
-     * @var TranslatorInterface
      */
     private TranslatorInterface $translator;
 
@@ -45,7 +41,6 @@ class CategoryCrudController extends AbstractController
         $this->categoryService = $categoryService;
         $this->translator = $translator;
     }
-
 
     /**
      * Show category list.

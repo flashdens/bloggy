@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\TagRepository;
-use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -22,10 +21,10 @@ class Tag
     private ?int $id = null;
 
     #[ORM\Column(name: 'created', type: Types::DATETIME_MUTABLE)]
-    private ?DateTimeInterface $createdAt = null;
+    private ?\DateTimeInterface $createdAt = null;
 
     #[ORM\Column(name: 'updated', type: Types::DATETIME_MUTABLE)]
-    private ?DateTimeInterface $updatedAt = null;
+    private ?\DateTimeInterface $updatedAt = null;
 
     #[ORM\Column(length: 64)]
     private ?string $slug = null;
@@ -57,9 +56,9 @@ class Tag
     /**
      * Get the creation date of the tag.
      *
-     * @return DateTimeInterface|null The creation date
+     * @return \DateTimeInterface|null The creation date
      */
-    public function getCreatedAt(): ?DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
@@ -67,11 +66,11 @@ class Tag
     /**
      * Set the creation date of the tag.
      *
-     * @param DateTimeInterface $createdAt The creation date
+     * @param \DateTimeInterface $createdAt The creation date
      *
      * @return $this
      */
-    public function setCreatedAt(DateTimeInterface $createdAt): self
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
 
@@ -81,9 +80,9 @@ class Tag
     /**
      * Get the update date of the tag.
      *
-     * @return DateTimeInterface|null The update date
+     * @return \DateTimeInterface|null The update date
      */
-    public function getUpdatedAt(): ?DateTimeInterface
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
     }
@@ -91,11 +90,11 @@ class Tag
     /**
      * Set the update date of the tag.
      *
-     * @param DateTimeInterface $updatedAt The update date
+     * @param \DateTimeInterface $updatedAt The update date
      *
      * @return $this
      */
-    public function setUpdatedAt(DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 
