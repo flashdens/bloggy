@@ -19,7 +19,6 @@ class TagRepository extends ServiceEntityRepository
 {
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
 
-
     /**
      * TagRepository constructor.
      *
@@ -66,7 +65,6 @@ class TagRepository extends ServiceEntityRepository
         return $this->getOrCreateQueryBuilder()
             ->orderBy('tag.id', 'DESC');
     }
-
 
     /**
      * Returns a QueryBuilder instance.

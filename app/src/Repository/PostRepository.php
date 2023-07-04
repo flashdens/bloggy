@@ -16,7 +16,7 @@ use Doctrine\Persistence\ManagerRegistry;
 class PostRepository extends ServiceEntityRepository
 {
     public const PAGINATOR_ITEMS_PER_PAGE = 10;
-    
+
     /**
      * PostRepository constructor.
      *
@@ -72,6 +72,7 @@ class PostRepository extends ServiceEntityRepository
      * @param string $title The title of the post
      *
      * @return Post|null The post entity or null if it does not exist
+     *
      * @throws NonUniqueResultException
      */
     public function findOneByTitle(string $title): ?Post
@@ -125,15 +126,17 @@ class PostRepository extends ServiceEntityRepository
                 ->setParameter('tag', $filters['tag']);
         }
 
-
         if (isset($filters['post'])) {
             $queryBuilder
                 ->andWhere('post.title LIKE :title')
-                ->setParameter('title',
+                ->setParameter(
+                    'title',
                     $filters['post'] instanceof Post
                         ? '%'.$filters['post']->title.'%'
-                        : 'NULL');
+                    : 'NULL'
+                );
         }
+
         return $queryBuilder;
     }
 
@@ -159,5 +162,4 @@ class PostRepository extends ServiceEntityRepository
     {
         return $queryBuilder ?? $this->createQueryBuilder('post');
     }
-
 }

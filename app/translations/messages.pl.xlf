@@ -583,12 +583,12 @@
            <target>Akceptacja warunków</target>
        </trans-unit>
       <trans-unit id="action.reset_password">
-           <source>Reset password</source>
+           <source>action.reset_password</source>
            <target>Reset hasła</target>
        </trans-unit>
       <trans-unit id="action.add">
-           <source>action.reset_password</source>
-           <target>Resetuj hasło</target>
+           <source>action.add</source>
+           <target>Dodaj</target>
        </trans-unit>
       <trans-unit id="tag.create">
            <source>tag.create</source>

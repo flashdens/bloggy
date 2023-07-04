@@ -159,6 +159,7 @@ class PostService implements PostServiceInterface
      * @param string $title post title
      *
      * @return Post|null post entity or null if not found
+     *
      * @throws NonUniqueResultException
      */
     public function findOneByTitle(string $title): ?Post
@@ -172,6 +173,7 @@ class PostService implements PostServiceInterface
      * @param array $filters filters array
      *
      * @return array prepared filters array
+     *
      * @throws NonUniqueResultException
      */
     public function prepareFilters(array $filters): array
@@ -194,11 +196,13 @@ class PostService implements PostServiceInterface
 
         if (!empty($filters['post'])) {
             $post = $this->findOneByTitle($filters['post']['search']);
-            if (null !== $post)
+            if (null !== $post) {
                 $resultFilters['post'] = $post;
-            else
-                $resultFilters['post'] = "1=2";
+            } else {
+                $resultFilters['post'] = '1=2';
+            }
         }
+
         return $resultFilters;
     }
 }

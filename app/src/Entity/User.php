@@ -1,7 +1,5 @@
 <?php
 
-// -todo - delete properties
-
 namespace App\Entity;
 
 use App\Entity\Enum\UserRole;
@@ -19,6 +17,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Table(name: 'users')]
 #[ORM\UniqueConstraint(name: 'email_idx', columns: ['email'])]
 #[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+/**
+ * User entity.
+ */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -173,9 +174,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Returning a salt is only needed, if you are not using a modern
      * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
      *
-     * @return string|null
      * @see UserInterface
      *
+     * @return string|null salt
      */
     public function getSalt(): ?string
     {
@@ -299,8 +300,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Set the avatar of the user.
      *
      * @param Avatar|null $avatar The avatar
-     *
-     * @return static
      */
     public function setAvatar(?Avatar $avatar): static
     {

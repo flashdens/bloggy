@@ -4,7 +4,6 @@ namespace App\Repository;
 
 use App\Entity\Avatar;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -52,7 +51,6 @@ class AvatarRepository extends ServiceEntityRepository
 
         $this->getEntityManager()->flush();
     }
-
 
     // # Uncomment and update the method if needed
 
