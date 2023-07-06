@@ -51,7 +51,7 @@
             <div class="d-flex flex-column justify-content-center text-center p-3 ">
                 {% if comment.author.avatar.filename is defined and comment.author.avatar.filename|length %}
                     <img class="text-center mx-auto mb-3 d-md-block d-none"
-                         src="{{ asset(image_directory~comment.author.avatar.filename) }}"
+                         src="{{ asset('uploads/' ~comment.author.avatar.filename) }}"
                          width="80px" height="80px" alt="">
                 {% else %}
                 <img

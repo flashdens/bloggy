@@ -77,7 +77,7 @@ class PostCrudController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->postService->savePost($post);
+            $this->postService->savePost($post, null);
             $this->addFlash(
                 'success',
                 $this->translator->trans('post.edited_successfully')

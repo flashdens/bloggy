@@ -582,6 +582,42 @@
           <source>category.delete</source>
           <target>Delete Category</target>
        </trans-unit>
-       </body>
+<trans-unit id="message.invalid_characters">
+     <source>message.invalid_characters</source>
+     <target>Invalid characters entered</target>
+</trans-unit>
+<trans-unit id="repeat_password">
+     <source>repeat_password</source>
+     <target>Repeat Password</target>
+</trans-unit>
+<trans-unit id="Current_Password">
+     <source>Current_Password</source>
+     <target>Current Password</target>
+</trans-unit>
+<trans-unit id="new_password">
+     <source>new_password</source>
+     <target>New Password</target>
+</trans-unit>
+<trans-unit id="repeat_new_password">
+     <source>repeat_new_password</source>
+     <target>Repeat New Password</target>
+</trans-unit>
+<trans-unit id="tag.title">
+     <source>tag.title</source>
+     <target>Tag Title</target>
+</trans-unit>
+<trans-unit id="tag.slug">
+     <source>tag.slug</source>
+     <target>Tag Slug</target>
+</trans-unit>
+<trans-unit id="action.remember_me">
+     <source>action.remember_me</source>
+     <target>Remember me</target>
+</trans-unit>
+<trans-unit id="message.hello">
+     <source>message.hello</source>
+     <target>Hello,</target>
+</trans-unit>
+</body>
   </file>
 </xliff>

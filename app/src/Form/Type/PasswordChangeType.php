@@ -31,11 +31,11 @@ class PasswordChangeType extends AbstractType
                 'label' => 'Current Password',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'The current password cannot be blank.',
+                        'message' => 'message.blank',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'The current password should be at least {{ limit }} characters long.',
+                        'minMessage' => 'message.invalid_length',
                         // The maximum length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
@@ -43,19 +43,19 @@ class PasswordChangeType extends AbstractType
             ])
             ->add('new_password', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'invalid_message' => 'The new password fields must match.',
+                'invalid_message' => 'message.password_mismatch',
                 'options' => ['attr' => ['class' => 'password-field']],
                 'required' => true,
                 'mapped' => false,
-                'first_options' => ['label' => 'New Password'],
-                'second_options' => ['label' => 'Repeat New Password'],
+                'first_options' => ['label' => 'new_password'],
+                'second_options' => ['label' => 'repeat_new_password'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'The new password cannot be blank.',
+                        'message' => 'message.blank',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'The new password should be at least {{ limit }} characters long.',
+                        'minMessage' => 'message.password_too_short',
                         // The maximum length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),

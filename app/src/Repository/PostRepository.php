@@ -69,20 +69,10 @@ class PostRepository extends ServiceEntityRepository
     /**
      * Finds a single post entity by its title.
      *
-     * @param string $title The title of the post
-     *
      * @return Post|null The post entity or null if it does not exist
      *
      * @throws NonUniqueResultException
      */
-    public function findOneByTitle(string $title): ?Post
-    {
-        return $this->createQueryBuilder('post')
-            ->andWhere('post.title LIKE :title')
-            ->setParameter('title', '%'.$title.'%')
-            ->getQuery()
-            ->getOneOrNullResult();
-    }
 
     /**
      * Returns a query builder for retrieving all posts with optional filters.
@@ -131,9 +121,7 @@ class PostRepository extends ServiceEntityRepository
                 ->andWhere('post.title LIKE :title')
                 ->setParameter(
                     'title',
-                    $filters['post'] instanceof Post
-                        ? '%'.$filters['post']->title.'%'
-                    : 'NULL'
+                    '%'.$filters['post']['search'].'%'
                 );
         }
 

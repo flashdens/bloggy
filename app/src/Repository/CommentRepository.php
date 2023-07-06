@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Comment;
+use App\Entity\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
@@ -47,6 +48,12 @@ class CommentRepository extends ServiceEntityRepository
         $this->getEntityManager()->remove($entity);
         $this->getEntityManager()->flush();
     }
+
+    /**
+     * Find comments by post.
+     *
+     * @return array comments
+     */
 
     /**
      * Find all comments.

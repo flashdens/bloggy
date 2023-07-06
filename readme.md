@@ -26,11 +26,12 @@ Aplikacja napisana jako zaliczenie na przedmiot **System interakcyjny - projekt*
 ```yaml
 DATABASE_URL=mysql://symfony:symfony@mysql:3306/symfony?serverVersion=5.7
 ```
-5. Set up the database and load sample content to it wih:
-  ``
+5. Install necessary packages, set up database and load sample content to it wih:
+  ```
+    composer install
     bin/console doctrine:migrations:migrate
     bin/console doctrine:fixtures:load
-  ``
+  ```
 6. The app should be accessible at ``localhost:8000``. You can find the login credentials at ``app/src/DataFixtures/UserFixtures``. 
 
 ## Database structure

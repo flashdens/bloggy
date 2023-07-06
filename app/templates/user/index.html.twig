@@ -2,7 +2,7 @@
 
 {% block body %}
     <div class="container text-center border p-3">
-<h1>Hello {{ user.email }}!</h1>
+<h1 class="mb-3">{{ 'message.hello'|trans }} {{ user.email }}!</h1>
 {% if user.avatar %}
     <img src="{{ asset('uploads/' ~ user.avatar.filename) }}" alt="Avatar" width="80px" height="80px">
 {% else %}

@@ -316,7 +316,7 @@
              </trans-unit>
              <trans-unit id="label.edited">
                <source>label.edited</source>
-               <target>Zedytowany</target>
+               <target>Edytowany</target>
              </trans-unit>
              <trans-unit id="label_tags">
                <source>label_tags</source>
@@ -476,11 +476,11 @@
              </trans-unit>
              <trans-unit id="action.login">
                <source>action.login</source>
-               <target>Zaloguj</target>
+               <target>Zaloguj się</target>
              </trans-unit>
              <trans-unit id="action.register">
                <source>action.register</source>
-               <target>Zarejestruj</target>
+               <target>Zarejestruj się</target>
              </trans-unit>
              <trans-unit id="action.admin_panel">
                <source>action.admin_panel</source>
@@ -594,6 +594,46 @@
            <source>tag.create</source>
            <target>Stwórz tag</target>
        </trans-unit>
+<trans-unit id="message.invalid_characters">
+     <source>message.invalid_characters</source>
+     <target>Nieprawidłowe znaki</target>
+</trans-unit>
+<trans-unit id="repeat_password">
+     <source>repeat_password</source>
+     <target>Powtórz hasło</target>
+</trans-unit>
+<trans-unit id="Current_Password">
+     <source>Current_Password</source>
+     <target>Aktualne hasło</target>
+</trans-unit>
+<trans-unit id="new_password">
+     <source>new_password</source>
+     <target>Nowe hasło</target>
+</trans-unit>
+<trans-unit id="repeat_new_password">
+     <source>repeat_new_password</source>
+     <target>Powtórz nowe hasło</target>
+</trans-unit>
+<trans-unit id="tag.title">
+     <source>tag.title</source>
+     <target>Tytuł tagu</target>
+</trans-unit>
+<trans-unit id="tag.slug">
+     <source>tag.slug</source>
+     <target>Slug tagu</target>
+</trans-unit>
+<trans-unit id="action.remember_me">
+     <source>action.remember_me</source>
+     <target>Pamiętaj mnie</target>
+</trans-unit>
+<trans-unit id="message.hello">
+     <source>message.hello</source>
+     <target>Witaj,</target>
+</trans-unit>
+<trans-unit id="label.avatar">
+     <source>label.avatar</source>
+     <target>Awatar</target>
+</trans-unit>
     </body>
   </file>
 </xliff>

@@ -31,3 +31,5 @@ phpcs.xml.dist
 /.phpcs-cache
 /phpcs.xml
 ###< squizlabs/php_codesniffer ###
+
+check_code.result.cache

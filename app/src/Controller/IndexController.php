@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Index controller. Welcome to my mine.
  */

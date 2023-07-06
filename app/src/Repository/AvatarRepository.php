@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Avatar;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -50,6 +51,18 @@ class AvatarRepository extends ServiceEntityRepository
             ->execute();
 
         $this->getEntityManager()->flush();
+    }
+
+    /**
+     * Gets or creates a QueryBuilder instance.
+     *
+     * @param QueryBuilder|null $queryBuilder The query builder (optional)
+     *
+     * @return QueryBuilder The query builder instance
+     */
+    private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
+    {
+        return $queryBuilder ?? $this->createQueryBuilder('a');
     }
 
     // # Uncomment and update the method if needed

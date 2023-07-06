@@ -35,7 +35,7 @@ class SearchType extends AbstractType
                 'constraints' => [
                     new Regex([
                         'pattern' => '/^[A-Za-z0-9\s]*$/',
-                        'message' => 'The search query should only contain letters, numbers, and spaces.',
+                        'message' => 'message.invalid_characters',
                     ]),
                 ],
             ]);

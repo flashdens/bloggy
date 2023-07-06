@@ -82,6 +82,8 @@ class PostService implements PostServiceInterface
      * @param array $filters filters for querying posts
      *
      * @return PaginationInterface paginated list of posts
+     *
+     * @throws NonUniqueResultException
      */
     public function getPaginatedList(int $page, array $filters = []): PaginationInterface
     {
@@ -195,12 +197,7 @@ class PostService implements PostServiceInterface
         }
 
         if (!empty($filters['post'])) {
-            $post = $this->findOneByTitle($filters['post']['search']);
-            if (null !== $post) {
-                $resultFilters['post'] = $post;
-            } else {
-                $resultFilters['post'] = '1=2';
-            }
+            $resultFilters['post'] = $filters['post'];
         }
 
         return $resultFilters;

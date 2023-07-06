@@ -300,6 +300,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      * Set the avatar of the user.
      *
      * @param Avatar|null $avatar The avatar
+     *
+     * @return static this
      */
     public function setAvatar(?Avatar $avatar): static
     {

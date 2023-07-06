@@ -1,8 +1,8 @@
 <?php
+
 /**
  * Category type.
  */
-// TODO: add attributes
 
 namespace App\Form\Type;
 
