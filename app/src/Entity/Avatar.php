@@ -17,7 +17,7 @@ class Avatar
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\OneToOne(inversedBy: 'avatar', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'avatar', cascade: ['persist', 'remove'], fetch: 'EXTRA_LAZY')]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 

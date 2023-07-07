@@ -72,7 +72,7 @@
        </trans-unit>
        <trans-unit id="label.published">
          <source>label.published</source>
-         <target>Opublikowane</target>
+         <target>Opublikowany</target>
        </trans-unit>
        <trans-unit id="label.views">
          <source>label.views</source>
@@ -204,7 +204,7 @@
              </trans-unit>
              <trans-unit id="label.joined">
                <source>label.joined</source>
-               <target>Dołączył</target>
+               <target>Dołączono</target>
              </trans-unit>
              <trans-unit id="action.back_to_list">
                <source>action.back_to_list</source>
@@ -472,7 +472,7 @@
              </trans-unit>
              <trans-unit id="action.logout">
                <source>action.logout</source>
-               <target>Wyloguj</target>
+               <target>Wyloguj się</target>
              </trans-unit>
              <trans-unit id="action.login">
                <source>action.login</source>
@@ -633,6 +633,10 @@
 <trans-unit id="label.avatar">
      <source>label.avatar</source>
      <target>Awatar</target>
+</trans-unit>
+<trans-unit id="avatar.deleted_successfully">
+     <source>avatar.deleted_successfully</source>
+     <target>Awatar usunięty pomyślnie</target>
 </trans-unit>
     </body>
   </file>

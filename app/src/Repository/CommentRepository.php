@@ -3,7 +3,6 @@
 namespace App\Repository;
 
 use App\Entity\Comment;
-use App\Entity\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
@@ -60,14 +59,12 @@ class CommentRepository extends ServiceEntityRepository
      *
      * @return array comments
      */
-    public function findAll(): array
+    public function queryAll(): QueryBuilder
     {
-        return $this->createQueryBuilder('c')
-            ->select('partial c. {id, content},
+        return $this->createQueryBuilder('comment')
+            ->select('partial comment. {id, content},
                 partial post.{id}')
-            ->join('c.post', 'post')
-            ->getQuery()
-            ->getResult();
+            ->join('comment.post', 'post');
     }
 
     /**
@@ -79,7 +76,7 @@ class CommentRepository extends ServiceEntityRepository
      */
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
-        return $queryBuilder ?? $this->createQueryBuilder('c');
+        return $queryBuilder ?? $this->createQueryBuilder('comment');
     }
 
     // # Uncomment and update the method if needed

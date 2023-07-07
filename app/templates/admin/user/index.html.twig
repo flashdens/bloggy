@@ -28,10 +28,11 @@
                 <th>{{ knp_pagination_sortable(pagination, 'label.id'|trans, 'user.id') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.email'|trans, 'user.email') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.roles'|trans, 'user.roles') }}</th>
-                <th>{{ knp_pagination_sortable(pagination, 'label.is_banned'|trans, 'user.is_banned') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'label.is_banned'|trans, 'user.isBanned') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'label.joined'|trans, 'user.joined') }}</th>
                 <th>{{ 'label.show'|trans }}</th>
                 <th>{{ 'label.edit'|trans }}</th>
+                <th>{{ 'avatar.delete'|trans }}</th>
                 <th>{{ 'label.delete'|trans }}</th>
                 <th>{{ 'label.ban'|trans }}</th>
             </tr>
@@ -44,7 +45,7 @@
                     <td>{% for role in user.roles %}
                             {{ role }}
                         {% endfor %}
-                    <td>{{ user.isBanned ? 'yes' : 'no' }}</td>
+                    <td>{{ user.isBanned ? '1' : '0' }}</td>
                     <td>{{ user.joined|format_datetime }}</td>
                     <td>
                         <a type="button" class="btn btn-primary"
@@ -58,6 +59,16 @@
                             {{ 'action.reset_password'|trans }}
                         </a>
                     </td>
+                    {% if user.avatar is not null %}
+                        <td>
+                            <a type="button" class="btn btn-warning"
+                               href="{{ url( 'admin_delete_user_avatar', {id: user.id}) }}">
+                                {{ 'avatar.delete'|trans }}
+                            </a>
+                        </td>
+                    {% else %}
+                        <td></td>
+                    {% endif %}
                     <td>
                         <a type="button" class="btn btn-danger"
                            href="{{ url(  'admin_delete_user', {id: user.id}) }}">

@@ -7,7 +7,7 @@
 **Bloggy** is a web blog app written in **PHP** using the **Symfony** framework. 
 It offers a *beautiful* user interface that lets you write posts, comment on them,
 end even set your own avatar. It also features an administration panel that lets you CRUD everything.
-Bloggy was written as an uni project for the **Interactive System** subject.
+Bloggy was written as a uni project for the **Interactive System** subject.
 
 ### PL
 
@@ -16,17 +16,20 @@ Oferuje *przepiękny* interfejs użytkownika pozwalający na pisanie postów i k
 Zawiera również potężny panel administratora, który pozwala na CRUDowanie wszystkim (chodzi o zawartość - takie rzeczy może robić tylko admin).
 Aplikacja napisana jako zaliczenie na przedmiot **System interakcyjny - projekt**.
 
-## A short guide to set up **bloggy** on your machine 
+## A short guide to set up bloggy on your machine 
 
 0. Install [Docker](https://www.docker.com/products/docker-desktop) and [Docker Compose](https://docs.docker.com/compose/install) on your machine
-1. Clone the git repository to the desired folder
+1. Clone the git repository to your directory of choice
+ ```
+git clone https://github.com/flashdens/bloggy.git
+ ```
 2. Build the containers with ``./build.env.sh`` 
-3. Enter the environment with ``docker-compose exec php bash``
-4. Specify the MySQL database connection URL in the ``.env`` file:
+3. Enter the php container with ``docker-compose exec php bash``
+4. Specify the MySQL database connection URL in the ``.env`` file, for example:
 ```yaml
 DATABASE_URL=mysql://symfony:symfony@mysql:3306/symfony?serverVersion=5.7
 ```
-5. Install necessary packages, set up database and load sample content to it wih:
+5. Install necessary packages, set up the database and load example content to it wih:
   ```
     composer install
     bin/console doctrine:migrations:migrate
@@ -37,21 +40,21 @@ DATABASE_URL=mysql://symfony:symfony@mysql:3306/symfony?serverVersion=5.7
 ## Database structure
 
 <p align="center">
-<img src="app/public/img/screenshots/diagram.png" alt="db structure">
+<img src="img/diagram.png" alt="db structure">
 </p>
 
 ## Screenshots
 
 <p align="center">
-<img src="app/public/img/screenshots/screen1.png" alt="Screenshot 1">
+<img src="img/screen1.png" alt="Screenshot 1">
 </p>
 
 <p align="center">
-<img src="app/public/img/screenshots/screen2.png" alt="Screenshot 2">
+<img src="img/screen2.png" alt="Screenshot 2">
 </p>
 
 <p align="center">
-<img src="app/public/img/screenshots/screen4.png" alt="Screenshot 3">
+<img src="img/screen4.png" alt="Screenshot 3">
 </p>
 
 ## What is inside?

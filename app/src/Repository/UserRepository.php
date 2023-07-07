@@ -62,24 +62,12 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     public function queryAll(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
+            ->select(
+                'partial user.{id, email, roles, isBanned, joined}',
+                'partial a.{id, fileName}'
+            )
+            ->leftJoin('user.avatar', 'a')
             ->orderBy('user.id', 'ASC');
-    }
-
-    /**
-     * Returns the number of admins.
-     *
-     * @return int the number of admins
-     */
-    public function getAdmins(): int
-    {
-        $qb = $this->getOrCreateQueryBuilder();
-
-        $qb
-            ->andWhere($qb->expr()->like('user.roles', ':role'))
-            ->setParameter('role', '%ADMIN%')
-            ->orderBy('user.username', 'ASC');
-
-        return count($qb->getQuery()->getResult());
     }
 
     /**

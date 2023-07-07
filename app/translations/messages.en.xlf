@@ -618,6 +618,10 @@
      <source>message.hello</source>
      <target>Hello,</target>
 </trans-unit>
+<trans-unit id="avatar.deleted_successfully">
+     <source>avatar.deleted_successfully</source>
+     <target>Avatar deleted successfully</target>
+</trans-unit>
 </body>
   </file>
 </xliff>

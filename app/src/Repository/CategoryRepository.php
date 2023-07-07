@@ -35,7 +35,7 @@ class CategoryRepository extends ServiceEntityRepository
     public function queryAll(): QueryBuilder
     {
         return $this->getOrCreateQueryBuilder()
-            ->select('partial c.{id, name}');
+            ->select('partial category.{id, name}');
     }
 
     /**
@@ -69,7 +69,7 @@ class CategoryRepository extends ServiceEntityRepository
      */
     private function getOrCreateQueryBuilder(QueryBuilder $queryBuilder = null): QueryBuilder
     {
-        return $queryBuilder ?? $this->createQueryBuilder('c');
+        return $queryBuilder ?? $this->createQueryBuilder('category');
     }
 
     // # Uncomment and update the method if needed

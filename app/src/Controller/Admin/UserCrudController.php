@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Form\Type\PasswordResetType;
+use App\Service\AvatarServiceInterface;
 use App\Service\UserServiceInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,6 +27,11 @@ class UserCrudController extends AbstractController
     private UserServiceInterface $userService;
 
     /**
+     * Avatar service.
+     */
+    private AvatarServiceInterface $avatarService;
+
+    /**
      * Translator.
      */
     private TranslatorInterface $translator;
@@ -33,12 +39,14 @@ class UserCrudController extends AbstractController
     /**
      * UserCrudController constructor.
      *
-     * @param UserServiceInterface $userService The user service
-     * @param TranslatorInterface  $translator  The translator
+     * @param UserServiceInterface   $userService   The user service
+     * @param AvatarServiceInterface $avatarService The avatar service
+     * @param TranslatorInterface    $translator    The translator
      */
-    public function __construct(UserServiceInterface $userService, TranslatorInterface $translator)
+    public function __construct(UserServiceInterface $userService, AvatarServiceInterface $avatarService, TranslatorInterface $translator)
     {
         $this->userService = $userService;
+        $this->avatarService = $avatarService;
         $this->translator = $translator;
     }
 
@@ -161,6 +169,55 @@ class UserCrudController extends AbstractController
 
         return $this->render(
             'admin/user/delete.html.twig',
+            [
+                'form' => $form->createView(),
+                'user' => $user,
+            ]
+        );
+    }
+
+    /**
+     * Delete user avatar.
+     *
+     * @param Request $request HTTP request
+     * @param User    $user    User entity
+     *
+     * @return Response HTTP response
+     */
+    #[Route(
+        '/delete_avatar/{id}',
+        name: 'admin_delete_user_avatar',
+        requirements: ['id' => '[1-9]\d*'],
+        methods: ['GET', 'POST']
+    )]
+    public function deleteAvatar(Request $request, User $user): Response
+    {
+        if (null === $user->getAvatar()) {
+            return $this->redirectToRoute('admin_user');
+        }
+
+        $form = $this->createForm(
+            FormType::class,
+            $user,
+            [
+                'method' => 'POST',
+                'action' => $this->generateUrl('admin_delete_user_avatar', ['id' => $user->getId()]),
+            ]
+        );
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->avatarService->delete($user->getAvatar(), $user);
+            $this->addFlash(
+                'success',
+                $this->translator->trans('avatar.deleted_successfully')
+            );
+
+            return $this->redirectToRoute('admin_user');
+        }
+
+        return $this->render(
+            'admin/user/delete_avatar.html.twig',
             [
                 'form' => $form->createView(),
                 'user' => $user,

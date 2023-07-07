@@ -85,7 +85,7 @@ class UserService implements UserServiceInterface
     public function getPaginatedList(int $page): PaginationInterface
     {
         return $this->paginator->paginate(
-            $this->userRepository->findAll(),
+            $this->userRepository->queryAll(),
             $page,
             UserRepository::PAGINATOR_ITEMS_PER_PAGE
         );
